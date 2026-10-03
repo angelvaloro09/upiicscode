@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UPIICSCode
 
-## Getting Started
+Plataforma educativa para estudiantes y docentes de la comunidad de informática de la UPIICSA (IPN). Integra teoría organizada por materia, gestión de aulas virtuales y práctica de programación con juez automatizado.
 
-First, run the development server:
+Para consultar los principios de diseño, stack tecnológico, modelo de datos y roadmap de fases, consulta el documento de arquitectura:
+
+- [Arquitectura del Proyecto](docs/ARCHITECTURE.md)
+
+## Requisitos
+
+- **Node.js**: `>= 24.0.0`
+- **npm**: `>= 10.0.0`
+
+## Comandos del Proyecto
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Iniciar el servidor de desarrollo en `http://localhost:3000`:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ejecutar el linter (ESLint):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Verificar tipos con TypeScript (`tsc --noEmit`):
 
-## Learn More
+```bash
+npm run typecheck
+```
 
-To learn more about Next.js, take a look at the following resources:
+Compilar para producción:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Verificar y dar formato al código con Prettier:
 
-## Deploy on Vercel
+```bash
+npm run format:check
+npm run format
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Estado del Proyecto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Fase 0**: Scaffolding inicial, configuración de base de datos y autenticación pendiente para fases subsecuentes.
