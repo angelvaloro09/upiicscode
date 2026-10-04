@@ -86,8 +86,9 @@ Se detalla por fase; no crear tablas de fases futuras antes de tiempo.
 
 - Dominio permitido: **solo `@alumno.ipn.mx`**. La validación se hace **en el servidor** (trigger en BD y/o callback de auth). Nunca confiar en parámetros de cliente como `hd`.
 - Proveedor: el correo es Microsoft.
-  - **Plan A:** Microsoft OAuth (provider Azure de Supabase). Riesgo: el tenant del IPN puede bloquear el consentimiento. Se prueba al inicio de Fase 1.
-  - **Plan B:** OTP por correo (SMTP propio, p. ej. Gmail con contraseña de aplicación).
+  - **Plan A (descartado por ahora):** Microsoft OAuth. El tenant del IPN bloquea el acceso de alumnos al centro de administración de Entra y no hay tenant propio. Puede retomarse después.
+  - **Plan B (elegido):** código OTP de 6 dígitos por correo vía Supabase Auth con SMTP propio (Gmail con contraseña de aplicación para el MVP). Prueba que el alumno controla su buzón `@alumno.ipn.mx`.
+  - La validación del dominio se hace en dos capas: en la acción de servidor ANTES de enviar el código, y en la BD con un hook "before user created" (o trigger) que rechaza cualquier correo fuera del dominio.
 - Todo detrás de `src/lib/auth/` con una API estable (`getCurrentUser()`, `requireUser()`, `requireRole()`), para cambiar de plan sin tocar el resto.
 - Roles: `student` por defecto. `advisor` y `admin` se asignan manualmente (SQL / panel admin).
 - Acceso a datos: solo desde servidor con Drizzle. RLS activado y sin políticas permisivas en las tablas (defensa en profundidad). La autorización real se verifica en código de servidor.
