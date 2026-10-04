@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_blank" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-fixed-variant":"#0f5212","on-background":"#1b1b1d","surface-container-highest":"#e4e2e4","outline":"#867278","tertiary-container":"#004808","inverse-primary":"#ffb0ce","secondary-fixed":"#dfe3e8","on-error":"#ffffff","on-secondary-container":"#5f6368","primary-fixed-dim":"#ffb0ce","on-primary":"#ffffff","background":"#fcf8fb","outline-variant":"#d8c0c7","primary-fixed":"#ffd9e5","on-surface-variant":"#534248","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","on-surface":"#1b1b1d","primary":"#52032f","tertiary":"#002f03","surface-dim":"#dcd9dc","primary-container":"#6f1d46","surface-container-low":"#f6f3f5","surface-tint":"#983f68","tertiary-fixed":"#aef4a1","on-primary-fixed-variant":"#7b2750","secondary-container":"#dde0e6","surface-container":"#f0edef","on-tertiary-fixed":"#002202","inverse-surface":"#303032","secondary-fixed-dim":"#c3c7cc","on-secondary-fixed":"#181c20","surface-variant":"#e4e2e4","on-primary-fixed":"#3e0022","error":"#ba1a1a","error-container":"#ffdad6","on-secondary":"#ffffff","surface":"#fcf8fb","on-secondary-fixed-variant":"#43474c","surface-bright":"#fcf8fb","secondary":"#5b5f64","on-primary-container":"#f187b3","on-tertiary-container":"#75b86b","inverse-on-surface":"#f3f0f2","tertiary-fixed-dim":"#93d787","surface-container-high":"#eae7ea","on-error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter":"1.25rem","space-xs":"0.25rem","space-md":"1rem","margin":"1.5rem","space-lg":"1.5rem","margin-desktop":"2.5rem","space-xl":"2.5rem","space-sm":"0.5rem"},"fontFamily":{"headline-sm":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"label-md":["Inter"],"headline-xl-mobile":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"],"body-sm":["Inter"],"code-md":["JetBrains Mono"],"headline-xl":["Inter"],"headline-lg":["Inter"],"code-sm":["JetBrains Mono"]},"fontSize":{"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"label-sm":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"code-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"code-sm":["12.5px",{"lineHeight":"18px","fontWeight":"500"}]}}}};</script></head><body class="min-h-screen bg-background font-body-md text-on-surface antialiased"><main class="min-h-screen w-full flex items-center justify-center p-space-md"><div class="flex flex-col w-full items-center justify-center py-space-xl px-margin">
+<div class="w-full max-w-[420px] flex flex-col items-center">
+<!-- Selector de Estados (Prototipado Académico) -->
+<div class="w-full mb-space-lg bg-surface-container p-space-xs rounded-lg flex items-center justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-secondary pl-space-xs select-none">Vista:</span>
+<div class="flex gap-1" id="state-switchers">
+<button class="px-space-sm py-1 rounded font-label-sm text-label-sm bg-surface-container-lowest text-primary-container shadow-sm font-semibold transition-all" id="btn-state-initial" onclick="setScreenState('initial')" type="button">
+          1. Inicial
+        </button>
+<button class="px-space-sm py-1 rounded font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" id="btn-state-error" onclick="setScreenState('error')" type="button">
+          2. Error
+        </button>
+<button class="px-space-sm py-1 rounded font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" id="btn-state-otp" onclick="setScreenState('otp')" type="button">
+          3. Código
+        </button>
+</div>
+</div>
+<!-- Contenedor Principal Sobrio -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-margin shadow-sm flex flex-col">
+<!-- Insignias Institucionales & Header -->
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center justify-center gap-space-md mb-space-md">
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container font-headline-sm text-headline-sm tracking-tight select-none">
+            IPN
+          </div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container font-headline-sm text-headline-sm tracking-tight select-none">
+            UPIICSA
+          </div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-space-xs">
+          UPIICSCode
+        </h1>
+<p class="font-body-sm text-body-sm text-secondary max-w-[280px]">
+          Plataforma Académica de Programación y Estructuras de Datos
+        </p>
+</div>
+<!-- Métodos de Acceso Directo -->
+<div class="mt-space-lg flex flex-col gap-space-md">
+<!-- Acceso Institucional Microsoft -->
+<button class="w-full py-2.5 px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md flex items-center justify-center gap-space-sm transition-colors shadow-sm" type="button">
+<svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0H10V10H0V0Z" fill="#F25022"></path>
+<path d="M11 0H21V10H11V0Z" fill="#7FBA00"></path>
+<path d="M0 11H10V21H0V11Z" fill="#00A4EF"></path>
+<path d="M11 11H21V21H11V11Z" fill="#FFB900"></path>
+</svg>
+<span>Continuar con Microsoft</span>
+</button>
+<!-- Divisor Sutil -->
+<div class="relative flex items-center justify-center my-space-xs">
+<div class="w-full h-px bg-surface-container-high"></div>
+<span class="absolute px-space-sm bg-surface-container-lowest font-body-sm text-body-sm text-secondary">
+            o accede con tu correo
+          </span>
+</div>
+<!-- FORMULARIO: ESTADO 1 & 2 (Captura de Correo) -->
+<div class="flex flex-col gap-space-md" id="panel-email-form">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-secondary" for="student-email">
+              Correo Electrónico Institucional
+            </label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest px-3.5 py-2.5 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container-low transition-colors" id="student-email" placeholder="usuario@alumno.ipn.mx" type="email" value="">
+</div>
+<!-- Mensaje de Error (Estado 2) -->
+<div class="hidden mt-1 p-space-sm bg-error-container rounded-lg flex items-start gap-2" id="state-error-message">
+<span class="material-symbols-outlined text-error text-[18px] leading-none shrink-0 mt-0.5">error</span>
+<p class="font-body-sm text-body-sm text-on-error-container">
+                Acceso denegado: Se requiere una cuenta institucional válida con terminación <span class="font-medium text-error">@alumno.ipn.mx</span>
+</p>
+</div>
+</div>
+<button class="w-full py-2.5 px-space-md bg-primary-container hover:bg-primary text-on-primary rounded-lg font-label-md text-label-md transition-colors" onclick="handleEmailSubmit()" type="button">
+            Enviar código de acceso
+          </button>
+</div>
+<!-- FORMULARIO: ESTADO 3 (Verificación OTP 6 Dígitos) -->
+<div class="hidden flex flex-col gap-space-md" id="panel-otp-form">
+<div class="p-space-md bg-surface-container-low rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary">Verificación de dos pasos</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Te enviamos un código de 6 dígitos a <span class="font-medium text-primary-container">r******@alumno.ipn.mx</span>
+</p>
+</div>
+<!-- Casillas numéricas monospace -->
+<div class="flex items-center justify-between gap-1.5">
+<input class="otp-box w-12 h-13 text-center bg-surface-container-lowest font-code-md text-code-md text-on-surface rounded-lg focus:outline-none focus:bg-surface-container-high transition-colors" inputmode="numeric" maxlength="1" pattern="[0-9]" type="text" value="4">
+<input class="otp-box w-12 h-13 text-center bg-surface-container-lowest font-code-md text-code-md text-on-surface rounded-lg focus:outline-none focus:bg-surface-container-high transition-colors" inputmode="numeric" maxlength="1" pattern="[0-9]" type="text" value="8">
+<input class="otp-box w-12 h-13 text-center bg-surface-container-lowest font-code-md text-code-md text-on-surface rounded-lg focus:outline-none focus:bg-surface-container-high transition-colors" inputmode="numeric" maxlength="1" pattern="[0-9]" type="text" value="2">
+<input class="otp-box w-12 h-13 text-center bg-surface-container-lowest font-code-md text-code-md text-on-surface rounded-lg focus:outline-none focus:bg-surface-container-high transition-colors" inputmode="numeric" maxlength="1" pattern="[0-9]" placeholder="·" type="text">
+<input class="otp-box w-12 h-13 text-center bg-surface-container-lowest font-code-md text-code-md text-on-surface rounded-lg focus:outline-none focus:bg-surface-container-high transition-colors" inputmode="numeric" maxlength="1" pattern="[0-9]" placeholder="·" type="text">
+<input class="otp-box w-12 h-13 text-center bg-surface-container-lowest font-code-md text-code-md text-on-surface rounded-lg focus:outline-none focus:bg-surface-container-high transition-colors" inputmode="numeric" maxlength="1" pattern="[0-9]" placeholder="·" type="text">
+</div>
+<button class="w-full py-2.5 px-space-md bg-primary-container hover:bg-primary text-on-primary rounded-lg font-label-md text-label-md transition-colors" type="button">
+            Verificar y entrar
+          </button>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-colors" onclick="setScreenState('initial')" type="button">
+              Cambiar correo
+            </button>
+<button class="font-label-sm text-label-sm text-primary-container hover:text-primary transition-colors font-medium" type="button">
+              Reenviar código
+            </button>
+</div>
+</div>
+</div>
+<!-- Aviso Institucional Restringido al Pie -->
+<div class="mt-space-lg pt-space-md bg-surface-container-low rounded-lg p-space-sm text-center">
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+          Acceso restringido para la comunidad académica de UPIICSA. Únicamente se permiten cuentas de correo institucional <span class="text-on-surface font-medium">@alumno.ipn.mx</span>.
+        </p>
+</div>
+</div>
+<!-- Metadatos de Sistema -->
+<div class="w-full flex items-center justify-between mt-space-md px-space-xs text-secondary">
+<span class="font-label-sm text-label-sm">Periodo Escolar 2025-2</span>
+<span class="font-code-sm text-code-sm">v2.4.0</span>
+</div>
+</div>
+</div>
+<script>
+  function updateSwitcherStyles(activeState) {
+    const states = ['initial', 'error', 'otp'];
+    states.forEach(state => {
+      const btn = document.getElementById('btn-state-' + state);
+      if (!btn) return;
+      if (state === activeState) {
+        btn.className = 'px-space-sm py-1 rounded font-label-sm text-label-sm bg-surface-container-lowest text-primary-container shadow-sm font-semibold transition-all';
+      } else {
+        btn.className = 'px-space-sm py-1 rounded font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all';
+      }
+    });
+  }
+
+  function setScreenState(state) {
+    const emailPanel = document.getElementById('panel-email-form');
+    const otpPanel = document.getElementById('panel-otp-form');
+    const emailInput = document.getElementById('student-email');
+    const errorMessage = document.getElementById('state-error-message');
+
+    updateSwitcherStyles(state);
+
+    if (state === 'initial') {
+      emailPanel.classList.remove('hidden');
+      otpPanel.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+      emailInput.value = '';
+      emailInput.className = 'w-full bg-surface-container-lowest px-3.5 py-2.5 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container-low transition-colors';
+      emailInput.focus();
+    } else if (state === 'error') {
+      emailPanel.classList.remove('hidden');
+      otpPanel.classList.add('hidden');
+      errorMessage.classList.remove('hidden');
+      emailInput.value = 'carlos.mendoza@gmail.com';
+      emailInput.className = 'w-full bg-error-container/20 px-3.5 py-2.5 rounded-lg font-body-md text-body-md text-error focus:outline-none transition-colors';
+      emailInput.focus();
+    } else if (state === 'otp') {
+      emailPanel.classList.add('hidden');
+      otpPanel.classList.remove('hidden');
+      errorMessage.classList.add('hidden');
+      const otpInputs = document.querySelectorAll('.otp-box');
+      if (otpInputs.length > 3) {
+        otpInputs[3].focus();
+      }
+    }
+  }
+
+  function handleEmailSubmit() {
+    const emailVal = document.getElementById('student-email').value.trim();
+    if (!emailVal.endsWith('@alumno.ipn.mx')) {
+      setScreenState('error');
+    } else {
+      setScreenState('otp');
+    }
+  }
+
+  // Auto-focus secuencial para cajas de código OTP
+  document.addEventListener('DOMContentLoaded', () => {
+    const otpBoxes = document.querySelectorAll('.otp-box');
+    otpBoxes.forEach((box, idx) => {
+      box.addEventListener('input', (e) => {
+        if (e.target.value.length === 1 && idx < otpBoxes.length - 1) {
+          otpBoxes[idx + 1].focus();
+        }
+      });
+      box.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && e.target.value === '' && idx > 0) {
+          otpBoxes[idx - 1].focus();
+        }
+      });
+    });
+  });
+</script></main></body></html>

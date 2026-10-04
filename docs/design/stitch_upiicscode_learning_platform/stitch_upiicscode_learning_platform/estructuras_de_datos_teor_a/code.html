@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>UPIICSCode</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-tint":"#983f68","on-tertiary-fixed":"#002202","tertiary-container":"#004808","on-primary-container":"#f187b3","on-error":"#ffffff","primary-container":"#6f1d46","surface-container-high":"#eae7ea","on-secondary":"#ffffff","surface-container-low":"#f6f3f5","on-error-container":"#93000a","tertiary-fixed-dim":"#93d787","on-background":"#1b1b1d","outline":"#867278","primary":"#52032f","inverse-surface":"#303032","secondary-container":"#dde0e6","on-tertiary-fixed-variant":"#0f5212","secondary-fixed":"#dfe3e8","secondary":"#5b5f64","tertiary":"#002f03","primary-fixed":"#ffd9e5","on-tertiary-container":"#75b86b","tertiary-fixed":"#aef4a1","outline-variant":"#d8c0c7","error-container":"#ffdad6","surface":"#fcf8fb","on-primary":"#ffffff","on-primary-fixed":"#3e0022","error":"#ba1a1a","on-tertiary":"#ffffff","on-secondary-container":"#5f6368","on-primary-fixed-variant":"#7b2750","primary-fixed-dim":"#ffb0ce","surface-bright":"#fcf8fb","inverse-primary":"#ffb0ce","surface-container-lowest":"#ffffff","on-surface":"#1b1b1d","background":"#fcf8fb","on-surface-variant":"#534248","on-secondary-fixed":"#181c20","on-secondary-fixed-variant":"#43474c","surface-variant":"#e4e2e4","surface-container":"#f0edef","inverse-on-surface":"#f3f0f2","secondary-fixed-dim":"#c3c7cc","surface-container-highest":"#e4e2e4","surface-dim":"#dcd9dc"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"2.5rem","space-lg":"1.5rem","gutter":"1.25rem","space-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem","space-xl":"2.5rem","space-md":"1rem"},"fontFamily":{"headline-lg":["Inter"],"headline-md":["Inter"],"code-md":["JetBrains Mono"],"headline-xl":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"body-lg":["Inter"],"code-sm":["JetBrains Mono"],"headline-xl-mobile":["Inter"],"headline-sm":["Inter"]},"fontSize":{"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"code-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"code-sm":["12.5px",{"lineHeight":"18px","fontWeight":"500"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest border-b border-surface-container-highest"><div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md tracking-tight text-primary font-bold">UPIICSCode</span><div class="flex items-center gap-space-xs ml-space-xs"><span class="px-space-xs py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-on-surface-variant border border-surface-container-highest">IPN</span><span class="px-space-xs py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-on-surface-variant border border-surface-container-highest">UPIICSA</span></div></div><div class="h-5 w-[1px] bg-surface-container-highest hidden sm:block"></div><nav class="hidden sm:flex items-center gap-space-lg h-16" data-active-classes="border-b-2 border-primary-container text-primary-container font-semibold"><a aria-current="page" class="h-16 flex items-center px-space-xs transition-colors border-b-2 border-primary-container text-primary-container font-semibold" data-path="materias" href="#">Materias</a><a class="h-16 flex items-center px-space-xs text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors border-b-2 border-transparent" data-path="tareas" href="#">Tareas</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center px-space-sm py-1 rounded bg-surface-container-low text-secondary font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-tertiary mr-space-xs"></span>2024-2</div><button aria-label="Cambiar tema" class="p-space-xs rounded-lg text-secondary hover:text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden sm:flex flex-col text-right"><span class="font-label-sm text-label-sm text-on-surface font-medium leading-none">Rodrigo Méndez</span><span class="font-code-sm text-code-sm text-secondary leading-none mt-1">2021600123</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full flex-1 pt-16 bg-surface"><div class="max-w-7xl mx-auto px-margin py-space-xl"><div class="flex flex-col w-full">
+<!-- Cabecera de la Asignatura -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl mb-space-lg shadow-sm">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-xs py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-medium">Secuencia 2NM31</span>
+<span class="px-space-xs py-0.5 rounded text-label-sm font-label-sm bg-primary-fixed text-on-primary-fixed font-medium">Semestre 2024-2</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">Estructuras de Datos</h1>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md text-secondary font-body-sm text-body-sm pt-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-secondary">school</span>
+<span>M. en C. Roberto Cruz Valencia</span>
+</div>
+<span class="text-surface-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-secondary">mail</span>
+<a class="hover:text-primary transition-colors" href="mailto:rcruzv@ipn.mx">rcruzv@ipn.mx</a>
+</div>
+<span class="text-surface-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-secondary">location_on</span>
+<span>Edificio 2, Cubículo C-14</span>
+</div>
+</div>
+</div>
+<!-- Acciones de Cabecera -->
+<div class="flex items-center gap-space-xs flex-shrink-0 self-start">
+<button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm hover:bg-surface-container-low transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">fact_check</span>
+<span>Criterios de evaluación</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm hover:bg-surface-container-low transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">menu_book</span>
+<span>Temario oficial</span>
+</button>
+</div>
+</div>
+<!-- Pestañas de Navegación de la Materia -->
+<div class="mt-space-xl pt-space-md flex items-center gap-space-lg overflow-x-auto">
+<a class="pb-2.5 font-label-md text-label-md text-secondary hover:text-on-surface transition-colors whitespace-nowrap" href="#">
+        Tablón
+      </a>
+<a class="pb-2.5 font-label-md text-label-md text-primary font-semibold relative whitespace-nowrap" href="#">
+        Teoría
+        <span class="absolute bottom-0 left-0 w-full h-[2.5px] bg-primary-container rounded-full"></span>
+</a>
+<a class="pb-2.5 font-label-md text-label-md text-secondary hover:text-on-surface transition-colors whitespace-nowrap" href="#">
+        Práctica
+      </a>
+<a class="pb-2.5 font-label-md text-label-md text-secondary hover:text-on-surface transition-colors whitespace-nowrap" href="#">
+        Tareas
+      </a>
+</div>
+</div>
+<!-- Contenedor Principal de la Pestaña Teoría -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-space-lg items-start">
+<!-- Columna Izquierda: Listado Temático y Lecciones -->
+<div class="lg:col-span-3 space-y-space-lg">
+<!-- Unidad 1 -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm">
+<div class="flex items-baseline justify-between mb-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Unidad I</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Gestión y Aritmética de Memoria</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">3 lecciones</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Lección 1.1 -->
+<a class="group flex items-center justify-between p-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all" href="#">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-mono w-7">1.1</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-medium truncate">
+                  Conceptos Fundamentales de Punteros
+                </p>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>8 min de lectura</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm bg-tertiary-fixed/30 text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span>Leída</span>
+</span>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-0.5 transition-transform text-[18px]">chevron_right</span>
+</div>
+</a>
+<!-- Lección 1.2 -->
+<a class="group flex items-center justify-between p-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all" href="#">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-mono w-7">1.2</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-medium truncate">
+                  Aritmética de Punteros y Direccionamiento
+                </p>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>10 min de lectura</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm bg-tertiary-fixed/30 text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span>Leída</span>
+</span>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-0.5 transition-transform text-[18px]">chevron_right</span>
+</div>
+</a>
+<!-- Lección 1.3 -->
+<a class="group flex items-center justify-between p-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all" href="#">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-mono w-7">1.3</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-medium truncate">
+                  Asignación Dinámica de Memoria: malloc, calloc y free
+                </p>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>14 min de lectura</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm bg-surface-container text-secondary">
+<span>Pendiente</span>
+</span>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-0.5 transition-transform text-[18px]">chevron_right</span>
+</div>
+</a>
+</div>
+</section>
+<!-- Unidad 2 -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm">
+<div class="flex items-baseline justify-between mb-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Unidad II</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Estructuras Lineales</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">3 lecciones</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Lección 2.1 -->
+<a class="group flex items-center justify-between p-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all" href="#">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-mono w-7">2.1</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-medium truncate">
+                  Listas Simplemente Enlazadas: Inserción y Recorrido
+                </p>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>12 min de lectura</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm bg-tertiary-fixed/30 text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span>Leída</span>
+</span>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-0.5 transition-transform text-[18px]">chevron_right</span>
+</div>
+</a>
+<!-- Lección 2.2 -->
+<a class="group flex items-center justify-between p-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all" href="#">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-mono w-7">2.2</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-medium truncate">
+                  Listas Doblemente Enlazadas y Nodos Centinela
+                </p>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>15 min de lectura</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm bg-surface-container text-secondary">
+<span>Pendiente</span>
+</span>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-0.5 transition-transform text-[18px]">chevron_right</span>
+</div>
+</a>
+<!-- Lección 2.3 -->
+<a class="group flex items-center justify-between p-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all" href="#">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-mono w-7">2.3</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-medium truncate">
+                  Pilas y Colas: Implementación con Nodos
+                </p>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>11 min de lectura</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm bg-surface-container text-secondary">
+<span>Pendiente</span>
+</span>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-0.5 transition-transform text-[18px]">chevron_right</span>
+</div>
+</a>
+</div>
+</section>
+<!-- Unidad 3 -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm">
+<div class="flex items-baseline justify-between mb-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Unidad III</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Estructuras No Lineales y Árboles</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">2 lecciones</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Lección 3.1 -->
+<a class="group flex items-center justify-between p-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all" href="#">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-mono w-7">3.1</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-medium truncate">
+                  Árboles Binarios de Búsqueda (BST): Recorridos in-order, pre-order y post-order
+                </p>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>18 min de lectura</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm bg-surface-container text-secondary">
+<span>Pendiente</span>
+</span>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-0.5 transition-transform text-[18px]">chevron_right</span>
+</div>
+</a>
+<!-- Lección 3.2 -->
+<a class="group flex items-center justify-between p-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all" href="#">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-mono w-7">3.2</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-medium truncate">
+                  Balanceo y Rotaciones en Árboles AVL
+                </p>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>16 min de lectura</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm bg-surface-container text-secondary">
+<span>Pendiente</span>
+</span>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-0.5 transition-transform text-[18px]">chevron_right</span>
+</div>
+</a>
+</div>
+</section>
+</div>
+<!-- Columna Derecha: Información Complementaria y Bibliografía Académica -->
+<div class="space-y-space-lg">
+<!-- Panel de Referencia y Convenciones -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-sm font-semibold">Enfoque Teórico</h3>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+          Las notas de cátedra abordan la fundamentación formal y análisis de complejidad temporal <span class="font-mono text-xs font-semibold">O(n)</span> y espacial en lenguaje C estándar (C99/C11).
+        </p>
+<div class="mt-space-md pt-space-md space-y-2.5">
+<div class="flex items-start gap-2 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">terminal</span>
+<span>Estándar POSIX / ANSI C sin dependencias externas.</span>
+</div>
+<div class="flex items-start gap-2 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">verified</span>
+<span>Lecciones abiertas en su totalidad para consulta libre.</span>
+</div>
+</div>
+</div>
+<!-- Bibliografía Básica -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-sm font-semibold">Bibliografía de Apoyo</h3>
+<ul class="space-y-3 font-body-sm text-body-sm text-secondary">
+<li class="pb-2.5">
+<span class="font-medium text-on-surface block">Cormen, T. H. et al.</span>
+            Introduction to Algorithms (4ta ed.), MIT Press.
+          </li>
+<li class="pb-2.5">
+<span class="font-medium text-on-surface block">Kernighan, B. W. &amp; Ritchie, D. M.</span>
+            The C Programming Language (2da ed.), Prentice Hall.
+          </li>
+<li>
+<span class="font-medium text-on-surface block">Aho, A. V., Hopcroft, J. E., Ullman, J. D.</span>
+            Data Structures and Algorithms, Addison-Wesley.
+          </li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-highest py-space-md"><div class="max-w-7xl mx-auto px-margin flex flex-col sm:flex-row items-center justify-between gap-space-xs text-secondary font-label-sm text-label-sm"><div>UPIICSCode • Instituto Politécnico Nacional - UPIICSA</div><div class="text-secondary font-label-sm text-label-sm">Plataforma de Evaluación y Código Académico</div></div></footer></body></html>

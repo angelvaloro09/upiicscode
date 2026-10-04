@@ -82,6 +82,20 @@ SOLO: botón primario, enlaces, indicador de navegación activa (subrayado/líne
 | Estados vacío/carga/404 | `estados_del_sistema_upiicscode` (solo como idea) | componentes | 1 |
 Modo oscuro: se deriva de los tokens de §2. Los mockups oscuros son solo referencia de ambiente.
 
+### Pantallas adicionales (carpetas `docs/design/stitch_upiicscode_learning_platform/` y `..._1/`)
+Solo sirven como referencia de **estructura/layout**. En color, tipografía, datos y contenido manda este documento.
+| Pantalla | Qué se adopta | Ruta | Fase |
+|---|---|---|---|
+| Materia > Teoría | Lista agrupada por unidad, filas con título, tiempo de lectura y estado Leída/Pendiente | `/materias/[slug]` (pestaña teoría) | 1 |
+| Materia > Práctica | Lista de problemas con dificultad y estado, filtro Todos/Pendientes/Resueltos | `/materias/[slug]` (pestaña práctica) | 3 |
+| Materia > Tareas | Lista con fecha límite y estado | `/materias/[slug]` (pestaña tareas) | 2 |
+| Tareas (global) | Agrupadas por materia, ordenadas por fecha | `/tareas` | 2 |
+| Perfil y ajustes | Tarjeta de cuenta, selector de tema (3 opciones), cerrar sesión | `/perfil` | 1 |
+| Problema: estados del juez | Barra de progreso de casos y chips por caso (OK / ... / pendiente) mientras evalúa | pantalla de problema | 3 |
+| Revisión del asesor | Lista de entregas a la izquierda; código, veredicto, nota /100 y retroalimentación a la derecha | `/materias/[slug]/tareas/[id]/entregas` | 2 |
+| Login | Tarjeta centrada, sin navegación (la barra "Vista: Inicial/Error/Código" es artefacto del mockup, no va) | `/login` | 1 |
+Los mockups de "estados del sistema" son páginas de catálogo, no pantallas reales: ignorar su estructura y construir `EmptyState`, `SkeletonCard` y `not-found` como componentes.
+
 ## 8. Corregir respecto a los mockups
 Al implementar, NO reproducir:
 1. Datos de infraestructura: "Servidor GCC", "Latencia", "Compilador V20/Listo", "Juez C++20 Activo", "Memoria activa", "Entorno de compilación".
@@ -96,6 +110,12 @@ Al implementar, NO reproducir:
 10. Rúbrica por criterios en la revisión del asesor: por ahora solo calificación /100 y retroalimentación de texto.
 11. Pink/guinda como texto sobre fondo oscuro (ver §2).
 12. Códigos de materia tipo `ED-2NV40`, "UNIDADES DE APRENDIZAJE" (se llama "Materias").
+13. Concepto de **secuencia/grupo** ("Secuencia 2NM31"): la unidad es solo la materia (ver ARCHITECTURE.md §4).
+14. Paneles "Progreso curricular", "Problemas resueltos 2 de 6", "Entorno de evaluación" (límites de CPU, GCC, compiladores), "Compañeros (38)", horarios/edificio/cubículo del asesor, "Juez en línea", "v2.4.0", "Periodo escolar", "2024-2" en la barra.
+15. Mención de otros lenguajes (Python, OpenJDK, Haskell, Java): la plataforma es solo C y C++.
+16. "Ver solución" en problemas resueltos y "ID // INST-…", "SSO_0365_ACTIVE" u otros identificadores técnicos visibles al usuario.
+17. Lienzo rosado (`#FCF8FB`) de varios mockups: el lienzo es siempre `#FBFBFA`.
+18. Bloque de filtros/pestañas con fondo relleno tipo "segmented control" guinda; el relleno guinda solo es para el botón primario.
 
 ## 9. Pendiente de diseñar
 Materia → pestañas Teoría, Práctica y Tareas (solo está diseñado Tablón); lista global "Tareas"; Perfil/ajustes; resultados WA, CE, TLE y "Evaluando" del problema; estados vacío/carga/404 como componentes reales; Login limpio.
