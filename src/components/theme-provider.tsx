@@ -15,23 +15,43 @@ const ThemeContext = React.createContext<ThemeContextType | undefined>(
 );
 
 export const THEME_STORAGE_KEY = 'upiicscode-theme';
+const THEME_CHANGE_EVENT = 'upiicscode-theme-change';
+
+function getThemeSnapshot(): Theme {
+  try {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+    if (stored === 'light' || stored === 'dark' || stored === 'system') {
+      return stored;
+    }
+  } catch {
+    // Ignore storage read error
+  }
+  return 'system';
+}
+
+function getServerSnapshot(): Theme {
+  return 'system';
+}
+
+function subscribeTheme(callback: () => void) {
+  window.addEventListener('storage', callback);
+  window.addEventListener(THEME_CHANGE_EVENT, callback);
+  return () => {
+    window.removeEventListener('storage', callback);
+    window.removeEventListener(THEME_CHANGE_EVENT, callback);
+  };
+}
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = React.useState<Theme>('system');
+  const theme = React.useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    getServerSnapshot,
+  );
+
   const [resolvedTheme, setResolvedTheme] = React.useState<'light' | 'dark'>(
     'light',
   );
-
-  React.useEffect(() => {
-    try {
-      const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
-      if (stored === 'light' || stored === 'dark' || stored === 'system') {
-        setThemeState(stored);
-      }
-    } catch {
-      // Ignore localStorage read errors
-    }
-  }, []);
 
   React.useEffect(() => {
     const root = document.documentElement;
@@ -69,11 +89,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme]);
 
   const setTheme = React.useCallback((newTheme: Theme) => {
-    setThemeState(newTheme);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+      window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
     } catch {
-      // Ignore localStorage write errors
+      // Ignore storage write error
     }
   }, []);
 

@@ -13,11 +13,12 @@ import {
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
 
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+  const isMounted = React.useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   const themeOptions: { label: string; value: Theme; icon: React.ReactNode }[] =
     [
@@ -40,7 +41,7 @@ export function ThemeToggle() {
             className="border-border/50 text-foreground hover:bg-muted focus-visible:ring-ring size-9 rounded-md border focus-visible:ring-2 focus-visible:ring-offset-2"
             aria-label="Cambiar tema visual"
           >
-            {mounted ? (
+            {isMounted ? (
               resolvedTheme === 'dark' ? (
                 <Moon className="size-4" />
               ) : (

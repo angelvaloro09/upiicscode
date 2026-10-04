@@ -15,7 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { FolderPlus } from 'lucide-react';
 
 export const metadata = {
@@ -87,13 +87,13 @@ bool esVacia(Nodo* cabeza) {
                   <div className="border-border bg-surface-subtle/40 rounded-lg border p-3">
                     <Wordmark size="sm" />
                     <span className="text-muted-foreground mt-2 block font-mono text-[10px]">
-                      size="sm" (20px)
+                      {'size="sm" (20px)'}
                     </span>
                   </div>
                   <div className="border-border bg-surface-subtle/40 rounded-lg border p-3">
                     <Wordmark size="md" />
                     <span className="text-muted-foreground mt-2 block font-mono text-[10px]">
-                      size="md" (26px)
+                      {'size="md" (26px)'}
                     </span>
                   </div>
                 </div>
@@ -310,7 +310,7 @@ bool esVacia(Nodo* cabeza) {
               7. Variante de Navegación Compacta (Lector / Problema)
             </h2>
             <Badge variant="outline" className="text-xs">
-              TopNav variant="compact"
+              {'TopNav variant="compact"'}
             </Badge>
           </div>
           <Card className="border-border bg-card overflow-hidden rounded-[12px]">
