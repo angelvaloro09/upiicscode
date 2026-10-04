@@ -32,8 +32,15 @@ export function CodeBlock({
     }
   };
 
-  const headerLabel =
-    filename || (language ? language.toLowerCase() : 'código');
+  const formatLanguage = (lang?: string) => {
+    if (!lang) return 'código';
+    const lower = lang.toLowerCase();
+    if (lower === 'c') return 'C';
+    if (lower === 'cpp' || lower === 'c++') return 'C++';
+    return lang.toUpperCase();
+  };
+
+  const headerLabel = filename || formatLanguage(language);
 
   return (
     <div

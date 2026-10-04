@@ -1,3 +1,6 @@
+// NOTA: Los esquemas de validación de este script (materiaMetaSchema y leccionFrontmatterSchema)
+// deben mantenerse iguales a src/lib/content/index.ts (hasta unificarlos).
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -15,7 +15,7 @@ export function LogoSlot({ variant, className }: LogoSlotProps) {
       role="img"
       aria-label={label}
       className={cn(
-        'border-border text-muted-foreground inline-flex h-7 items-center justify-center rounded-[4px] border border-dashed px-2 text-[11px] font-medium tracking-tight select-none',
+        'border-border text-muted-foreground inline-flex h-7 items-center justify-center rounded-[4px] border border-dashed px-2 text-xs font-medium tracking-tight select-none',
         'bg-surface-subtle/50 transition-colors',
         className,
       )}

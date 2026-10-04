@@ -39,7 +39,7 @@ export function MateriaCard({
           <p className="text-muted-foreground mt-1 text-sm">{advisor}</p>
         </div>
 
-        <div className="border-border/60 flex items-center gap-2 border-t pt-2 text-xs font-medium">
+        <div className="border-border/60 flex items-center gap-2 border-t pt-2 text-[13px] font-medium">
           <span
             className={cn(
               'size-2 shrink-0 rounded-full',

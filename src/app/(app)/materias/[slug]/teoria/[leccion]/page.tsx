@@ -75,25 +75,15 @@ export default async function LeccionReaderPage({ params }: PageProps) {
       <div className="mx-auto flex w-full max-w-[1020px] justify-between gap-12 py-4">
         {/* Main Reading Column (~680px wide) */}
         <article className="w-full max-w-[680px] min-w-0">
-          {/* Breadcrumb / Back Link */}
-          <div className="mb-4">
-            <Link
-              href={`/materias/${materia.slug}`}
-              className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs font-medium transition-colors"
-            >
-              ← {materia.nombre}
-            </Link>
-          </div>
-
           {/* Lesson Header */}
           <header className="border-border mb-8 border-b pb-6">
-            <span className="text-muted-foreground text-xs font-semibold tracking-wider uppercase">
+            <span className="text-muted-foreground text-[13px] font-semibold tracking-wider uppercase">
               {leccion.unidadTitulo}
             </span>
             <h1 className="text-foreground mt-2 mb-3 text-2xl font-bold tracking-tight sm:text-3xl">
               {leccion.titulo}
             </h1>
-            <div className="text-muted-foreground flex flex-wrap items-center gap-3 text-xs sm:text-sm">
+            <div className="text-muted-foreground flex flex-wrap items-center gap-3 text-[13px] sm:text-sm">
               <span className="flex items-center gap-1.5">
                 <Clock className="size-3.5" aria-hidden="true" />
                 {leccion.minutosLectura} min de lectura

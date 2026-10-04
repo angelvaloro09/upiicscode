@@ -91,7 +91,7 @@ export function MateriaView({ materia }: MateriaViewProps) {
                     <h2 className="text-foreground text-base font-semibold tracking-tight sm:text-lg">
                       {group.unidadTitulo}
                     </h2>
-                    <span className="text-muted-foreground text-xs">
+                    <span className="text-muted-foreground text-[13px]">
                       {group.lecciones.length}{' '}
                       {group.lecciones.length === 1 ? 'lección' : 'lecciones'}
                     </span>
@@ -108,7 +108,7 @@ export function MateriaView({ materia }: MateriaViewProps) {
                           <h3 className="text-foreground group-hover:text-primary dark:group-hover:text-primary-text truncate text-sm font-medium sm:text-base">
                             {leccion.titulo}
                           </h3>
-                          <div className="text-muted-foreground mt-1 flex items-center gap-1.5 text-xs">
+                          <div className="text-muted-foreground mt-1 flex items-center gap-1.5 text-[13px]">
                             <Clock className="size-3.5 shrink-0" />
                             <span>{leccion.minutosLectura} min de lectura</span>
                           </div>

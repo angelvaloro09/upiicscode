@@ -102,9 +102,9 @@ export function TopNav(props: TopNavProps) {
               </Link>
               {title && <div className="bg-border hidden h-4 w-px sm:block" />}
               {title && (
-                <h1 className="text-foreground max-w-[200px] truncate text-sm font-semibold tracking-tight sm:max-w-md">
+                <p className="text-foreground max-w-[200px] truncate text-sm font-semibold tracking-tight sm:max-w-md">
                   {title}
-                </h1>
+                </p>
               )}
             </div>
 

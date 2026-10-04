@@ -55,7 +55,7 @@ export function BottomNav({ currentPath, className }: BottomNavProps) {
             key={item.label}
             href={item.href}
             className={cn(
-              'flex min-h-[44px] flex-1 flex-col items-center justify-center py-1 text-[11px] font-medium transition-colors select-none',
+              'flex min-h-[44px] flex-1 flex-col items-center justify-center py-1 text-xs font-medium transition-colors select-none',
               item.isActive
                 ? 'text-primary dark:text-primary-text font-semibold'
                 : 'text-muted-foreground hover:text-foreground',
