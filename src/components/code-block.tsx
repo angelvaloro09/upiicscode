@@ -1,0 +1,75 @@
+'use client';
+
+import * as React from 'react';
+import { Copy, Check } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+
+export interface CodeBlockProps {
+  code: string;
+  filename?: string;
+  language?: string;
+  className?: string;
+}
+
+export function CodeBlock({
+  code,
+  filename,
+  language,
+  className,
+}: CodeBlockProps) {
+  const [copied, setCopied] = React.useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Ignore clipboard write failure
+    }
+  };
+
+  const headerLabel =
+    filename || (language ? language.toLowerCase() : 'código');
+
+  return (
+    <div
+      className={cn(
+        'group border-border bg-code-block-bg relative overflow-hidden rounded-[8px] border',
+        className,
+      )}
+    >
+      <div className="border-border/80 text-muted-foreground flex h-9 items-center justify-between border-b px-3.5 font-mono text-xs select-none">
+        <span className="truncate">{headerLabel}</span>
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          onClick={handleCopy}
+          className="text-muted-foreground hover:text-foreground focus-visible:ring-ring h-6 gap-1.5 px-2 text-xs focus-visible:ring-2 focus-visible:ring-offset-2"
+          aria-label={
+            copied
+              ? 'Código copiado al portapapeles'
+              : 'Copiar código al portapapeles'
+          }
+        >
+          {copied ? (
+            <>
+              <Check className="text-verdict-ac-fg size-3.5" />
+              <span className="text-verdict-ac-fg text-[11px]">Copiado</span>
+            </>
+          ) : (
+            <>
+              <Copy className="size-3.5" />
+              <span className="text-[11px]">Copiar</span>
+            </>
+          )}
+        </Button>
+      </div>
+      <pre className="text-foreground overflow-x-auto p-4 font-mono text-[13px] leading-relaxed [font-variant-ligatures:none]">
+        <code>{code}</code>
+      </pre>
+    </div>
+  );
+}
