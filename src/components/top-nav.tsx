@@ -43,7 +43,7 @@ export function TopNav({
   return (
     <header
       className={cn(
-        'border-border bg-card/95 sticky top-0 z-40 h-14 border-b backdrop-blur-xs select-none',
+        'border-border bg-card sticky top-0 z-40 h-14 border-b select-none',
         className,
       )}
     >

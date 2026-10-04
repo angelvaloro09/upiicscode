@@ -43,7 +43,7 @@ export function BottomNav({ currentPath, className }: BottomNavProps) {
     <nav
       aria-label="Navegación móvil inferior"
       className={cn(
-        'border-border bg-card/95 fixed right-0 bottom-0 left-0 z-40 h-16 border-t backdrop-blur-xs md:hidden',
+        'border-border bg-card fixed right-0 bottom-0 left-0 z-40 h-16 border-t md:hidden',
         'safe-area-bottom flex items-center justify-around px-2',
         className,
       )}

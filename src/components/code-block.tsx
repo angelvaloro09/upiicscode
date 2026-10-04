@@ -40,14 +40,14 @@ export function CodeBlock({
         className,
       )}
     >
-      <div className="border-border/80 text-muted-foreground flex h-9 items-center justify-between border-b px-3.5 font-mono text-xs select-none">
+      <div className="border-border/80 text-muted-foreground flex h-10 items-center justify-between border-b px-3.5 font-mono text-xs select-none">
         <span className="truncate">{headerLabel}</span>
         <Button
           type="button"
           variant="ghost"
           size="sm"
           onClick={handleCopy}
-          className="text-muted-foreground hover:text-foreground focus-visible:ring-ring h-6 gap-1.5 px-2 text-xs focus-visible:ring-2 focus-visible:ring-offset-2"
+          className="text-muted-foreground hover:text-foreground focus-visible:ring-ring h-7 gap-1.5 px-2.5 text-[13px] focus-visible:ring-2 focus-visible:ring-offset-2"
           aria-label={
             copied
               ? 'Código copiado al portapapeles'
@@ -57,12 +57,14 @@ export function CodeBlock({
           {copied ? (
             <>
               <Check className="text-verdict-ac-fg size-3.5" />
-              <span className="text-verdict-ac-fg text-[11px]">Copiado</span>
+              <span className="text-verdict-ac-fg text-[13px] font-medium">
+                Copiado
+              </span>
             </>
           ) : (
             <>
               <Copy className="size-3.5" />
-              <span className="text-[11px]">Copiar</span>
+              <span className="text-[13px] font-medium">Copiar</span>
             </>
           )}
         </Button>

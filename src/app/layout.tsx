@@ -4,13 +4,13 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({
-  variable: '--font-sans',
+  variable: '--font-inter',
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-mono',
+  variable: '--font-jetbrains-mono',
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
