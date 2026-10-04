@@ -1,0 +1,53 @@
+---
+titulo: 'Estructuras de Control de Flujo'
+unidad: 2
+unidadTitulo: 'Unidad 2: Flujo de Ejecución y Modularidad'
+orden: 2
+minutosLectura: 8
+borrador: true
+---
+
+## Bifurcaciones y ciclos
+
+Las estructuras de control determinan el orden condicional y repetitivo en el que la unidad central de procesamiento ejecuta las instrucciones de un programa.
+
+### Sentencias switch y while
+
+La sentencia `switch` evalúa una expresión entera frente a múltiples etiquetas `case`, ofreciendo una alternativa más legible que cadenas extensas de `if-else`.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+    int codigo_opcion = 2;
+
+    switch (codigo_opcion) {
+        case 1:
+            printf("Iniciando compilación...\n");
+            break;
+        case 2:
+            printf("Ejecutando pruebas unitarias...\n");
+            break;
+        case 3:
+            printf("Generando reporte de ejecución...\n");
+            break;
+        default:
+            printf("Opción desconocida.\n");
+            break;
+    }
+
+    int iteracion = 0;
+    while (iteracion < 3) {
+        printf("Paso de ciclo %d\n", iteracion);
+        iteracion++;
+    }
+
+    return 0;
+}
+```
+
+<Callout type="ojo" title="Omisión involuntaria del break">
+  Si omites la instrucción `break` al concluir un bloque `case`, la ejecución
+  continúa automáticamente hacia los casos siguientes sin evaluar sus
+  condiciones, fenómeno conocido como caída a través (fall-through).
+</Callout>

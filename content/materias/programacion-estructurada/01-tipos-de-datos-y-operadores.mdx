@@ -1,0 +1,54 @@
+---
+titulo: 'Tipos de Datos y Operadores en C'
+unidad: 1
+unidadTitulo: 'Unidad 1: Elementos Básicos del Lenguaje'
+orden: 1
+minutosLectura: 6
+borrador: true
+---
+
+## Tipos primitivos
+
+El lenguaje C ofrece un conjunto fundamental de tipos de datos diseñados para mapear casi directamente sobre los registros y representaciones del hardware.
+
+<Callout type="definicion" title="Tipado estático">
+  C es un lenguaje de tipado estático: el tipo de dato de cada variable se
+  define durante la compilación y determina el espacio exacto en memoria y el
+  conjunto de operaciones válidas.
+</Callout>
+
+### Tamaños y modificadores
+
+Los modificadores `signed`, `unsigned`, `short` y `long` permiten ajustar el rango y la interpretación de los números enteros en memoria.
+
+| Tipo     | Modificadores comunes       | Tamaño típico | Rango aproximado                   |
+| -------- | --------------------------- | ------------- | ---------------------------------- |
+| `char`   | `signed`, `unsigned`        | 1 byte        | -128 a 127 / 0 a 255               |
+| `int`    | `short`, `long`, `unsigned` | 4 bytes       | -2,147,483,648 a 2,147,483,647     |
+| `float`  | Ninguno                     | 4 bytes       | ~6 dígitos decimales de precisión  |
+| `double` | `long double`               | 8 bytes       | ~15 dígitos decimales de precisión |
+
+### Ejemplo de declaración y formato
+
+El formateo de salida se realiza con la función `printf` utilizando especificadores de formato acordes a cada tipo de dato:
+
+```c
+#include <stdio.h>
+
+int main(void) {
+    int contador = 100;
+    double pi = 3.14159265;
+    char letra = 'U';
+
+    printf("Entero: %d\n", contador);
+    printf("Flotante de doble precisión: %.4f\n", pi);
+    printf("Carácter: %c\n", letra);
+
+    return 0;
+}
+```
+
+<Callout type="ejemplo" title="Especificadores en printf">
+  Usa `%d` o `%i` para enteros con signo, `%u` para enteros sin signo, `%f` para
+  números con punto decimal y `%c` para caracteres individuales.
+</Callout>

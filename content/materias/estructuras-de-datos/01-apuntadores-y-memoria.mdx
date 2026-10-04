@@ -1,0 +1,54 @@
+---
+titulo: 'Apuntadores y Gestión de Memoria'
+unidad: 1
+unidadTitulo: 'Unidad 1: Apuntadores y Memoria Dinámica'
+orden: 1
+minutosLectura: 8
+borrador: true
+---
+
+## Fundamentos de apuntadores
+
+En el lenguaje C, la memoria principal del computador se concibe como una secuencia continua de celdas de un byte, cada una identificada por una dirección numérica única. Los apuntadores proporcionan el mecanismo directo y de bajo nivel para interactuar con esta arquitectura.
+
+<Callout type="definicion" title="Apuntador">
+  Un apuntador es una variable que almacena la dirección de memoria de otra
+  variable del mismo tipo base, permitiendo el acceso indirecto a su valor.
+</Callout>
+
+### Declaración y operador de dirección
+
+Para obtener la dirección en memoria de cualquier variable declarada, se utiliza el operador de dirección `&`. Para acceder o modificar el valor almacenado en la posición señalada por un apuntador, se emplea el operador de indirección o desreferencia `*`.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+    int valor = 42;
+    int *ptr = &valor;
+
+    printf("Valor directo: %d\n", valor);
+    printf("Valor por desreferencia: %d\n", *ptr);
+    printf("Dirección física: %p\n", (void *)ptr);
+
+    *ptr = 99;
+    printf("Nuevo valor: %d\n", valor);
+
+    return 0;
+}
+```
+
+<Callout type="ojo" title="Cuidado con apuntadores no inicializados">
+  Declarar un apuntador sin asignarle una dirección válida produce un apuntador
+  salvaje (wild pointer). Intentar escribir en él corrompe la memoria del
+  proceso y detiene el programa con un error de segmentación (Segmentation
+  Fault).
+</Callout>
+
+### Tabla de operadores de apuntadores
+
+| Operador | Nombre      | Sintaxis     | Descripción                                                              |
+| -------- | ----------- | ------------ | ------------------------------------------------------------------------ |
+| `*`      | Declaración | `tipo *ptr;` | Define una variable de tipo apuntador al tipo base especificado.         |
+| `&`      | Dirección   | `&variable`  | Obtiene la dirección de memoria física donde reside la variable.         |
+| `*`      | Indirección | `*ptr`       | Accede al valor almacenado en la dirección a la que apunta el apuntador. |

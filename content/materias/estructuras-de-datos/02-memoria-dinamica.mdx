@@ -1,0 +1,59 @@
+---
+titulo: 'Asignación Dinámica de Memoria'
+unidad: 1
+unidadTitulo: 'Unidad 1: Apuntadores y Memoria Dinámica'
+orden: 2
+minutosLectura: 7
+borrador: true
+---
+
+## Funciones de la biblioteca estándar
+
+La memoria estática y automática (pila o stack) tiene límites fijados al compilar. La asignación dinámica permite solicitar memoria del montículo (heap) durante el tiempo de ejecución mediante funciones declaradas en el encabezado `<stdlib.h>`.
+
+### malloc, calloc y free
+
+El uso correcto de la memoria en el heap exige solicitar únicamente el espacio necesario y liberarlo oportunamente para evitar fugas de memoria (memory leaks).
+
+| Función   | Propósito                     | Inicializa contenido               | Parámetros principales                     |
+| --------- | ----------------------------- | ---------------------------------- | ------------------------------------------ |
+| `malloc`  | Asigna bytes contiguos        | No (contiene basura)               | Tamaño total en bytes                      |
+| `calloc`  | Asigna y limpia memoria       | Sí (pone ceros en todos los bytes) | Cantidad de elementos y tamaño de cada uno |
+| `realloc` | Redimensiona un bloque previo | Conserva datos previos             | Apuntador existente y nuevo tamaño         |
+| `free`    | Devuelve el bloque al sistema | N/A                                | Apuntador previamente asignado             |
+
+<Callout type="ejemplo" title="Verificación del retorno">
+  Siempre verifica que el valor retornado por `malloc` o `calloc` sea distinto
+  de `NULL` antes de intentar escribir o leer en el bloque reservado.
+</Callout>
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    int n = 5;
+    int *arreglo = (int *)malloc(n * sizeof(int));
+
+    if (arreglo == NULL) {
+        fprintf(stderr, "Error: Memoria insuficiente.\n");
+        return 1;
+    }
+
+    for (int i = 0; i < n; i++) {
+        arreglo[i] = (i + 1) * 10;
+        printf("Elemento %d: %d\n", i, arreglo[i]);
+    }
+
+    free(arreglo);
+    arreglo = NULL;
+
+    return 0;
+}
+```
+
+<Callout type="ojo" title="Punteros colgantes (dangling pointers)">
+  Tras invocar `free(ptr)`, la memoria queda invalidada pero la variable sigue
+  apuntando a esa dirección. Es una buena práctica asignar `ptr = NULL`
+  inmediatamente después de la liberación.
+</Callout>

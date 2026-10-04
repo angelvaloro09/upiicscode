@@ -1,0 +1,60 @@
+---
+titulo: 'Listas Simplemente Enlazadas'
+unidad: 2
+unidadTitulo: 'Unidad 2: Estructuras de Datos Lineales'
+orden: 3
+minutosLectura: 10
+borrador: true
+---
+
+## Definición del nodo
+
+Una lista simplemente enlazada es una colección dinámica y lineal de elementos denominados nodos. A diferencia de los arreglos contiguos, los nodos pueden residir en posiciones dispersas de memoria y se conectan mediante apuntadores explícitos.
+
+<Callout type="definicion" title="Nodo enlazado">
+  Un nodo es una estructura compuesta por al menos un campo de datos y un
+  apuntador autoreferenciado que almacena la dirección del siguiente nodo de la
+  secuencia.
+</Callout>
+
+### Estructura autoreferenciada
+
+En C, la definición de un nodo se expresa con una estructura `struct` que contiene un apuntador a su propio tipo:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Nodo {
+    int dato;
+    struct Nodo *siguiente;
+} Nodo;
+
+Nodo *crear_nodo(int dato) {
+    Nodo *nuevo = (Nodo *)malloc(sizeof(Nodo));
+    if (nuevo != NULL) {
+        nuevo->dato = dato;
+        nuevo->siguiente = NULL;
+    }
+    return nuevo;
+}
+
+int main(void) {
+    Nodo *cabeza = crear_nodo(10);
+    cabeza->siguiente = crear_nodo(20);
+
+    printf("Primer nodo: %d\n", cabeza->dato);
+    printf("Segundo nodo: %d\n", cabeza->siguiente->dato);
+
+    free(cabeza->siguiente);
+    free(cabeza);
+    return 0;
+}
+```
+
+<Callout type="ojo" title="Pérdida de la cabeza de la lista">
+  Nunca avances el apuntador `cabeza` sin conservar una referencia previa cuando
+  recorras la lista. Si pierdes la dirección del primer nodo, será imposible
+  recuperar el acceso a los nodos anteriores, generando fugas de memoria
+  irrecuperables.
+</Callout>
