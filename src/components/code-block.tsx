@@ -10,6 +10,7 @@ export interface CodeBlockProps {
   filename?: string;
   language?: string;
   className?: string;
+  highlightedHtml?: string;
 }
 
 export function CodeBlock({
@@ -17,6 +18,7 @@ export function CodeBlock({
   filename,
   language,
   className,
+  highlightedHtml,
 }: CodeBlockProps) {
   const [copied, setCopied] = React.useState(false);
 
@@ -69,9 +71,16 @@ export function CodeBlock({
           )}
         </Button>
       </div>
-      <pre className="text-foreground overflow-x-auto p-4 font-mono text-[13px] leading-relaxed [font-variant-ligatures:none]">
-        <code>{code}</code>
-      </pre>
+      {highlightedHtml ? (
+        <div
+          className="overflow-x-auto text-[13px] leading-relaxed [font-variant-ligatures:none] [&_.shiki]:m-0 [&_.shiki]:bg-transparent! [&_.shiki]:p-4 [&_.shiki]:font-mono [&_.shiki]:text-[13px] [&_.shiki]:leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+        />
+      ) : (
+        <pre className="text-foreground overflow-x-auto p-4 font-mono text-[13px] leading-relaxed [font-variant-ligatures:none]">
+          <code>{code}</code>
+        </pre>
+      )}
     </div>
   );
 }

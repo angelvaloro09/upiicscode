@@ -5,7 +5,8 @@ import { cn } from '@/lib/utils';
 export type CalloutVariant = 'definicion' | 'ejemplo' | 'ojo';
 
 export interface CalloutProps {
-  variant: CalloutVariant;
+  variant?: CalloutVariant;
+  type?: CalloutVariant;
   title?: string;
   children: React.ReactNode;
   className?: string;
@@ -40,8 +41,15 @@ const CALLOUT_CONFIG: Record<
   },
 };
 
-export function Callout({ variant, title, children, className }: CalloutProps) {
-  const config = CALLOUT_CONFIG[variant];
+export function Callout({
+  variant,
+  type,
+  title,
+  children,
+  className,
+}: CalloutProps) {
+  const selectedVariant = type || variant || 'definicion';
+  const config = CALLOUT_CONFIG[selectedVariant];
   const Icon = config.icon;
   const headerTitle = title || config.defaultTitle;
 

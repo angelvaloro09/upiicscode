@@ -20,18 +20,58 @@ export interface TopNavProps {
   className?: string;
 }
 
-export function TopNav({
-  variant = 'default',
-  title,
-  backHref = '/materias',
-  backLabel = 'Volver',
-  actions,
-  currentPath,
-  className,
-}: TopNavProps) {
-  const pathname = usePathname();
-  const activePath = currentPath || pathname || '';
+interface NavContextType {
+  config: TopNavProps | null;
+  setConfig: React.Dispatch<React.SetStateAction<TopNavProps | null>>;
+}
 
+const NavContext = React.createContext<NavContextType | undefined>(undefined);
+
+export function NavProvider({ children }: { children: React.ReactNode }) {
+  const [config, setConfig] = React.useState<TopNavProps | null>(null);
+
+  return (
+    <NavContext.Provider value={{ config, setConfig }}>
+      {children}
+    </NavContext.Provider>
+  );
+}
+
+export function useSetNavConfig(config: TopNavProps | null) {
+  const ctx = React.useContext(NavContext);
+  React.useEffect(() => {
+    if (!ctx) return;
+    ctx.setConfig(config);
+    return () => {
+      ctx.setConfig(null);
+    };
+  }, [ctx, config]);
+}
+
+export function TopNav(props: TopNavProps) {
+  const pathname = usePathname();
+  const context = React.useContext(NavContext);
+
+  // Check if pathname matches theory reader: /materias/:slug/teoria/:leccion
+  const theoryMatch = pathname?.match(/^\/materias\/([^/]+)\/teoria\/([^/]+)/);
+  const inferredMateriaSlug = theoryMatch ? theoryMatch[1] : null;
+
+  const activeProps = context?.config || props;
+
+  const variant =
+    activeProps.variant || (inferredMateriaSlug ? 'compact' : 'default');
+  const title = activeProps.title;
+  const backHref =
+    activeProps.backHref ||
+    (inferredMateriaSlug ? `/materias/${inferredMateriaSlug}` : '/materias');
+  const backLabel =
+    activeProps.backLabel ||
+    (inferredMateriaSlug ? 'Volver a materia' : 'Volver');
+  const actions = activeProps.actions;
+  const currentPath = activeProps.currentPath;
+  const className = activeProps.className;
+
+  const activePath = currentPath || pathname || '';
   const isCompact = variant === 'compact';
 
   const isMateriasActive =
@@ -58,7 +98,7 @@ export function TopNav({
                 aria-label={`Volver: ${backLabel}`}
               >
                 <ArrowLeft className="size-4 shrink-0" aria-hidden="true" />
-                <span className="hidden sm:inline">{backLabel}</span>
+                <span className="inline">{backLabel}</span>
               </Link>
               {title && <div className="bg-border hidden h-4 w-px sm:block" />}
               {title && (

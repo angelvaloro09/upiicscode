@@ -222,4 +222,17 @@
     font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
     font-variant-ligatures: none;
   }
+
+  /* Shiki dual-theme support */
+  .shiki {
+    background-color: transparent !important;
+  }
+  .shiki,
+  .shiki span {
+    color: var(--shiki-light, inherit);
+  }
+  .dark .shiki,
+  .dark .shiki span {
+    color: var(--shiki-dark, inherit) !important;
+  }
 }
