@@ -3,16 +3,11 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  experimental: {
-    mdxRs: {
-      mdxType: 'gfm',
-    },
-  },
 };
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: ['remark-gfm'],
+    remarkPlugins: ['remark-frontmatter', 'remark-gfm'],
     rehypePlugins: [],
   },
 });

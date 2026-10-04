@@ -67,39 +67,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ...components,
     Callout,
     CodeBlock,
-    wrapper: ({ children }: { children?: React.ReactNode }) => {
-      const childArray = React.Children.toArray(children);
-      const filtered = childArray.filter((child) => {
-        if (!React.isValidElement(child)) return true;
-        const props = child.props as { children?: unknown } | undefined;
-        if (
-          child.type === 'h2' &&
-          typeof props?.children === 'string' &&
-          props.children.startsWith('titulo:')
-        ) {
-          return false;
-        }
-        return true;
-      });
-
-      let start = 0;
-      while (start < filtered.length) {
-        const item = filtered[start];
-        if (typeof item === 'string' && item.trim() === '') {
-          start++;
-        } else if (React.isValidElement(item) && item.type === 'hr') {
-          start++;
-        } else {
-          break;
-        }
-      }
-
-      return <>{filtered.slice(start)}</>;
-    },
     h2: ({ children, ...props }: React.ComponentPropsWithoutRef<'h2'>) => {
-      if (typeof children === 'string' && children.startsWith('titulo:')) {
-        return null;
-      }
       const text = typeof children === 'string' ? children : '';
       const id = slugify(text);
       return (
