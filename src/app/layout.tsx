@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({
   variable: '--font-sans',
@@ -20,6 +21,8 @@ export const metadata: Metadata = {
     'Plataforma educativa integral para estudiantes de informática de la UPIICSA: teoría, aulas virtuales y práctica de código con juez.',
 };
 
+const themeScript = `(function(){try{var k='upiicscode-theme';var t=localStorage.getItem(k);var dark=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(dark){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){}})()`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,9 +31,15 @@ export default function RootLayout({
   return (
     <html
       lang="es"
+      suppressHydrationWarning
       className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="flex min-h-full flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
