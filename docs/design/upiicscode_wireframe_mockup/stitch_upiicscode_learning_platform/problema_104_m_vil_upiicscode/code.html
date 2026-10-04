@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#002f03", "inverse-on-surface": "#f3f0f2", "secondary": "#5b5f64", "on-secondary-container": "#5f6368", "surface-bright": "#fcf8fb", "secondary-fixed-dim": "#c3c7cc", "background": "#fcf8fb", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#7b2750", "on-primary-fixed": "#3e0022", "secondary-container": "#dde0e6", "on-tertiary": "#ffffff", "surface": "#fcf8fb", "surface-container": "#f0edef", "on-primary": "#ffffff", "tertiary-fixed": "#aef4a1", "on-background": "#1b1b1d", "error": "#ba1a1a", "surface-dim": "#dcd9dc", "primary-container": "#6f1d46", "on-tertiary-fixed": "#002202", "on-error-container": "#93000a", "on-primary-container": "#f187b3", "surface-variant": "#e4e2e4", "outline": "#867278", "on-error": "#ffffff", "primary-fixed": "#ffd9e5", "on-secondary-fixed": "#181c20", "secondary-fixed": "#dfe3e8", "surface-container-highest": "#e4e2e4", "outline-variant": "#d8c0c7", "surface-tint": "#983f68", "surface-container-lowest": "#ffffff", "on-surface": "#1b1b1d", "primary": "#52032f", "on-tertiary-container": "#75b86b", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#43474c", "surface-container-high": "#eae7ea", "tertiary-fixed-dim": "#93d787", "inverse-primary": "#ffb0ce", "on-tertiary-fixed-variant": "#0f5212", "inverse-surface": "#303032", "tertiary-container": "#004808", "on-surface-variant": "#534248", "primary-fixed-dim": "#ffb0ce", "surface-container-low": "#f6f3f5" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-xs": "0.25rem", "margin": "1.5rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "margin-desktop": "2.5rem", "space-md": "1rem", "gutter": "1.25rem" }, "fontFamily": { "label-md": ["Inter"], "headline-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "headline-md": ["Inter"], "label-sm": ["Inter"], "body-md": ["Inter"], "headline-xl-mobile": ["Inter"], "headline-sm": ["Inter"], "code-md": ["JetBrains Mono"], "body-sm": ["Inter"], "headline-xl": ["Inter"], "body-lg": ["Inter"] }, "fontSize": { "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "code-sm": ["12.5px", { "lineHeight": "18px", "fontWeight": "500" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "code-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#fcf8fb;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-space-sm flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Regresar a Materia" class="h-11 px-space-xs flex items-center gap-1 text-primary hover:text-primary-container transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[20px]">arrow_back</span><span class="font-label-md text-label-md font-medium">Materia</span></button></div><div class="flex items-center px-space-xs max-w-[160px] truncate"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Problema</h1></div><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full pb-safe">
+<!-- Sub-Header / Tool Ribbon for Problem Session -->
+<div class="px-space-md py-space-sm bg-surface-container-lowest shadow-sm flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-1.5 min-w-0">
+<button aria-label="Volver a Estructuras de Datos" class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span class="font-label-sm text-label-sm font-medium truncate max-w-[130px]">Estructuras de Datos</span>
+</button>
+</div>
+<!-- Actions: Language Select + Run + Submit -->
+<div class="flex items-center gap-1.5 shrink-0">
+<div class="relative bg-surface-container-high rounded px-2 py-1 flex items-center gap-1">
+<span class="font-code-sm text-code-sm text-on-surface font-medium">C++20</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+<button class="h-8 px-2.5 rounded bg-surface-container hover:bg-surface-container-highest text-on-surface flex items-center gap-1 transition-colors" id="btn-run" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">play_arrow</span>
+<span class="font-label-sm text-label-sm font-medium">Ejecutar</span>
+</button>
+<button class="h-8 px-3 rounded bg-primary-container hover:opacity-90 text-on-primary flex items-center gap-1 shadow-sm transition-opacity" id="btn-submit" type="button">
+<span class="material-symbols-outlined text-[16px]">cloud_upload</span>
+<span class="font-label-sm text-label-sm font-medium">Enviar</span>
+</button>
+</div>
+</div>
+<!-- Segmented Primary Tab Bar -->
+<div class="px-space-md pt-space-xs bg-surface">
+<div class="grid grid-cols-3 gap-1 p-1 bg-surface-container rounded-lg">
+<button class="py-1.5 rounded-md font-label-md text-label-md font-medium text-center bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center justify-center gap-1.5" id="tab-btn-enunciado" onclick="switchTab('enunciado')" type="button">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Enunciado</span>
+</button>
+<button class="py-1.5 rounded-md font-label-md text-label-md font-medium text-center text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5" id="tab-btn-codigo" onclick="switchTab('codigo')" type="button">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>Código</span>
+</button>
+<button class="py-1.5 rounded-md font-label-md text-label-md font-medium text-center text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5" id="tab-btn-resultados" onclick="switchTab('resultados')" type="button">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+<span>Resultados</span>
+</button>
+</div>
+</div>
+<!-- TAB 1: ENUNCIADO -->
+<div class="flex flex-col px-space-md py-space-sm gap-space-md" id="tab-content-enunciado">
+<!-- Problem Metadata Banner -->
+<div class="flex flex-col gap-1 bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-primary-container font-semibold">PROBLEMA #104</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant">Memoria Dinámica</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Inversión de Lista Enlazada</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+        Reconfiguración secuencial in-situ de apuntadores de enlace simple sin asignación auxiliar de memoria.
+      </p>
+</div>
+<!-- Academic Context / Rigor Specification -->
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Complejidad Temporal</span>
+<span class="font-code-md text-code-md font-medium text-on-surface mt-0.5">O(n) Estricta</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Espacio Adicional</span>
+<span class="font-code-md text-code-md font-medium text-primary font-semibold mt-0.5">O(1) in-situ</span>
+</div>
+</div>
+<!-- Problem Core Description -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Descripción Formal</h3>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+        Dada la cabeza de una lista enlazada simple representada por la estructura <code class="font-code-sm text-code-sm bg-surface-container px-1 py-0.5 rounded text-primary">ListNode* head</code>, invierta el sentido de todos los punteros <code class="font-code-sm text-code-sm bg-surface-container px-1 py-0.5 rounded text-primary">next</code> de modo que el último nodo sea la nueva cabeza.
+      </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        No está permitido transferir los valores a estructuras intermedias (arreglos, vectores o pilas STL). La mutación debe ocurrir puramente por reasignación de direcciones en memoria dinámica.
+      </p>
+</div>
+<!-- ASCII / Visual Memory Layout Diagram -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Mapeo de Punteros en Memoria</span>
+<span class="font-code-sm text-code-sm text-on-secondary-container">Estado de Transición</span>
+</div>
+<div class="p-3 bg-surface-container-highest rounded-lg overflow-x-auto">
+<pre class="font-code-sm text-code-sm text-on-surface leading-snug">[Estado Inicial]
+  head ──► [ 1 | ● ] ──► [ 2 | ● ] ──► [ 3 | NULL ]
+
+[Iteración k: prev=1, curr=2, next=3]
+  NULL ◄── [ 1 | ● ] ◄── [ 2 | ● ]     [ 3 | NULL ]
+            ▲             ▲             ▲
+            prev          curr          next_node
+
+[Estado Final Requerido]
+  head ──► [ 3 | ● ] ──► [ 2 | ● ] ──► [ 1 | NULL ]</pre>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+        Invariante: Al inicio de cada ciclo, la sublista predecesora a <code class="font-code-sm text-code-sm text-primary">curr</code> se encuentra ya invertida y anclada a <code class="font-code-sm text-code-sm text-primary">prev</code>.
+      </span>
+</div>
+<!-- Test Cases STDIN / STDOUT -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Casos de Entrada / Salida</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">I/O Estándar</span>
+</div>
+<!-- Case 1 Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Ejemplo 1</span>
+<button class="flex items-center gap-1 font-label-sm text-label-sm text-primary hover:opacity-80 transition-opacity" onclick="copyExample('1 2 3 4 5', this)" type="button">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+<span>Copiar</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col gap-1 bg-surface-container-high p-2 rounded">
+<span class="font-code-sm text-code-sm text-on-secondary-container font-semibold">STDIN</span>
+<span class="font-code-sm text-code-sm text-on-surface">5<br/>1 2 3 4 5</span>
+</div>
+<div class="flex flex-col gap-1 bg-surface-container-high p-2 rounded">
+<span class="font-code-sm text-code-sm text-on-secondary-container font-semibold">STDOUT</span>
+<span class="font-code-sm text-code-sm text-on-surface">5 4 3 2 1</span>
+</div>
+</div>
+</div>
+<!-- Case 2 (Edge Case) Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Ejemplo 2 (Lista Unitaria / Vacía)</span>
+<button class="flex items-center gap-1 font-label-sm text-label-sm text-primary hover:opacity-80 transition-opacity" onclick="copyExample('1\n42', this)" type="button">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+<span>Copiar</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col gap-1 bg-surface-container-high p-2 rounded">
+<span class="font-code-sm text-code-sm text-on-secondary-container font-semibold">STDIN</span>
+<span class="font-code-sm text-code-sm text-on-surface">1<br/>42</span>
+</div>
+<div class="flex flex-col gap-1 bg-surface-container-high p-2 rounded">
+<span class="font-code-sm text-code-sm text-on-secondary-container font-semibold">STDOUT</span>
+<span class="font-code-sm text-code-sm text-on-surface">42</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Peek / Bottom Workspace Bridge -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm mb-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Solución en Borrador</span>
+<button class="font-label-sm text-label-sm text-primary flex items-center gap-0.5" onclick="switchTab('codigo')" type="button">
+<span>Abrir Editor Completo</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<div class="p-2.5 bg-surface-container-highest rounded-lg overflow-hidden font-code-sm text-code-sm text-on-surface-variant flex items-center justify-between cursor-pointer" onclick="switchTab('codigo')">
+<span class="truncate">ListNode* reverseList(ListNode* head) { ... }</span>
+<span class="shrink-0 text-primary font-medium text-label-sm">Editar</span>
+</div>
+</div>
+</div>
+<!-- TAB 2: CÓDIGO (Editor Móvil) -->
+<div class="hidden flex-col px-space-md py-space-sm gap-space-sm" id="tab-content-codigo">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Editor Header -->
+<div class="px-space-md py-2 bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">solution.cpp</span>
+<span class="font-label-sm text-label-sm text-on-secondary-container">Líneas: 18</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[15px]">restart_alt</span>
+<span>Reiniciar</span>
+</button>
+</div>
+</div>
+<!-- Code Textarea Simulation -->
+<div class="p-3 bg-surface-container-lowest font-code-sm text-code-sm text-on-surface overflow-x-auto leading-relaxed">
+<div class="flex gap-3">
+<div class="select-none text-on-secondary-container text-right flex flex-col shrink-0 font-code-sm">
+<span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
+<span>06</span><span>07</span><span>08</span><span>09</span><span>10</span>
+<span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+</div>
+<div class="flex-1 whitespace-pre font-code-sm">
+<span class="text-secondary font-medium">// Estructura declarada en cabecera global</span>
+<span class="text-primary font-medium">ListNode*</span> <span class="font-semibold text-on-surface">reverseList</span>(<span class="text-primary font-medium">ListNode*</span> head) {
+    <span class="text-primary font-medium">ListNode*</span> prev = nullptr;
+    <span class="text-primary font-medium">ListNode*</span> curr = head;
+
+    <span class="text-primary font-medium">while</span> (curr != nullptr) {
+        <span class="text-primary font-medium">ListNode*</span> next_node = curr-&gt;next;
+        curr-&gt;next = prev;
+        prev = curr;
+        curr = next_node;
+    }
+
+    <span class="text-primary font-medium">return</span> prev;
+}</div>
+</div>
+</div>
+</div>
+<!-- Quick Test Runner Controls -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Validar Casos de Prueba</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ejecuta el conjunto público (2/2)</span>
+</div>
+<button class="h-9 px-3 rounded bg-primary text-on-primary font-label-sm text-label-sm font-medium flex items-center gap-1 shadow-sm" onclick="switchTab('resultados')" type="button">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+<span>Ejecutar Test</span>
+</button>
+</div>
+</div>
+<!-- TAB 3: RESULTADOS -->
+<div class="hidden flex-col px-space-md py-space-sm gap-space-md" id="tab-content-resultados">
+<!-- Academic Verdict Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Veredicto del Evaluador</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Envío #28410</span>
+</div>
+<!-- Verdict Badge -->
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded bg-[#F0FDF4] text-[#1B7C3A] font-code-md text-code-md font-semibold tracking-wider">
+            AC • ACEPTADO
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-secondary-container">100% de Casos</span>
+</div>
+<!-- Academic Metrics (Strictly non-gamified) -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="bg-surface-container-high p-2.5 rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tiempo de CPU</span>
+<span class="font-code-md text-code-md font-semibold text-on-surface mt-0.5">0.04 s</span>
+</div>
+<div class="bg-surface-container-high p-2.5 rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Memoria Residente</span>
+<span class="font-code-md text-code-md font-semibold text-on-surface mt-0.5">14.2 MB</span>
+</div>
+</div>
+</div>
+<!-- Test Suite Results Breakdown -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">Detalle de Banco de Pruebas</span>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low rounded-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#1B7C3A]">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface">Test 01: Vector ascendente estándar</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-secondary-container">0.01 s</span>
+</div>
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low rounded-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#1B7C3A]">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface">Test 02: Nodo único</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-secondary-container">0.00 s</span>
+</div>
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low rounded-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#1B7C3A]">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface">Test 03: Lista con 10,000 elementos</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-secondary-container">0.03 s</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Persistent Compact Verdict/Progress Banner -->
+<div class="mx-space-md mt-space-sm mb-space-md p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-2.5 h-2.5 rounded-full bg-[#1B7C3A]"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">AC</span>
+<span class="text-on-secondary-container text-[12px]">•</span>
+<span class="font-code-sm text-code-sm text-on-surface">0.04 s</span>
+<span class="text-on-secondary-container text-[12px]">•</span>
+<span class="font-code-sm text-code-sm text-on-surface">14.2 MB</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Solución óptima registrada</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm text-label-sm" onclick="switchTab('resultados')" type="button">
+      Detalles
+    </button>
+</div>
+</div>
+<script>
+  function switchTab(tabName) {
+    const tabs = ['enunciado', 'codigo', 'resultados'];
+    tabs.forEach(t => {
+      const content = document.getElementById('tab-content-' + t);
+      const btn = document.getElementById('tab-btn-' + t);
+      if (t === tabName) {
+        content.classList.remove('hidden');
+        content.classList.add('flex');
+        btn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+      } else {
+        content.classList.add('hidden');
+        content.classList.remove('flex');
+        btn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      }
+    });
+  }
+
+  function copyExample(text, buttonElement) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        const original = buttonElement.innerHTML;
+        buttonElement.innerHTML = `<span class="material-symbols-outlined text-[15px]">done</span><span>Copiado</span>`;
+        setTimeout(() => {
+          buttonElement.innerHTML = original;
+        }, 1800);
+      });
+    }
+  }
+
+  document.getElementById('btn-run')?.addEventListener('click', () => {
+    switchTab('resultados');
+  });
+
+  document.getElementById('btn-submit')?.addEventListener('click', () => {
+    switchTab('resultados');
+  });
+</script></main></body></html>

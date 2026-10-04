@@ -1,7 +1,7 @@
 # UPIICSCode — Arquitectura v1
 
 Plataforma educativa para alumnos de Ingeniería en Informática y Ciencias de la Informática (UPIICSA-IPN).
-Combina teoría por materia, aulas (estilo Classroom/Moodle) y práctica de código con juez (estilo OmegaUp).
+Combina teoría, tareas/anuncios y práctica de código con juez (estilo OmegaUp), todo organizado por **materia** al estilo de Google Classroom (sin concepto de "aula").
 
 ## 1. Restricciones
 
@@ -69,11 +69,12 @@ Se detalla por fase; no crear tablas de fases futuras antes de tiempo.
 - `profiles` (id = auth.users.id, email, full_name, role: `student | advisor | admin`, created_at)
 - La teoría NO está en BD. Opcional: `topic_progress` (profile_id, materia_slug, tema_slug, completed_at).
 
-**Fase 2**
-- `courses` (aula): id, name, description, owner_id, join_code, archived
-- `enrollments`: course_id, profile_id, role_in_course
-- `announcements`: course_id, author_id, body
-- `assignments`: course_id, title, description, due_at
+**Fase 2** (no existe el concepto de "aula": la unidad es la **materia**, como la "clase" de Classroom)
+- Las materias se definen en `content/materias/` (slug, nombre, descripción); la BD las referencia por `materia_slug`.
+- **Decisión (2026-10):** la unidad es solo la materia (sin grupo/secuencia). El modelo puede cambiar después: mantener `materia_slug` como única referencia y no incrustar supuestos de grupo en la lógica.
+- `enrollments`: materia_slug, profile_id, role_in_materia (`student | advisor`). *Pendiente de decidir:* inscripción libre vs. por código.
+- `announcements`: materia_slug, author_id, body
+- `assignments`: materia_slug, title, description, due_at
 - `assignment_submissions`: assignment_id, profile_id, content, grade, feedback
 
 **Fase 3**
@@ -122,7 +123,7 @@ Los veredictos con calificación NUNCA se calculan en el cliente.
 |---|---|---|
 | 0 | Repo, scaffolding, convenciones, CI | No |
 | 1 | Auth restringida, roles, materias y teoría MDX | No |
-| 2 | Aulas: inscripción por código, anuncios, tareas | No |
+| 2 | Materias estilo Classroom: inscripción, tablón de anuncios, tareas | No |
 | 3 | Problemas, editor, envíos, JudgeProvider | Sí |
 | 4 | Calificaciones, rankings, concursos | Sí |
 

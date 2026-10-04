@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPIICSCode - Inicio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#FBFBFA",
+            charcoal: "#1E1E20",
+            secondary: "#5F6368",
+            borderLine: "#E7E6E2",
+            ipn: "#6F1D46",
+            ipnHover: "#5A1637"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FBFBFA;
+      font-family: 'Inter', sans-serif;
+      color: #1E1E20;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<meta content="web_standard" name="shell-type"/></head>
+<body class="bg-canvas text-charcoal min-h-screen flex flex-col font-sans">
+<!-- NAVEGACIÓN SUPERIOR HORIZONTAL -->
+<header class="w-full bg-white border-b border-borderLine sticky top-0 z-40">
+<div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+<!-- Izquierda: Wordmark + Espacios de Escudos -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 select-none group" href="#" title="UPIICSCode">
+<img alt="UPIICSCode Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VvCD8ynG0pL9xgHhbV5SvgW_-AFVsjkmeI7k0ZrH_X1kvh7_m8MC5QK43sQjTflmKiPsgj1K6q_K1WNWSuCwqj2VgJParcq-AKEP8U-ioRde3HjK79yu3MNYm13aIHuTKp4LVbO2AWB3H3qavAFPuF-LpO37aEKELBgLYzf9mH3OTN-lEKvUYjG1v1okBta4bUpeCvqJ2bPzaTQeBXeQeYfJf2vFuAj3x1tFFojKluNhQJxwVtul787Pg"/>
+</a>
+<div class="h-4 w-px bg-borderLine hidden sm:block"></div>
+<div class="hidden sm:flex items-center gap-2">
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo IPN ]
+          </span>
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo UPIICSA ]
+          </span>
+</div>
+</div>
+<!-- Enlaces centrales -->
+<nav class="flex items-center gap-8 h-full">
+<a class="h-full inline-flex items-center px-1 text-[14px] font-semibold text-ipn border-b-2 border-ipn transition-colors" href="#">
+          Materias
+        </a>
+<a class="h-full inline-flex items-center px-1 text-[14px] font-medium text-secondary hover:text-charcoal transition-colors" href="#">
+          Tareas
+        </a>
+</nav>
+<!-- Derecha: Selector de tema y Avatar de Rodrigo Méndez -->
+<div class="flex items-center gap-4">
+<!-- Selector de tema discreto -->
+<button aria-label="Cambiar tema de color" class="p-1.5 text-secondary hover:text-charcoal hover:bg-canvas rounded-lg transition-colors flex items-center justify-center" title="Tema" type="button">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+</button>
+<!-- Perfil Usuario -->
+<div class="flex items-center gap-2.5 pl-1" title="Rodrigo Méndez • 2021600842">
+<div class="w-8 h-8 rounded-full bg-ipn text-white flex items-center justify-center font-medium text-[13px] shrink-0 select-none">
+            R
+          </div>
+<div class="hidden md:flex flex-col text-left leading-tight">
+<span class="text-[13px] font-semibold text-charcoal leading-none">Rodrigo Méndez</span>
+<span class="text-[11px] text-secondary mt-0.5 leading-none">rmendezm@alumno.ipn.mx</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="flex-1 w-full max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10"><div class="flex flex-col w-full">
+<!-- BREADCRUMB & BACK LINK -->
+<div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-borderLine">
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center gap-1.5 font-label-md text-body-md text-secondary hover:text-charcoal transition-colors group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+<span>Volver a Estructuras de Datos</span>
+</a>
+<span class="text-secondary/40 select-none">•</span>
+<nav class="hidden sm:flex items-center gap-2 font-label-sm text-body-sm text-secondary">
+<span>Estructuras de Datos</span>
+<span class="text-secondary/40">/</span>
+<span>Tareas</span>
+<span class="text-secondary/40">/</span>
+<span class="font-medium text-charcoal truncate max-w-[260px]">Práctica 3: Lista enlazada genérica</span>
+</nav>
+</div>
+<!-- Indicador de período académico y estado del juez -->
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low text-secondary font-label-sm text-body-sm border border-borderLine">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+        Semestre 2025-1
+      </span>
+<span class="hidden md:inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#F0FDF4] text-[#1B7C3A] font-code-sm text-code-sm font-semibold border border-[#1B7C3A]/20">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+        Juez C++20 Activo
+      </span>
+</div>
+</div>
+<!-- LAYOUT PRINCIPAL ASIMÉTRICO (70% / 30%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 items-start">
+<!-- COLUMNA IZQUIERDA: INSTRUCCIONES, CÓDIGO Y DISCUSIÓN (8 cols ~ 68%) -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- ENCABEZADO DE TAREA -->
+<section class="bg-white rounded-xl border border-borderLine p-7 shadow-sm">
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap items-center gap-2.5">
+<span class="px-2.5 py-1 rounded-md bg-[#FAF9F7] text-ipn font-label-sm text-body-sm font-semibold border border-ipn/15 tracking-tight">
+              Unidad II: Estructuras Lineales Dinámicas
+            </span>
+<span class="text-secondary/40">•</span>
+<span class="font-label-sm text-body-sm text-secondary">
+              ID: ED-2025-PR03
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-charcoal tracking-tight">
+            Práctica 3: Implementación de Lista Enlazada Doblemente Ligada en C++
+          </h1>
+<!-- Metadatos de la tarea -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-3 pb-1 border-y border-borderLine/70">
+<div>
+<span class="block font-label-sm text-[11px] text-secondary uppercase tracking-wider">Profesor Titular</span>
+<span class="font-label-md text-body-sm text-charcoal font-medium">M. en C. Roberto Cruz Valencia</span>
+</div>
+<div>
+<span class="block font-label-sm text-[11px] text-secondary uppercase tracking-wider">Publicación</span>
+<span class="font-label-md text-body-sm text-charcoal font-medium">14 de oct., 08:30</span>
+</div>
+<div>
+<span class="block font-label-sm text-[11px] text-secondary uppercase tracking-wider">Fecha Límite</span>
+<span class="font-label-md text-body-sm text-ipn font-semibold">24 de oct., 23:59 hrs</span>
+</div>
+<div>
+<span class="block font-label-sm text-[11px] text-secondary uppercase tracking-wider">Puntaje Máximo</span>
+<span class="font-label-md text-body-sm text-charcoal font-medium">100 puntos</span>
+</div>
+</div>
+</div>
+<!-- CUERPO DE INSTRUCCIONES -->
+<article class="mt-6 flex flex-col gap-5 text-charcoal font-body-md text-body-md leading-relaxed">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-charcoal mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-ipn text-[20px]">flag</span>
+              Objetivos de Aprendizaje
+            </h2>
+<ul class="list-disc list-inside space-y-1 text-secondary ml-1 font-body-md">
+<li>Construir una plantilla de clase (Template C++) con nodos bidireccionales (<code class="font-code-sm text-[12px] bg-canvas px-1.5 py-0.5 rounded text-charcoal">prev</code> y <code class="font-code-sm text-[12px] bg-canvas px-1.5 py-0.5 rounded text-charcoal">next</code>).</li>
+<li>Garantizar complejidad temporal en tiempo constante <span class="font-code-sm text-[13px] font-semibold text-charcoal">O(1)</span> para inserciones y eliminaciones en ambos extremos (<code class="font-code-sm text-[12px] bg-canvas px-1.5 py-0.5 rounded text-charcoal">push_front</code>, <code class="font-code-sm text-[12px] bg-canvas px-1.5 py-0.5 rounded text-charcoal">push_back</code>, <code class="font-code-sm text-[12px] bg-canvas px-1.5 py-0.5 rounded text-charcoal">pop_front</code>, <code class="font-code-sm text-[12px] bg-canvas px-1.5 py-0.5 rounded text-charcoal">pop_back</code>).</li>
+<li>Manejo estricto de memoria heap mediante operadores <code class="font-code-sm text-[12.5px] font-semibold text-ipn">new</code> y <code class="font-code-sm text-[12.5px] font-semibold text-ipn">delete</code>, evitando fugas de memoria (<em class="italic">zero memory leaks</em>).</li>
+</ul>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-charcoal mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-ipn text-[20px]">memory</span>
+              Restricciones y Criterios de Evaluación
+            </h2>
+<div class="bg-[#FAF9F7] rounded-lg p-4 border border-borderLine space-y-2">
+<p class="text-body-sm text-secondary">
+<strong class="text-charcoal font-semibold">1. Prohibido STL:</strong> No está permitido incluir cabeceras de contenedores estándar como <code class="font-code-sm text-[12px] bg-white px-1.5 py-0.5 rounded border border-borderLine">&lt;list&gt;</code>, <code class="font-code-sm text-[12px] bg-white px-1.5 py-0.5 rounded border border-borderLine">&lt;vector&gt;</code> o <code class="font-code-sm text-[12px] bg-white px-1.5 py-0.5 rounded border border-borderLine">&lt;deque&gt;</code>. La implementación de los nodos debe ser nativa.
+              </p>
+<p class="text-body-sm text-secondary">
+<strong class="text-charcoal font-semibold">2. Destructor &amp; RAII:</strong> El destructor <code class="font-code-sm text-[12px] bg-white px-1.5 py-0.5 rounded border border-borderLine">~DoubleLinkedList()</code> debe recorrer y liberar cada nodo asignado individualmente. Las pruebas automatizadas del servidor ejecutarán <span class="font-code-sm text-[12px] font-semibold text-charcoal">Valgrind --leak-check=full</span>. Cualquier byte huérfano descontará el 30% del puntaje.
+              </p>
+<p class="text-body-sm text-secondary">
+<strong class="text-charcoal font-semibold">3. Excepciones:</strong> Invocar métodos de extracción o lectura sobre una lista vacía debe lanzar una excepción estándar <code class="font-code-sm text-[12px] bg-white px-1.5 py-0.5 rounded border border-borderLine">std::underflow_error</code>.
+              </p>
+</div>
+</div>
+<!-- BLOQUE DE CÓDIGO TEMPLATE / INTERFAZ OBLIGATORIA -->
+<div class="mt-2">
+<div class="flex items-center justify-between pb-2">
+<h3 class="font-headline-sm text-headline-sm text-charcoal flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">code</span>
+                Interfaz Obligatoria (<code class="font-code-sm text-ipn text-[13px]">DoubleLinkedList.hpp</code>)
+              </h3>
+<button class="font-label-sm text-[12px] text-secondary hover:text-charcoal px-2.5 py-1 rounded bg-canvas border border-borderLine transition-colors" onclick="navigator.clipboard.writeText(document.getElementById('code-snippet').innerText); this.innerText='¡Copiado!';">
+                Copiar plantilla
+              </button>
+</div>
+<div class="rounded-lg border border-borderLine overflow-hidden bg-white shadow-[0_1px_2px_rgba(30,30,32,0.02)]">
+<!-- Code header bar -->
+<div class="bg-canvas border-b border-borderLine px-4 py-2 flex items-center justify-between text-secondary">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-borderLine"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-borderLine"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-borderLine"></span>
+<span class="font-code-sm text-code-sm text-secondary ml-2">DoubleLinkedList.hpp</span>
+</div>
+<span class="font-code-sm text-[11px] text-secondary">ISO C++20 Standard</span>
+</div>
+<!-- Code content with line numbers -->
+<pre class="p-4 text-code-sm font-code-sm overflow-x-auto text-charcoal leading-6 bg-[#FAFAF8]" id="code-snippet"><span class="text-secondary select-none"> 1  </span><span class="text-[#004808] font-semibold">#ifndef</span> DOUBLE_LINKED_LIST_HPP
+<span class="text-secondary select-none"> 2  </span><span class="text-[#004808] font-semibold">#define</span> DOUBLE_LINKED_LIST_HPP
+<span class="text-secondary select-none"> 3  </span><span class="text-[#004808] font-semibold">#include</span> <span class="text-ipn">&lt;cstddef&gt;</span>
+<span class="text-secondary select-none"> 4  </span><span class="text-[#004808] font-semibold">#include</span> <span class="text-ipn">&lt;stdexcept&gt;</span>
+<span class="text-secondary select-none"> 5  </span>
+<span class="text-secondary select-none"> 6  </span><span class="text-ipn font-semibold">template</span> &lt;<span class="text-ipn font-semibold">typename</span> <span class="text-[#004808]">T</span>&gt;
+<span class="text-secondary select-none"> 7  </span><span class="text-ipn font-semibold">class</span> <span class="text-charcoal font-bold">DoubleLinkedList</span> {
+<span class="text-secondary select-none"> 8  </span><span class="text-ipn font-semibold">private:</span>
+<span class="text-secondary select-none"> 9  </span>    <span class="text-ipn font-semibold">struct</span> <span class="text-charcoal font-semibold">Node</span> {
+<span class="text-secondary select-none">10  </span>        <span class="text-[#004808]">T</span> data;
+<span class="text-secondary select-none">11  </span>        <span class="text-charcoal">Node</span>* prev;
+<span class="text-secondary select-none">12  </span>        <span class="text-charcoal">Node</span>* next;
+<span class="text-secondary select-none">13  </span>        <span class="text-charcoal">Node</span>(<span class="text-ipn font-semibold">const</span> <span class="text-[#004808]">T</span>&amp; val) : data(val), prev(<span class="text-[#7B2750]">nullptr</span>), next(<span class="text-[#7B2750]">nullptr</span>) {}
+<span class="text-secondary select-none">14  </span>    };
+<span class="text-secondary select-none">15  </span>    <span class="text-charcoal">Node</span>* head;
+<span class="text-secondary select-none">16  </span>    <span class="text-charcoal">Node</span>* tail;
+<span class="text-secondary select-none">17  </span>    <span class="text-ipn font-semibold">size_t</span> _size;
+<span class="text-secondary select-none">18  </span>
+<span class="text-secondary select-none">19  </span><span class="text-ipn font-semibold">public:</span>
+<span class="text-secondary select-none">20  </span>    <span class="text-charcoal font-bold">DoubleLinkedList</span>();
+<span class="text-secondary select-none">21  </span>    ~<span class="text-charcoal font-bold">DoubleLinkedList</span>(); <span class="text-secondary">// Obligatorio: liberar nodos iterativamente</span>
+<span class="text-secondary select-none">22  </span>    
+<span class="text-secondary select-none">23  </span>    <span class="text-ipn font-semibold">void</span> <span class="text-[#004808]">push_front</span>(<span class="text-ipn font-semibold">const</span> <span class="text-[#004808]">T</span>&amp; value);
+<span class="text-secondary select-none">24  </span>    <span class="text-ipn font-semibold">void</span> <span class="text-[#004808]">push_back</span>(<span class="text-ipn font-semibold">const</span> <span class="text-[#004808]">T</span>&amp; value);
+<span class="text-secondary select-none">25  </span>    <span class="text-[#004808]">T</span>    <span class="text-[#004808]">pop_front</span>();
+<span class="text-secondary select-none">26  </span>    <span class="text-[#004808]">T</span>    <span class="text-[#004808]">pop_back</span>();
+<span class="text-secondary select-none">27  </span>    <span class="text-ipn font-semibold">bool</span> <span class="text-[#004808]">empty</span>() <span class="text-ipn font-semibold">const</span> <span class="text-ipn font-semibold">noexcept</span>;
+<span class="text-secondary select-none">28  </span>    <span class="text-ipn font-semibold">size_t</span> <span class="text-[#004808]">size</span>() <span class="text-ipn font-semibold">const</span> <span class="text-ipn font-semibold">noexcept</span>;
+<span class="text-secondary select-none">29  </span>};
+<span class="text-secondary select-none">30  </span><span class="text-[#004808] font-semibold">#endif</span></pre>
+</div>
+</div>
+<!-- RECURSOS ADJUNTOS DEL ASESOR -->
+<div class="mt-4 pt-4 border-t border-borderLine">
+<h3 class="font-headline-sm text-headline-sm text-charcoal mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">attach_file</span>
+              Materiales y Recursos Adjuntos (2)
+            </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- Recurso 1: PDF -->
+<a class="flex items-center gap-3 p-3.5 rounded-lg border border-borderLine bg-white hover:border-ipn transition-colors group" href="#">
+<div class="w-10 h-10 rounded bg-[#FEF2F2] text-[#C5221F] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-body-sm text-charcoal font-medium truncate group-hover:text-ipn transition-colors">
+                    guia_listas_dobles.pdf
+                  </p>
+<p class="font-body-sm text-[12px] text-secondary">Documento PDF • 1.4 MB</p>
+</div>
+<span class="material-symbols-outlined text-secondary group-hover:text-charcoal text-[20px] shrink-0">download</span>
+</a>
+<!-- Recurso 2: ZIP -->
+<a class="flex items-center gap-3 p-3.5 rounded-lg border border-borderLine bg-white hover:border-ipn transition-colors group" href="#">
+<div class="w-10 h-10 rounded bg-surface-container-low text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">folder_zip</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-body-sm text-charcoal font-medium truncate group-hover:text-ipn transition-colors">
+                    casos_prueba_offline.zip
+                  </p>
+<p class="font-body-sm text-[12px] text-secondary">Archivo ZIP • 320 KB</p>
+</div>
+<span class="material-symbols-outlined text-secondary group-hover:text-charcoal text-[20px] shrink-0">download</span>
+</a>
+</div>
+</div>
+</article>
+</section>
+<!-- SECCIÓN INFERIOR: COMENTARIOS DE LA CLASE -->
+<section class="bg-white rounded-xl border border-borderLine p-7 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-borderLine">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">forum</span>
+<h2 class="font-headline-sm text-headline-sm text-charcoal">Comentarios de la clase</h2>
+<span class="px-2 py-0.5 rounded-full bg-canvas text-secondary font-label-sm text-[12px] border border-borderLine font-medium">3</span>
+</div>
+</div>
+<div class="divide-y divide-borderLine/70">
+<!-- Comentario 1: Alumno -->
+<div class="py-4.5 flex gap-3.5 items-start">
+<div class="w-8 h-8 rounded-full bg-secondary/15 text-charcoal font-medium text-[12px] flex items-center justify-center shrink-0 mt-0.5">
+              EG
+            </div>
+<div class="flex-1">
+<div class="flex items-baseline gap-2">
+<span class="font-label-md text-body-sm text-charcoal font-semibold">Emiliano Gutiérrez</span>
+<span class="font-body-sm text-[11.5px] text-secondary">15 de oct. • 11:20</span>
+</div>
+<p class="mt-1 font-body-md text-body-sm text-secondary">
+                Profesor, en el método <code class="font-code-sm text-[12px] bg-canvas px-1.5 py-0.5 rounded text-charcoal">pop_front()</code>, ¿es necesario retornar por copia o podemos retornar referencia constante para tipos grandes?
+              </p>
+</div>
+</div>
+<!-- Comentario 2: Profesor Respuesta (Indented) -->
+<div class="py-4.5 pl-8 sm:pl-10 flex gap-3.5 items-start bg-[#FAF9F7]/70 -mx-7 px-7">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white font-medium text-[12px] flex items-center justify-center shrink-0 mt-0.5">
+              RC
+            </div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-body-sm text-charcoal font-semibold">M. en C. Roberto Cruz Valencia</span>
+<span class="px-1.5 py-0.2 rounded bg-ipn/10 text-ipn font-label-sm text-[10.5px] font-semibold">Profesor</span>
+<span class="font-body-sm text-[11.5px] text-secondary">15 de oct. • 12:45</span>
+</div>
+<p class="mt-1 font-body-md text-body-sm text-secondary">
+                Excelente pregunta, Emiliano. Dado que el nodo se destruye antes de que la función concluya, deben retornar por valor (<code class="font-code-sm text-[12px] bg-white px-1.5 py-0.5 rounded border border-borderLine">T</code>). No retornen referencias a memoria ya liberada (<em class="italic">dangling reference</em>).
+              </p>
+</div>
+</div>
+<!-- Comentario 3: Alumna -->
+<div class="py-4.5 flex gap-3.5 items-start">
+<div class="w-8 h-8 rounded-full bg-secondary/15 text-charcoal font-medium text-[12px] flex items-center justify-center shrink-0 mt-0.5">
+              VL
+            </div>
+<div class="flex-1">
+<div class="flex items-baseline gap-2">
+<span class="font-label-md text-body-sm text-charcoal font-semibold">Valeria Lozano</span>
+<span class="font-body-sm text-[11.5px] text-secondary">16 de oct. • 18:04</span>
+</div>
+<p class="mt-1 font-body-md text-body-sm text-secondary">
+                ¿Los casos de prueba del ZIP incluyen verificación con tipos no primitivos como cadenas u objetos definidos por el usuario?
+              </p>
+</div>
+</div>
+</div>
+<!-- Input para nuevo comentario de clase -->
+<div class="mt-4 pt-4 border-t border-borderLine flex gap-3 items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white font-medium text-[12px] flex items-center justify-center shrink-0">
+            R
+          </div>
+<div class="flex-1 relative">
+<input class="w-full bg-[#FAF9F7] border border-borderLine rounded-lg px-3.5 py-2 text-body-sm font-body-md text-charcoal placeholder:text-secondary focus:outline-none focus:border-ipn transition-colors" placeholder="Añade un comentario para toda la clase..." type="text"/>
+</div>
+<button class="p-2 text-secondary hover:text-ipn rounded-lg hover:bg-canvas transition-colors" title="Publicar comentario">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</section>
+</div>
+<!-- COLUMNA DERECHA: ENTREGA Y MENSAJES PRIVADOS (4 cols ~ 32%) -->
+<div class="lg:col-span-4 flex flex-col gap-6 sticky top-20">
+<!-- TARJETA: TU TRABAJO (ENTREGA) -->
+<div class="bg-white rounded-xl border border-borderLine p-6 shadow-sm flex flex-col gap-5">
+<!-- Header de la tarjeta con Estado -->
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-charcoal font-semibold">Tu trabajo</h2>
+<!-- Badge Asignada / No entregado -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FAF9F7] text-secondary font-label-sm text-[12px] font-medium border border-borderLine">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Asignada (Sin entregar)
+          </span>
+</div>
+<!-- Archivos adjuntos del alumno -->
+<div class="flex flex-col gap-2.5">
+<span class="font-label-sm text-[11px] text-secondary uppercase tracking-wider">Archivos adjuntos para calificar</span>
+<!-- Elemento de archivo cargado -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-borderLine bg-[#FAF9F7] group hover:border-secondary/40 transition-colors">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-ipn text-[22px] shrink-0">description</span>
+<div class="truncate">
+<p class="font-code-sm text-code-sm text-charcoal font-medium truncate">solucion_lista_doble.cpp</p>
+<p class="font-body-sm text-[11px] text-secondary">Código C++ • 4.2 KB</p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button aria-label="Previsualizar código" class="p-1 text-secondary hover:text-charcoal rounded hover:bg-white transition-colors" title="Previsualizar">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button aria-label="Quitar archivo" class="p-1 text-secondary hover:text-error rounded hover:bg-white transition-colors" title="Quitar archivo">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Botones de Acción -->
+<div class="flex flex-col gap-2.5 pt-1">
+<!-- Botón Secundario: + Añadir o crear archivo -->
+<button class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-borderLine bg-white hover:bg-canvas text-charcoal font-label-md text-body-sm font-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">add</span>
+            Añadir o crear archivo
+          </button>
+<!-- Botón Primario: Entregar tarea en Guinda IPN #6F1D46 -->
+<button class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-ipn hover:bg-ipnHover text-white font-label-md text-body-sm font-semibold shadow-sm transition-colors cursor-pointer active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+            Entregar tarea
+          </button>
+</div>
+<!-- Indicador de auditoría de entrega -->
+<p class="text-center font-body-sm text-[11.5px] text-secondary leading-tight pt-1">
+          El servidor compilará con <code class="font-code-sm text-[11px]">g++ -std=c++20 -Wall -Wextra</code> y ejecutará 20 casos de prueba protegidos.
+        </p>
+</div>
+<!-- TARJETA: COMENTARIOS PRIVADOS -->
+<div class="bg-white rounded-xl border border-borderLine p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">lock</span>
+<h3 class="font-headline-sm text-headline-sm text-charcoal font-semibold">Comentarios privados</h3>
+</div>
+<p class="font-body-sm text-[12px] text-secondary -mt-1">
+          Solo visible entre el profesor Roberto Cruz y tú.
+        </p>
+<!-- Conversación previa / Notas -->
+<div class="space-y-3 pt-1">
+<!-- Mensaje enviado por Rodrigo Méndez -->
+<div class="bg-[#FAF9F7] rounded-lg p-3 border border-borderLine/70 text-body-sm">
+<div class="flex items-center justify-between pb-1 text-secondary font-label-sm text-[11px]">
+<span class="font-semibold text-charcoal">Tú</span>
+<span>Ayer, 21:14</span>
+</div>
+<p class="text-charcoal font-body-md text-[13px] leading-relaxed">
+              Profesor, verifiqué con <span class="font-code-sm font-semibold text-ipn">valgrind</span> en local que no hay memory leaks con 10,000 inserciones aleatorias. Adjunto la solución preliminar.
+            </p>
+</div>
+<!-- Respuesta del docente -->
+<div class="bg-white rounded-lg p-3 border border-ipn/20 text-body-sm">
+<div class="flex items-center justify-between pb-1 text-secondary font-label-sm text-[11px]">
+<span class="font-semibold text-ipn">M. en C. Roberto Cruz</span>
+<span>Hoy, 09:30</span>
+</div>
+<p class="text-charcoal font-body-md text-[13px] leading-relaxed">
+              Excelente iniciativa, Rodrigo. Recuerda también comprobar el caso borde donde se invoca <code class="font-code-sm text-[11.5px]">pop_back()</code> sobre una lista que solo contenía 1 elemento.
+            </p>
+</div>
+</div>
+<!-- Caja de envío de mensaje privado -->
+<div class="pt-2">
+<div class="relative">
+<textarea class="w-full bg-[#FAF9F7] border border-borderLine rounded-lg px-3 py-2 text-body-sm font-body-md text-charcoal placeholder:text-secondary focus:outline-none focus:border-ipn transition-colors resize-none" placeholder="Escribe un comentario privado al profesor..." rows="2"></textarea>
+<div class="flex justify-end pt-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-canvas border border-borderLine text-charcoal hover:bg-secondary/10 font-label-sm text-body-sm font-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">send</span>
+                Enviar nota
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main>
+</body></html>

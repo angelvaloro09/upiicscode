@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 3.1: Apuntadores y Manejo de Memoria en C | UPIICSCode</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#FBFBFA',
+            surface: '#FFFFFF',
+            borderLine: '#E7E6E2',
+            ipn: {
+              DEFAULT: '#6F1D46',
+              hover: '#5A1638',
+              light: '#F8EEF2',
+              border: '#E8D2DC'
+            },
+            charcoal: {
+              900: '#18181B',
+              700: '#3F3F46',
+              500: '#71717A',
+              400: '#A1A1AA',
+              200: '#E4E4E7',
+              100: '#F4F4F5'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FBFBFA;
+      color: #18181B;
+      font-family: 'Inter', sans-serif;
+    }
+    ::selection {
+      background: #F8EEF2;
+      color: #6F1D46;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-charcoal-900 min-h-screen flex flex-col font-sans antialiased selection:bg-ipn-light selection:text-ipn">
+<!-- BARRA DE NAVEGACIÓN SUPERIOR REDUCIDA -->
+<header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderLine">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+<!-- Izquierda: Regreso y título discreto -->
+<div class="flex items-center gap-3 min-w-0">
+<a class="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal-700 hover:text-ipn transition-colors shrink-0" href="#">
+<span class="material-symbols-outlined text-lg leading-none">arrow_back</span>
+<span>Volver a Estructuras de Datos</span>
+</a>
+<span class="hidden sm:inline text-charcoal-400">/</span>
+<span class="hidden sm:inline text-sm font-medium text-charcoal-500 truncate">
+          Lección 3.1: Apuntadores y Manejo de Memoria en C
+        </span>
+</div>
+<!-- Derecha: Tiempo estimado, selector de tema y avatar -->
+<div class="flex items-center gap-4 shrink-0">
+<div class="hidden md:flex items-center gap-1.5 text-xs font-mono text-charcoal-500 bg-canvas px-2.5 py-1 rounded border border-borderLine">
+<span class="material-symbols-outlined text-[16px] text-charcoal-400">schedule</span>
+<span>12 min de lectura</span>
+</div>
+<button aria-label="Cambiar tema" class="inline-flex items-center gap-1.5 text-xs text-charcoal-700 hover:text-ipn px-2 py-1 rounded hover:bg-canvas border border-transparent hover:border-borderLine transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">light_mode</span>
+<span class="hidden sm:inline">Claro</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-ipn text-white text-xs font-medium flex items-center justify-center ring-2 ring-borderLine">
+          RM
+        </div>
+</div>
+</div>
+</header>
+<!-- CONTENEDOR PRINCIPAL: TOC + ARTÍCULO EDITORIAL -->
+<div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 lg:py-14 flex-1">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+<!-- TABLA DE CONTENIDOS LATERAL (STICKY A LA IZQUIERDA) -->
+<aside class="hidden lg:block lg:col-span-3 sticky top-24">
+<nav class="space-y-4 pr-4">
+<div class="text-xs uppercase tracking-wider font-semibold text-charcoal-500 pb-2 border-b border-borderLine">
+            En esta lección
+          </div>
+<ul class="space-y-1 text-sm">
+<li>
+<a class="toc-link block py-1.5 px-2 rounded font-medium text-ipn bg-ipn-light/60 transition-colors" href="#sec-1">
+                1. ¿Qué es un apuntador?
+              </a>
+</li>
+<li>
+<a class="toc-link block py-1.5 px-2 rounded text-charcoal-700 hover:text-ipn hover:bg-surface transition-colors" href="#sec-2">
+                2. Declaración y operador &amp;
+              </a>
+</li>
+<li>
+<a class="toc-link block py-1.5 px-2 rounded text-charcoal-700 hover:text-ipn hover:bg-surface transition-colors" href="#sec-3">
+                3. Desreferenciación (*)
+              </a>
+</li>
+<li>
+<a class="toc-link block py-1.5 px-2 rounded text-charcoal-700 hover:text-ipn hover:bg-surface transition-colors" href="#sec-4">
+                4. Asignación dinámica: malloc y free
+              </a>
+</li>
+<li>
+<a class="toc-link block py-1.5 px-2 rounded text-charcoal-700 hover:text-ipn hover:bg-surface transition-colors" href="#sec-5">
+                5. Errores comunes
+              </a>
+</li>
+</ul>
+<div class="pt-6 border-t border-borderLine text-xs text-charcoal-500 space-y-1">
+<p class="font-medium text-charcoal-700">UPIICSCode • IPN</p>
+<p>Estructuras de Datos y Algoritmia</p>
+</div>
+</nav>
+</aside>
+<!-- ARTÍCULO DE LECTURA (COLUMNA CENTRADA DE 65-75 CARACTERES) -->
+<main class="lg:col-span-9 flex justify-center">
+<article class="w-full max-w-[70ch] space-y-10">
+<!-- ENCABEZADO DE LA LECCIÓN -->
+<header class="space-y-3 pb-8 border-b border-borderLine">
+<div class="flex items-center gap-2 text-xs font-mono text-charcoal-500">
+<span class="text-ipn font-semibold">Unidad III</span>
+<span>•</span>
+<span>Memoria y Punteros</span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-charcoal-900 leading-tight">
+              Lección 3.1: Apuntadores y Manejo de Memoria en C
+            </h1>
+<p class="text-sm text-charcoal-500 pt-1 flex items-center gap-2">
+<span>Cátedra de Algoritmia</span>
+<span>•</span>
+<span>Lectura técnica y conceptual</span>
+</p>
+</header>
+<!-- PROSA INTRODUCTORIA -->
+<section class="space-y-4">
+<p class="text-[17px] leading-relaxed text-charcoal-700">
+              Bienvenido a uno de los temas más representativos del lenguaje C y de la computación clásica. Comprender los apuntadores no es solo aprobar la asignatura; es adquirir una visión nítida de cómo interactúa el procesador con la memoria física de tu máquina.
+            </p>
+</section>
+<!-- DIAGRAMA VECTORIAL SVG TÉCNICO (REEMPLAZO DE FOTOGRAFÍA) -->
+<section class="space-y-2">
+<div class="bg-surface border border-borderLine rounded-lg p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-borderLine text-xs font-mono text-charcoal-500">
+<span class="font-medium text-charcoal-700">Diagrama 3.1 • Modelo secuencial de celdas de memoria</span>
+<span>Arquitectura x86-64</span>
+</div>
+<!-- SVG Arquitectónico Técnico -->
+<div class="w-full overflow-x-auto pb-2">
+<svg class="w-full min-w-[560px] h-auto text-charcoal-700 font-mono text-[12px]" fill="none" viewbox="0 0 680 230" xmlns="http://www.w3.org/2000/svg">
+<!-- Header Labels -->
+<text fill="#71717A" font-size="11" font-weight="600" letter-spacing="0.05em" x="30" y="24">VARIABLE</text>
+<text fill="#71717A" font-size="11" font-weight="600" letter-spacing="0.05em" x="140" y="24">DIRECCIÓN (HEX)</text>
+<text fill="#71717A" font-size="11" font-weight="600" letter-spacing="0.05em" x="310" y="24">VALOR EN CELDA (4 BYTES)</text>
+<text fill="#71717A" font-size="11" font-weight="600" letter-spacing="0.05em" x="525" y="24">DESCRIPCIÓN</text>
+<!-- Line 1: ptrMatricula -->
+<g>
+<!-- Variable -->
+<rect fill="#F8EEF2" height="44" rx="4" stroke="#E8D2DC" stroke-width="1" width="90" x="20" y="42"></rect>
+<text fill="#6F1D46" font-size="12" font-weight="600" x="30" y="68">ptrMatricula</text>
+<!-- Arrow to cell -->
+<path d="M110 64 H132" stroke="#6F1D46" stroke-dasharray="2 2" stroke-width="1.5"></path>
+<!-- Address tag -->
+<rect fill="#FBFBFA" height="32" rx="4" stroke="#E7E6E2" stroke-width="1" width="115" x="135" y="48"></rect>
+<text fill="#71717A" font-size="11.5" x="145" y="68">0x7ffd9a40</text>
+<!-- Memory Cell -->
+<rect fill="#FFFFFF" height="44" rx="4" stroke="#6F1D46" stroke-width="1.5" width="220" x="270" y="42"></rect>
+<text fill="#6F1D46" font-size="13" font-weight="600" x="300" y="69">0x7ffd9a3c</text>
+<!-- Type / Annotation -->
+<text fill="#3F3F46" font-size="12" x="525" y="68">Puntero (almacena dirección)</text>
+</g>
+<!-- Pointer Flow Arrow -->
+<path d="M380 86 C 380 120, 230 110, 230 148" fill="none" marker-end="url(#arrow)" stroke="#6F1D46" stroke-linecap="round" stroke-width="1.5"></path>
+<defs>
+<marker id="arrow" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="6" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 8 5 L 0 9 z" fill="#6F1D46"></path>
+</marker>
+</defs>
+<!-- Line 2: matricula -->
+<g>
+<!-- Variable -->
+<rect fill="#F4F4F5" height="44" rx="4" stroke="#E4E4E7" stroke-width="1" width="90" x="20" y="148"></rect>
+<text fill="#18181B" font-size="12" font-weight="600" x="35" y="174">matricula</text>
+<!-- Arrow to cell -->
+<path d="M110 170 H132" stroke="#71717A" stroke-dasharray="2 2" stroke-width="1.5"></path>
+<!-- Address tag -->
+<rect fill="#FBFBFA" height="32" rx="4" stroke="#6F1D46" stroke-width="1" width="115" x="135" y="154"></rect>
+<text fill="#6F1D46" font-size="11.5" font-weight="600" x="145" y="174">0x7ffd9a3c</text>
+<!-- Memory Cell -->
+<rect fill="#FFFFFF" height="44" rx="4" stroke="#E7E6E2" stroke-width="1" width="220" x="270" y="148"></rect>
+<text fill="#18181B" font-size="13" font-weight="600" x="335" y="175">20216008</text>
+<!-- Type / Annotation -->
+<text fill="#3F3F46" font-size="12" x="525" y="174">Entero primitivo (int)</text>
+</g>
+</svg>
+</div>
+<p class="text-xs text-charcoal-500 pt-3 border-t border-borderLine">
+                Representación conceptual de la memoria RAM secuencial: el apuntador <code class="font-mono text-ipn">ptrMatricula</code> contiene como valor la dirección de memoria hexadecimal donde se aloja la variable <code class="font-mono text-ipn">matricula</code>.
+              </p>
+</div>
+</section>
+<!-- SECCIÓN 1 -->
+<section class="space-y-4 pt-4" id="sec-1">
+<h2 class="text-2xl font-bold tracking-tight text-charcoal-900">
+              1. ¿Qué es un apuntador?
+            </h2>
+<p class="text-[17px] leading-relaxed text-charcoal-700">
+              Imagina la memoria RAM como una extensa fila de casilleros numerados en el pasillo del edificio de laboratorios de UPIICSA. Cada casillero tiene un número único (su dirección) y adentro puede albergar un contenido puntual: un entero, un carácter o un valor flotante.
+            </p>
+<!-- AVISO SUTIL: DEFINICIÓN FUNDAMENTAL -->
+<div class="bg-surface border border-borderLine rounded-lg p-5">
+<div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ipn mb-1.5">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+<span>Definición Fundamental</span>
+</div>
+<p class="text-[15px] leading-relaxed text-charcoal-700">
+                Un apuntador es una variable especializada cuyo propósito único no es almacenar un valor computacional directo (como una edad o un promedio), sino la dirección de memoria hexadecimal donde reside otra variable.
+              </p>
+</div>
+</section>
+<!-- SECCIÓN 2 -->
+<section class="space-y-4 pt-4" id="sec-2">
+<h2 class="text-2xl font-bold tracking-tight text-charcoal-900">
+              2. Declaración y operador de dirección (&amp;)
+            </h2>
+<p class="text-[17px] leading-relaxed text-charcoal-700">
+              Para obtener la ubicación de una variable en memoria utilizamos el operador ampersand (<code class="font-mono text-[15px] bg-white px-1.5 py-0.5 rounded border border-borderLine text-ipn font-semibold">&amp;</code>), comúnmente llamado operador de dirección.
+            </p>
+<!-- BLOQUE DE CÓDIGO CON BOTÓN COPIAR -->
+<div class="bg-surface border border-borderLine rounded-lg overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 bg-canvas border-b border-borderLine text-xs font-mono text-charcoal-500">
+<span>C99 • Operador &amp;</span>
+<button class="inline-flex items-center gap-1 text-charcoal-700 hover:text-ipn transition-colors px-2 py-0.5 rounded hover:bg-white border border-transparent hover:border-borderLine" onclick="copyCodeSnippet(this, 'code-amp')" type="button">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+<span>Copiar</span>
+</button>
+</div>
+<pre class="p-4 font-mono text-[14px] leading-relaxed text-charcoal-900 overflow-x-auto"><code id="code-amp"><span class="text-charcoal-400 select-none mr-3">1</span><span class="text-ipn font-semibold">int</span> matricula = 20216008;
+<span class="text-charcoal-400 select-none mr-3">2</span><span class="text-ipn font-semibold">int</span> *ptrMatricula = &amp;matricula; <span class="text-charcoal-500">// ptrMatricula almacena la dirección de matricula</span></code></pre>
+</div>
+</section>
+<!-- SECCIÓN 3 -->
+<section class="space-y-4 pt-4" id="sec-3">
+<h2 class="text-2xl font-bold tracking-tight text-charcoal-900">
+              3. Desreferenciación (*)
+            </h2>
+<p class="text-[17px] leading-relaxed text-charcoal-700">
+              Una vez que tienes el apuntador orientado a un casillero, ¿cómo modificas su contenido? Usando el asterisco (<code class="font-mono text-[15px] bg-white px-1.5 py-0.5 rounded border border-borderLine text-ipn font-semibold">*</code>). Este proceso se llama <em>desreferenciación</em> o indirección: estás navegando por el puntero para manipular el dato real.
+            </p>
+<!-- AVISO SUTIL: EJEMPLO PRÁCTICO -->
+<div class="bg-surface border border-borderLine rounded-lg p-5">
+<div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5">
+<span class="material-symbols-outlined text-[18px] text-ipn">lightbulb</span>
+<span>Ejemplo Práctico: Modificación por Referencia</span>
+</div>
+<p class="text-[15px] leading-relaxed text-charcoal-700">
+                Si ejecutas <code class="font-mono text-[14px] px-1 py-0.5 bg-canvas rounded border border-borderLine text-charcoal-900 font-semibold">*ptrMatricula = 20250001;</code>, la variable original <code class="font-mono text-[14px] text-charcoal-900 font-semibold">matricula</code> cambiará inmediatamente su valor, sin necesidad de invocarla por su identificador directo.
+              </p>
+</div>
+</section>
+<!-- SECCIÓN 4 -->
+<section class="space-y-4 pt-4" id="sec-4">
+<h2 class="text-2xl font-bold tracking-tight text-charcoal-900">
+              4. Asignación dinámica: malloc y free
+            </h2>
+<p class="text-[17px] leading-relaxed text-charcoal-700">
+              Hasta aquí, las variables residían en la pila (<em>Stack</em>). Sin embargo, cuando no conocemos el tamaño del arreglo antes de compilar o requerimos que los datos perduren más allá del ciclo de vida de la función, solicitamos memoria directamente al sistema operativo en el montículo (<em>Heap</em>).
+            </p>
+<!-- BLOQUE DE CÓDIGO CON BOTÓN COPIAR -->
+<div class="bg-surface border border-borderLine rounded-lg overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 bg-canvas border-b border-borderLine text-xs font-mono text-charcoal-500">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-ipn"></span>
+                  memoria_dinamica.c
+                </span>
+<button class="inline-flex items-center gap-1 text-charcoal-700 hover:text-ipn transition-colors px-2 py-0.5 rounded hover:bg-white border border-transparent hover:border-borderLine" onclick="copyCodeSnippet(this, 'code-malloc')" type="button">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+<span>Copiar código</span>
+</button>
+</div>
+<pre class="p-4 font-mono text-[13.5px] leading-relaxed text-charcoal-900 overflow-x-auto"><code id="code-malloc"><span class="text-charcoal-400 select-none mr-3"> 1</span><span class="text-ipn font-semibold">#include</span> &lt;stdio.h&gt;
+<span class="text-charcoal-400 select-none mr-3"> 2</span><span class="text-ipn font-semibold">#include</span> &lt;stdlib.h&gt;
+<span class="text-charcoal-400 select-none mr-3"> 3</span>
+<span class="text-charcoal-400 select-none mr-3"> 4</span><span class="text-ipn font-semibold">int</span> main() {
+<span class="text-charcoal-400 select-none mr-3"> 5</span>    <span class="text-ipn font-semibold">int</span> *ptr = (<span class="text-ipn font-semibold">int</span>*) malloc(<span class="text-ipn font-semibold">sizeof</span>(<span class="text-ipn font-semibold">int</span>) * 5);
+<span class="text-charcoal-400 select-none mr-3"> 6</span>    <span class="text-ipn font-semibold">if</span> (ptr == NULL) {
+<span class="text-charcoal-400 select-none mr-3"> 7</span>        fprintf(stderr, <span class="text-charcoal-500">"Error al asignar memoria\n"</span>);
+<span class="text-charcoal-400 select-none mr-3"> 8</span>        <span class="text-ipn font-semibold">return</span> 1;
+<span class="text-charcoal-400 select-none mr-3"> 9</span>    }
+<span class="text-charcoal-400 select-none mr-3">10</span>    <span class="text-ipn font-semibold">for</span> (<span class="text-ipn font-semibold">int</span> i = 0; i &lt; 5; i++) {
+<span class="text-charcoal-400 select-none mr-3">11</span>        ptr[i] = (i + 1) * 10;
+<span class="text-charcoal-400 select-none mr-3">12</span>        printf(<span class="text-charcoal-500">"ptr[%d] = %d en %p\n"</span>, i, ptr[i], (<span class="text-ipn font-semibold">void</span>*)&amp;ptr[i]);
+<span class="text-charcoal-400 select-none mr-3">13</span>    }
+<span class="text-charcoal-400 select-none mr-3">14</span>    free(ptr);
+<span class="text-charcoal-400 select-none mr-3">15</span>    <span class="text-ipn font-semibold">return</span> 0;
+<span class="text-charcoal-400 select-none mr-3">16</span>}</code></pre>
+</div>
+<!-- AVISO SUTIL: ADVERTENCIA DE ARQUITECTURA -->
+<div class="bg-surface border border-borderLine rounded-lg p-5">
+<div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5">
+<span class="material-symbols-outlined text-[18px] text-ipn">warning</span>
+<span>Advertencia de Arquitectura</span>
+</div>
+<p class="text-[15px] leading-relaxed text-charcoal-700">
+                Siempre verifica que el resultado de <code class="font-mono text-[14px] text-charcoal-900 font-semibold">malloc()</code> sea distinto de <code class="font-mono text-[14px] text-charcoal-900 font-semibold">NULL</code> antes de acceder a la memoria. En sistemas con recursos limitados o ante solicitudes excesivas, la asignación fallará y desreferenciar un puntero nulo provocará un <em>Segmentation Fault</em> inmediato.
+              </p>
+</div>
+</section>
+<!-- SECCIÓN 5 -->
+<section class="space-y-4 pt-4" id="sec-5">
+<h2 class="text-2xl font-bold tracking-tight text-charcoal-900">
+              5. Errores comunes
+            </h2>
+<p class="text-[17px] leading-relaxed text-charcoal-700">
+              En C no contamos con un recolector de basura automatizado como en Java o Python. Cada byte que solicitas con <code class="font-mono text-[15px] bg-white px-1.5 py-0.5 rounded border border-borderLine text-charcoal-900 font-medium">malloc</code> o <code class="font-mono text-[15px] bg-white px-1.5 py-0.5 rounded border border-borderLine text-charcoal-900 font-medium">calloc</code> debe ser explícitamente devuelto con <code class="font-mono text-[15px] bg-white px-1.5 py-0.5 rounded border border-borderLine text-charcoal-900 font-medium">free</code>.
+            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div class="bg-surface border border-borderLine rounded-lg p-5">
+<div class="font-semibold text-sm text-charcoal-900 mb-1.5">Dangling Pointer</div>
+<p class="text-sm leading-relaxed text-charcoal-700">
+                  Ocurre cuando liberas la memoria pero continúas utilizando el apuntador sin antes igualarlo a <code class="font-mono text-xs bg-canvas px-1 py-0.5 rounded border border-borderLine">NULL</code>.
+                </p>
+</div>
+<div class="bg-surface border border-borderLine rounded-lg p-5">
+<div class="font-semibold text-sm text-charcoal-900 mb-1.5">Fuga de Memoria (Memory Leak)</div>
+<p class="text-sm leading-relaxed text-charcoal-700">
+                  Si reasignas el apuntador sin antes haber ejecutado <code class="font-mono text-xs bg-canvas px-1 py-0.5 rounded border border-borderLine">free()</code>, esos bytes quedarán inaccesibles e irrecuperables hasta finalizar el proceso.
+                </p>
+</div>
+</div>
+</section>
+<!-- BOTÓN MARCAR COMO LEÍDA -->
+<div class="pt-8 pb-4 flex justify-center">
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-ipn hover:bg-ipn-hover text-white text-sm font-medium transition-colors shadow-sm" id="btn-mark-read" onclick="toggleReadStatus(this)" type="button">
+<span class="material-symbols-outlined text-lg leading-none" id="mark-icon">check_circle</span>
+<span id="mark-label">Marcar como leída</span>
+</button>
+</div>
+<!-- NAVEGACIÓN INFERIOR DISCRETA -->
+<nav class="pt-8 border-t border-borderLine flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+<a class="w-full sm:w-auto inline-flex items-center gap-2 text-charcoal-700 hover:text-ipn transition-colors group p-2 rounded hover:bg-surface border border-transparent hover:border-borderLine" href="#">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:-translate-x-0.5">arrow_back</span>
+<span>← Anterior: Tipos de datos primitivos</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-end gap-2 text-charcoal-700 hover:text-ipn transition-colors group p-2 rounded hover:bg-surface border border-transparent hover:border-borderLine" href="#">
+<span>Siguiente: Aritmética de apuntadores →</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-0.5">arrow_forward</span>
+</a>
+</nav>
+</article>
+</main>
+</div>
+</div>
+<!-- SCRIPT FUNCIONAL: COPIAR Y MARCAR LEÍDA -->
+<script>
+    function copyCodeSnippet(button, codeId) {
+      const codeElement = document.getElementById(codeId);
+      if (!codeElement) return;
+
+      // Extract raw code text ignoring line numbers
+      const rawText = codeElement.innerText.replace(/^\s*\d+\s?/gm, '');
+      navigator.clipboard.writeText(rawText.trim()).then(() => {
+        const originalHtml = button.innerHTML;
+        button.innerHTML = `
+          <span class="material-symbols-outlined text-[15px] text-ipn">check</span>
+          <span class="text-ipn font-medium">¡Copiado!</span>
+        `;
+        setTimeout(() => {
+          button.innerHTML = originalHtml;
+        }, 2000);
+      });
+    }
+
+    let isLessonCompleted = false;
+    function toggleReadStatus(button) {
+      isLessonCompleted = !isLessonCompleted;
+      const label = document.getElementById('mark-label');
+      const icon = document.getElementById('mark-icon');
+
+      if (isLessonCompleted) {
+        button.classList.remove('bg-ipn', 'hover:bg-ipn-hover');
+        button.classList.add('bg-charcoal-700', 'hover:bg-charcoal-900');
+        label.textContent = 'Lección completada';
+        icon.textContent = 'task_alt';
+      } else {
+        button.classList.remove('bg-charcoal-700', 'hover:bg-charcoal-900');
+        button.classList.add('bg-ipn', 'hover:bg-ipn-hover');
+        label.textContent = 'Marcar como leída';
+        icon.textContent = 'check_circle';
+      }
+    }
+
+    // Scroll active link detection for Table of Contents
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    window.addEventListener('scroll', () => {
+      let currentId = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentId = section.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        if (href === currentId) {
+          link.classList.add('text-ipn', 'font-medium', 'bg-ipn-light/60');
+          link.classList.remove('text-charcoal-700');
+        } else {
+          link.classList.remove('text-ipn', 'font-medium', 'bg-ipn-light/60');
+          link.classList.add('text-charcoal-700');
+        }
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPIICSCode - Inicio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#FBFBFA",
+            charcoal: "#1E1E20",
+            secondary: "#5F6368",
+            borderLine: "#E7E6E2",
+            ipn: "#6F1D46",
+            ipnHover: "#5A1637"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FBFBFA;
+      font-family: 'Inter', sans-serif;
+      color: #1E1E20;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<meta content="web_standard" name="shell-type"/></head>
+<body class="bg-canvas text-charcoal min-h-screen flex flex-col font-sans">
+<!-- NAVEGACIÓN SUPERIOR HORIZONTAL -->
+<header class="w-full bg-white border-b border-borderLine sticky top-0 z-40">
+<div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+<!-- Izquierda: Wordmark + Espacios de Escudos -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 select-none group" href="#" title="UPIICSCode">
+<img alt="UPIICSCode Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VvCD8ynG0pL9xgHhbV5SvgW_-AFVsjkmeI7k0ZrH_X1kvh7_m8MC5QK43sQjTflmKiPsgj1K6q_K1WNWSuCwqj2VgJParcq-AKEP8U-ioRde3HjK79yu3MNYm13aIHuTKp4LVbO2AWB3H3qavAFPuF-LpO37aEKELBgLYzf9mH3OTN-lEKvUYjG1v1okBta4bUpeCvqJ2bPzaTQeBXeQeYfJf2vFuAj3x1tFFojKluNhQJxwVtul787Pg"/>
+</a>
+<div class="h-4 w-px bg-borderLine hidden sm:block"></div>
+<div class="hidden sm:flex items-center gap-2">
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo IPN ]
+          </span>
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo UPIICSA ]
+          </span>
+</div>
+</div>
+<!-- Enlaces centrales -->
+<nav class="flex items-center gap-8 h-full">
+<a class="h-full inline-flex items-center px-1 text-[14px] font-semibold text-ipn border-b-2 border-ipn transition-colors" href="#">
+          Materias
+        </a>
+<a class="h-full inline-flex items-center px-1 text-[14px] font-medium text-secondary hover:text-charcoal transition-colors" href="#">
+          Tareas
+        </a>
+</nav>
+<!-- Derecha: Selector de tema y Avatar de Rodrigo Méndez -->
+<div class="flex items-center gap-4">
+<!-- Selector de tema discreto -->
+<button aria-label="Cambiar tema de color" class="p-1.5 text-secondary hover:text-charcoal hover:bg-canvas rounded-lg transition-colors flex items-center justify-center" title="Tema" type="button">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+</button>
+<!-- Perfil Usuario -->
+<div class="flex items-center gap-2.5 pl-1" title="Rodrigo Méndez • 2021600842">
+<div class="w-8 h-8 rounded-full bg-ipn text-white flex items-center justify-center font-medium text-[13px] shrink-0 select-none">
+            R
+          </div>
+<div class="hidden md:flex flex-col text-left leading-tight">
+<span class="text-[13px] font-semibold text-charcoal leading-none">Rodrigo Méndez</span>
+<span class="text-[11px] text-secondary mt-0.5 leading-none">rmendezm@alumno.ipn.mx</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="flex-1 w-full max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10"><div class="flex flex-col w-full items-center justify-center py-6 px-4">
+<!-- Subtle Ambient Glow in background -->
+<div class="relative w-full max-w-lg">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -right-10 w-72 h-72 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Main Login Card -->
+<div class="relative w-full bg-surface-container-lowest rounded-xl shadow-sm p-8 sm:p-10 flex flex-col gap-6">
+<!-- Header & Institutional Identity -->
+<div class="flex flex-col items-center text-center">
+<!-- Wordmark -->
+<div class="flex items-center justify-center tracking-tight mb-3">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface">UPIICS</span>
+<span class="font-headline-xl text-headline-xl font-bold text-primary-container">Code</span>
+</div>
+<!-- Institutional Badges/Shield Placeholders -->
+<div class="flex items-center justify-center gap-2 mb-3">
+<span class="font-label-sm text-label-sm text-secondary px-3 py-1 rounded bg-surface-container-low tracking-tight">
+            [ Escudo IPN ]
+          </span>
+<span class="w-1 h-1 rounded-full bg-secondary-fixed"></span>
+<span class="font-label-sm text-label-sm text-secondary px-3 py-1 rounded bg-surface-container-low tracking-tight">
+            [ Escudo UPIICSA ]
+          </span>
+</div>
+<!-- Subtitle -->
+<p class="font-body-sm text-body-sm text-secondary max-w-xs">
+          Plataforma Educativa de Algoritmia y Programación • UPIICSA IPN
+        </p>
+</div>
+<!-- Welcome prompt -->
+<div class="text-center pt-2">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+          Inicia sesión con tu cuenta institucional
+        </h2>
+</div>
+<!-- Institutional Alert / Error Banner -->
+<div class="flex items-start gap-3 bg-error-container text-on-error-container p-3.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-error shrink-0 mt-0.5">error</span>
+<div class="flex flex-col text-left">
+<span class="font-headline-sm text-label-sm font-semibold text-on-error-container leading-tight">
+            Solo se permiten cuentas @alumno.ipn.mx
+          </span>
+<span class="font-body-sm text-body-sm text-on-error-container/90 mt-0.5 leading-snug">
+            Ingresa con tu correo institucional asignado por el Instituto Politécnico Nacional.
+          </span>
+</div>
+</div>
+<!-- Primary Action: Microsoft OAuth SSO -->
+<div class="flex flex-col gap-3">
+<button class="w-full flex items-center justify-center gap-3 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-label-md text-label-md py-3 px-4 rounded-lg shadow-sm transition-all duration-150 active:scale-[0.99] group" type="button">
+<!-- Microsoft 4-square vector emblem -->
+<svg class="w-4 h-4 shrink-0" fill="none" viewbox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#F25022" height="9" width="9" x="1" y="1"></rect>
+<rect fill="#7FBA00" height="9" width="9" x="11" y="1"></rect>
+<rect fill="#00A4EF" height="9" width="9" x="1" y="11"></rect>
+<rect fill="#FFB900" height="9" width="9" x="11" y="11"></rect>
+</svg>
+<span class="font-semibold text-on-surface">Continuar con Microsoft</span>
+</button>
+</div>
+<!-- Faint Divider with "o" -->
+<div class="relative flex items-center justify-center my-0.5">
+<div class="w-full h-px bg-surface-container-high"></div>
+<span class="absolute bg-surface-container-lowest px-3 font-body-sm text-body-sm text-secondary">
+          o
+        </span>
+</div>
+<!-- Alternative Access Method Form -->
+<form class="flex flex-col gap-4" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-1.5 text-left">
+<label class="font-label-sm text-label-sm font-medium text-on-surface" for="institutional-email">
+            Correo electrónico institucional
+          </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-3.5 py-2.5 rounded-lg shadow-sm focus:outline-none focus:bg-surface-container-lowest transition-colors pr-10 text-error" id="institutional-email" placeholder="ejemplo@alumno.ipn.mx" type="email" value="rodrigo.mendez@gmail.com"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-error">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-error flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">info</span>
+            El dominio gmail.com no pertenece a la federación IPN.
+          </span>
+</div>
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-medium py-2.5 px-4 rounded-lg shadow-sm transition-all duration-150 flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">mark_email_read</span>
+<span>Recibir código de acceso por correo</span>
+</button>
+</form>
+<!-- Access Boundary Notice -->
+<div class="pt-2 text-center">
+<p class="font-body-sm text-body-sm text-on-secondary-container leading-relaxed">
+          Acceso restringido para estudiantes, docentes e investigadores de la Academia de Informática de UPIICSA.
+        </p>
+</div>
+</div>
+<!-- Institutional Rigor Footnote -->
+<div class="mt-6 flex flex-col items-center text-center gap-2 text-secondary">
+<p class="font-body-sm text-body-sm font-medium tracking-wide">
+        Instituto Politécnico Nacional • “La Técnica al Servicio de la Patria”
+      </p>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-secondary">
+<a class="hover:text-primary-container transition-colors" href="#">Aviso de Privacidad</a>
+<span class="text-surface-container-highest">•</span>
+<a class="hover:text-primary-container transition-colors" href="#">Términos de Servicio</a>
+<span class="text-surface-container-highest">•</span>
+<a class="hover:text-primary-container transition-colors" href="#">Soporte Técnico UPIICSA</a>
+</div>
+</div>
+</div>
+</div></main>
+</body></html>

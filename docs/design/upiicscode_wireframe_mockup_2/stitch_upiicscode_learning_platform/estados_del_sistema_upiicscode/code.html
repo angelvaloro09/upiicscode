@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPIICSCode - Inicio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#FBFBFA",
+            charcoal: "#1E1E20",
+            secondary: "#5F6368",
+            borderLine: "#E7E6E2",
+            ipn: "#6F1D46",
+            ipnHover: "#5A1637"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FBFBFA;
+      font-family: 'Inter', sans-serif;
+      color: #1E1E20;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<meta content="web_standard" name="shell-type"/></head>
+<body class="bg-canvas text-charcoal min-h-screen flex flex-col font-sans">
+<!-- NAVEGACIÓN SUPERIOR HORIZONTAL -->
+<header class="w-full bg-white border-b border-borderLine sticky top-0 z-40">
+<div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+<!-- Izquierda: Wordmark + Espacios de Escudos -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 select-none group" href="#" title="UPIICSCode">
+<img alt="UPIICSCode Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VvCD8ynG0pL9xgHhbV5SvgW_-AFVsjkmeI7k0ZrH_X1kvh7_m8MC5QK43sQjTflmKiPsgj1K6q_K1WNWSuCwqj2VgJParcq-AKEP8U-ioRde3HjK79yu3MNYm13aIHuTKp4LVbO2AWB3H3qavAFPuF-LpO37aEKELBgLYzf9mH3OTN-lEKvUYjG1v1okBta4bUpeCvqJ2bPzaTQeBXeQeYfJf2vFuAj3x1tFFojKluNhQJxwVtul787Pg"/>
+</a>
+<div class="h-4 w-px bg-borderLine hidden sm:block"></div>
+<div class="hidden sm:flex items-center gap-2">
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo IPN ]
+          </span>
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo UPIICSA ]
+          </span>
+</div>
+</div>
+<!-- Enlaces centrales -->
+<nav class="flex items-center gap-8 h-full">
+<a class="h-full inline-flex items-center px-1 text-[14px] font-semibold text-ipn border-b-2 border-ipn transition-colors" href="#">
+          Materias
+        </a>
+<a class="h-full inline-flex items-center px-1 text-[14px] font-medium text-secondary hover:text-charcoal transition-colors" href="#">
+          Tareas
+        </a>
+</nav>
+<!-- Derecha: Selector de tema y Avatar de Rodrigo Méndez -->
+<div class="flex items-center gap-4">
+<!-- Selector de tema discreto -->
+<button aria-label="Cambiar tema de color" class="p-1.5 text-secondary hover:text-charcoal hover:bg-canvas rounded-lg transition-colors flex items-center justify-center" title="Tema" type="button">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+</button>
+<!-- Perfil Usuario -->
+<div class="flex items-center gap-2.5 pl-1" title="Rodrigo Méndez • 2021600842">
+<div class="w-8 h-8 rounded-full bg-ipn text-white flex items-center justify-center font-medium text-[13px] shrink-0 select-none">
+            R
+          </div>
+<div class="hidden md:flex flex-col text-left leading-tight">
+<span class="text-[13px] font-semibold text-charcoal leading-none">Rodrigo Méndez</span>
+<span class="text-[11px] text-secondary mt-0.5 leading-none">rmendezm@alumno.ipn.mx</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="flex-1 w-full max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10"><div class="flex flex-col w-full">
+<!-- Sub-header de Navegación de Estados y Contexto del Sistema -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-[#E7E6E2]">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-semibold tracking-wider uppercase text-[#6F1D46] bg-[#6F1D46]/10 px-2 py-0.5 rounded">Design System • Estados UX</span>
+<span class="text-[12px] text-secondary">UPIICSCode / Guía de Componentes</span>
+</div>
+<h1 class="text-[26px] font-bold text-charcoal tracking-tight">Comportamiento &amp; Estados de Interfaz</h1>
+<p class="text-[14px] text-secondary max-w-2xl">
+        Patrones estandarizados de retroalimentación para la plataforma educativa: estado vacío por ausencia de material, esqueleto de carga y manejo de recursos no encontrados.
+      </p>
+</div>
+<!-- Pestañas de Cambio de Estado -->
+<div class="inline-flex p-1 bg-[#F4F4F2] rounded-lg shrink-0" role="tablist">
+<button aria-selected="true" class="tab-trigger flex items-center gap-2 px-3.5 py-1.5 rounded-md text-[13px] font-medium transition-all bg-white text-charcoal shadow-sm" id="tab-btn-empty" onclick="switchState('empty')" role="tab">
+<span class="material-symbols-outlined text-[17px] text-[#6F1D46]">inbox</span>
+<span>1. Estado Vacío</span>
+</button>
+<button aria-selected="false" class="tab-trigger flex items-center gap-2 px-3.5 py-1.5 rounded-md text-[13px] font-medium text-secondary hover:text-charcoal transition-all" id="tab-btn-skeleton" onclick="switchState('skeleton')" role="tab">
+<span class="material-symbols-outlined text-[17px]">hourglass_empty</span>
+<span>2. Cargando (Skeleton)</span>
+</button>
+<button aria-selected="false" class="tab-trigger flex items-center gap-2 px-3.5 py-1.5 rounded-md text-[13px] font-medium text-secondary hover:text-charcoal transition-all" id="tab-btn-error" onclick="switchState('error')" role="tab">
+<span class="material-symbols-outlined text-[17px]">error_outline</span>
+<span>3. Error 404</span>
+</button>
+</div>
+</div>
+<!-- Contenedor Principal de Vistas -->
+<div class="mt-8">
+<!-- ========================================== -->
+<!-- ESTADO 1: VACÍO (Materia sin anuncios)     -->
+<!-- ========================================== -->
+<section aria-labelledby="tab-btn-empty" class="state-panel flex flex-col gap-6" id="panel-empty">
+<!-- Breadcrumb y Cabecera de Contexto de la Materia -->
+<div class="bg-white rounded-xl border border-borderLine p-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#FAF9F7] border border-borderLine flex items-center justify-center text-[#6F1D46] shrink-0">
+<span class="material-symbols-outlined text-[26px]">terminal</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<span class="font-code-md text-code-sm font-semibold text-[#6F1D46] bg-[#6F1D46]/10 px-2 py-0.5 rounded">2NM31</span>
+<span class="text-[13px] text-secondary">Semestre 2024-2 • Plan de Estudios ICI</span>
+</div>
+<h2 class="text-[18px] font-bold text-charcoal mt-1">Estructuras y Algoritmos de Programación</h2>
+<p class="text-[13px] text-secondary">Profesor: M. en C. Roberto Cruz • Aula 204, Edificio 2</p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-3.5 py-2 text-[13px] font-medium text-secondary hover:text-charcoal bg-[#FAF9F7] hover:bg-[#F4F4F2] border border-borderLine rounded-lg transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Programa de Estudios</span>
+</button>
+<button class="px-3.5 py-2 text-[13px] font-medium text-white bg-ipn hover:bg-ipnHover rounded-lg transition-colors flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span>Ver Laboratorios</span>
+</button>
+</div>
+</div>
+<!-- Tablero con Navegación Interna y Estado Vacío -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+<!-- Columna lateral: Datos del Curso -->
+<div class="lg:col-span-1 flex flex-col gap-4">
+<div class="bg-white rounded-xl border border-borderLine p-4 flex flex-col gap-3">
+<span class="text-[12px] font-semibold text-secondary uppercase tracking-wider">Métricas de Entrega</span>
+<div class="flex items-center justify-between py-2 border-b border-borderLine">
+<span class="text-[13px] text-secondary">Tareas asignadas</span>
+<span class="text-[13px] font-semibold text-charcoal font-code-md">0</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-borderLine">
+<span class="text-[13px] text-secondary">Calificación parcial</span>
+<span class="text-[13px] font-semibold text-secondary font-code-md">-- / 10</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[13px] text-secondary">Asistencia</span>
+<span class="text-[13px] font-semibold text-charcoal font-code-md">100%</span>
+</div>
+</div>
+<div class="bg-[#FAF9F7] rounded-xl border border-dashed border-borderLine p-4 text-[12px] text-secondary leading-relaxed">
+<strong class="text-charcoal block mb-1">Nota para el alumno:</strong>
+            Las evaluaciones de código automáticas mediante el juez en línea UPIICSCode se activarán conforme el titular asigne problemas semanales.
+          </div>
+</div>
+<!-- Columna principal: Contenedor del Tablón (ESTADO VACÍO) -->
+<div class="lg:col-span-3 bg-white rounded-xl border border-borderLine p-10 md:p-14 flex flex-col items-center justify-center text-center">
+<!-- Iconografía sobria y minimalista -->
+<div class="relative w-20 h-20 mb-6 flex items-center justify-center">
+<div class="absolute inset-0 bg-[#FAF9F7] rounded-full border border-borderLine"></div>
+<!-- Gráfico SVG Técnico y limpio -->
+<svg class="relative w-10 h-10 text-secondary" fill="none" stroke="currentColor" stroke-width="1.3" viewbox="0 0 24 24">
+<path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+<line stroke-dasharray="2 2" stroke-linecap="round" x1="9" x2="15" y1="13" y2="13"></line>
+</svg>
+<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-white border border-borderLine flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[13px]">chat_bubble_outline</span>
+</div>
+</div>
+<!-- Mensaje Principal Exacto -->
+<h3 class="text-[18px] font-bold text-charcoal mb-2 tracking-tight">
+            Aún no hay anuncios en esta materia
+          </h3>
+<p class="text-[14px] text-secondary max-w-lg leading-relaxed mb-6">
+            El profesor M. en C. Roberto Cruz aún no ha publicado ningún aviso ni material para el grupo 2NM31. Los avisos y recordatorios aparecerán aquí cuando estén disponibles.
+          </p>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-[13px] font-medium text-charcoal bg-white border border-borderLine rounded-lg hover:bg-[#FAF9F7] transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[17px] text-secondary">sync</span>
+<span>Comprobar actualizaciones</span>
+</button>
+<a class="text-[13px] font-medium text-ipn hover:underline flex items-center gap-1" href="#">
+<span>Ver temario sintético</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+<div class="mt-10 pt-6 border-t border-borderLine w-full flex items-center justify-between text-[12px] text-secondary">
+<span>Última sincronización con SAES: Hoy, 09:15 hrs</span>
+<span class="font-code-md text-[11px] text-secondary">STATUS: EMPTY_FEED_2NM31</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- ESTADO 2: CARGANDO (Skeletons Shimmer)     -->
+<!-- ========================================== -->
+<section aria-labelledby="tab-btn-skeleton" class="state-panel hidden flex flex-col gap-6" id="panel-skeleton">
+<div class="flex items-center justify-between px-1">
+<span class="text-[13px] font-medium text-secondary flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-[#6F1D46] animate-pulse"></span>
+          Simulación de Carga Inicial • Shimmer activo (#EBEBE8 ↔ #F3F3F1)
+        </span>
+<button class="text-[12px] font-medium text-[#6F1D46] hover:underline flex items-center gap-1" onclick="restartSkeletonAnimation()">
+<span class="material-symbols-outlined text-[15px]">replay</span>
+          Reiniciar ciclo de carga
+        </button>
+</div>
+<!-- SKELETON: Saludo y Cabecera de Bienvenida -->
+<div class="bg-white rounded-xl border border-borderLine p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 overflow-hidden relative">
+<div class="flex items-center gap-4 w-full md:w-2/3">
+<!-- Avatar skeleton -->
+<div class="w-14 h-14 rounded-full bg-[#EBEBE8] shrink-0 animate-pulse"></div>
+<div class="flex flex-col gap-2.5 w-full">
+<!-- Título de saludo skeleton -->
+<div class="h-6 w-3/5 rounded bg-[#EBEBE8] animate-pulse"></div>
+<!-- Subtítulo / datos de matrícula skeleton -->
+<div class="h-3.5 w-2/5 rounded bg-[#F3F3F1] animate-pulse"></div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-9 w-28 rounded-lg bg-[#EBEBE8] animate-pulse"></div>
+<div class="h-9 w-32 rounded-lg bg-[#EBEBE8] animate-pulse"></div>
+</div>
+</div>
+<!-- SKELETON: Tarjeta "Continúa donde te quedaste" -->
+<div class="bg-white rounded-xl border border-borderLine p-6 flex flex-col gap-4 overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="h-4 w-44 rounded bg-[#EBEBE8] animate-pulse"></div>
+<div class="h-3.5 w-20 rounded bg-[#F3F3F1] animate-pulse"></div>
+</div>
+<div class="p-4 rounded-lg bg-[#FAF9F7] border border-borderLine flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5 w-full">
+<div class="w-10 h-10 rounded bg-[#EBEBE8] shrink-0 animate-pulse"></div>
+<div class="flex flex-col gap-2 w-full">
+<div class="flex items-center gap-2">
+<div class="h-4 w-16 rounded bg-[#EBEBE8] animate-pulse"></div>
+<div class="h-4 w-48 rounded bg-[#EBEBE8] animate-pulse"></div>
+</div>
+<div class="h-3 w-3/4 rounded bg-[#F3F3F1] animate-pulse"></div>
+<div class="flex items-center gap-4 mt-1">
+<div class="h-2.5 w-24 rounded bg-[#EBEBE8] animate-pulse"></div>
+<div class="h-2.5 w-32 rounded bg-[#EBEBE8] animate-pulse"></div>
+</div>
+</div>
+</div>
+<div class="h-9 w-36 rounded-lg bg-[#EBEBE8] shrink-0 animate-pulse"></div>
+</div>
+</div>
+<!-- SKELETON: Grid de Tarjetas de Materias -->
+<div class="flex flex-col gap-3">
+<div class="h-4 w-32 rounded bg-[#EBEBE8] animate-pulse ml-1"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card Skeleton 1 -->
+<div class="bg-white rounded-xl border border-borderLine p-5 flex flex-col justify-between h-56">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="h-4 w-14 rounded bg-[#EBEBE8] animate-pulse"></div>
+<div class="w-7 h-7 rounded-full bg-[#F3F3F1] animate-pulse"></div>
+</div>
+<div class="h-5 w-4/5 rounded bg-[#EBEBE8] animate-pulse mt-1"></div>
+<div class="h-3 w-3/5 rounded bg-[#F3F3F1] animate-pulse"></div>
+<div class="h-3 w-1/2 rounded bg-[#F3F3F1] animate-pulse"></div>
+</div>
+<div class="pt-4 border-t border-borderLine flex items-center justify-between">
+<div class="h-3 w-24 rounded bg-[#F3F3F1] animate-pulse"></div>
+<div class="h-4 w-12 rounded bg-[#EBEBE8] animate-pulse"></div>
+</div>
+</div>
+<!-- Card Skeleton 2 -->
+<div class="bg-white rounded-xl border border-borderLine p-5 flex flex-col justify-between h-56">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="h-4 w-14 rounded bg-[#EBEBE8] animate-pulse"></div>
+<div class="w-7 h-7 rounded-full bg-[#F3F3F1] animate-pulse"></div>
+</div>
+<div class="h-5 w-3/4 rounded bg-[#EBEBE8] animate-pulse mt-1"></div>
+<div class="h-3 w-2/3 rounded bg-[#F3F3F1] animate-pulse"></div>
+<div class="h-3 w-2/5 rounded bg-[#F3F3F1] animate-pulse"></div>
+</div>
+<div class="pt-4 border-t border-borderLine flex items-center justify-between">
+<div class="h-3 w-28 rounded bg-[#F3F3F1] animate-pulse"></div>
+<div class="h-4 w-10 rounded bg-[#EBEBE8] animate-pulse"></div>
+</div>
+</div>
+<!-- Card Skeleton 3 -->
+<div class="bg-white rounded-xl border border-borderLine p-5 flex flex-col justify-between h-56">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="h-4 w-14 rounded bg-[#EBEBE8] animate-pulse"></div>
+<div class="w-7 h-7 rounded-full bg-[#F3F3F1] animate-pulse"></div>
+</div>
+<div class="h-5 w-5/6 rounded bg-[#EBEBE8] animate-pulse mt-1"></div>
+<div class="h-3 w-1/2 rounded bg-[#F3F3F1] animate-pulse"></div>
+<div class="h-3 w-3/5 rounded bg-[#F3F3F1] animate-pulse"></div>
+</div>
+<div class="pt-4 border-t border-borderLine flex items-center justify-between">
+<div class="h-3 w-20 rounded bg-[#F3F3F1] animate-pulse"></div>
+<div class="h-4 w-12 rounded bg-[#EBEBE8] animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- ESTADO 3: ERROR 404 (Página no encontrada) -->
+<!-- ========================================== -->
+<section aria-labelledby="tab-btn-error" class="state-panel hidden flex flex-col gap-6" id="panel-error">
+<div class="bg-white rounded-xl border border-borderLine p-8 md:p-16 flex flex-col items-center justify-center text-center">
+<!-- Elemento Gráfico Técnico Sobrio 404 -->
+<div class="flex flex-col items-center mb-6">
+<div class="flex items-center justify-center gap-4 text-charcoal font-sans">
+<span class="text-[72px] md:text-[96px] font-bold tracking-tighter leading-none select-none text-charcoal">4</span>
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-[#FAF9F7] border border-borderLine flex items-center justify-center text-[#6F1D46]">
+<span class="material-symbols-outlined text-[36px] md:text-[44px]">search_off</span>
+</div>
+<span class="text-[72px] md:text-[96px] font-bold tracking-tighter leading-none select-none text-charcoal">4</span>
+</div>
+<!-- Etiqueta técnica exacta en JetBrains Mono -->
+<div class="inline-flex items-center gap-2 mt-4 px-3 py-1 bg-[#FAF9F7] border border-borderLine rounded-md">
+<span class="w-2 h-2 rounded-full bg-[#C5221F]"></span>
+<span class="font-code-md text-[13px] font-semibold tracking-wide text-charcoal">404 NOT_FOUND • ERROR: RESOURCE_NOT_FOUND</span>
+</div>
+</div>
+<!-- Título y Descripción Textuales -->
+<h2 class="text-[22px] md:text-[26px] font-bold text-charcoal tracking-tight max-w-xl mb-3">
+          Esta lección o recurso no existe
+        </h2>
+<p class="text-[14px] md:text-[15px] text-secondary max-w-lg leading-relaxed mb-8">
+          La página que buscas no se encuentra en el servidor académico de UPIICSCode o ha sido reubicada dentro del temario.
+        </p>
+<!-- Bloque de Diagnóstico Breve del Sistema -->
+<div class="w-full max-w-md bg-[#FAF9F7] border border-borderLine rounded-lg p-4 text-left mb-8">
+<div class="flex items-center justify-between text-[11px] font-code-md text-secondary border-b border-borderLine pb-2 mb-2">
+<span>UPIICSCode Diagnostic Route</span>
+<span>HTTP/2 404</span>
+</div>
+<div class="font-code-md text-[12px] text-charcoal space-y-1">
+<p class="text-secondary">$ GET /api/v1/cursos/2NM31/modulo-04/arboles-avl</p>
+<p class="text-[#C5221F]">! Error: Recurso especificado no registrado en la base de datos de UPIICSA.</p>
+</div>
+</div>
+<!-- Acciones Principales con Guinda #6F1D46 -->
+<div class="flex flex-col sm:flex-row items-center gap-3">
+<a class="px-5 py-2.5 rounded-lg bg-ipn hover:bg-ipnHover text-white text-[14px] font-semibold transition-colors flex items-center gap-2 shadow-sm" href="#" onclick="switchState('empty')">
+<span class="material-symbols-outlined text-[19px]">school</span>
+<span>Volver a Mis Materias</span>
+</a>
+<button class="px-4 py-2.5 rounded-lg bg-white border border-borderLine hover:bg-[#FAF9F7] text-charcoal text-[14px] font-medium transition-colors flex items-center gap-1.5" onclick="history.back()">
+<span class="material-symbols-outlined text-[18px] text-secondary">arrow_back</span>
+<span>Regresar a la página anterior</span>
+</button>
+</div>
+<!-- Enlaces Rápidos de Ayuda -->
+<div class="mt-12 pt-6 border-t border-borderLine w-full max-w-md flex flex-wrap items-center justify-center gap-6 text-[12px] text-secondary">
+<a class="hover:text-charcoal hover:underline" href="#">Reportar enlace roto</a>
+<span class="text-borderLine">•</span>
+<a class="hover:text-charcoal hover:underline" href="#">Mesa de Ayuda UPIICSA</a>
+<span class="text-borderLine">•</span>
+<a class="hover:text-charcoal hover:underline" href="#">Estado de los Servidores</a>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  function switchState(stateName) {
+    const panels = {
+      empty: document.getElementById('panel-empty'),
+      skeleton: document.getElementById('panel-skeleton'),
+      error: document.getElementById('panel-error')
+    };
+
+    const tabs = {
+      empty: document.getElementById('tab-btn-empty'),
+      skeleton: document.getElementById('tab-btn-skeleton'),
+      error: document.getElementById('tab-btn-error')
+    };
+
+    // Ocultar todos los paneles
+    Object.values(panels).forEach(p => p.classList.add('hidden'));
+
+    // Resetear estilos de tabs
+    Object.values(tabs).forEach(t => {
+      t.classList.remove('bg-white', 'text-charcoal', 'shadow-sm');
+      t.classList.add('text-secondary');
+      t.setAttribute('aria-selected', 'false');
+    });
+
+    // Activar el seleccionado
+    if (panels[stateName]) {
+      panels[stateName].classList.remove('hidden');
+    }
+    if (tabs[stateName]) {
+      tabs[stateName].classList.add('bg-white', 'text-charcoal', 'shadow-sm');
+      tabs[stateName].classList.remove('text-secondary');
+      tabs[stateName].setAttribute('aria-selected', 'true');
+    }
+  }
+
+  function restartSkeletonAnimation() {
+    const skeletonPanel = document.getElementById('panel-skeleton');
+    const animElements = skeletonPanel.querySelectorAll('.animate-pulse');
+    animElements.forEach(el => {
+      el.classList.remove('animate-pulse');
+      void el.offsetWidth; // Forzar reflow
+      el.classList.add('animate-pulse');
+    });
+  }
+</script></main>
+</body></html>

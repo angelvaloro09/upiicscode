@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPIICSCode - Inicio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#FBFBFA",
+            charcoal: "#1E1E20",
+            secondary: "#5F6368",
+            borderLine: "#E7E6E2",
+            ipn: "#6F1D46",
+            ipnHover: "#5A1637"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FBFBFA;
+      font-family: 'Inter', sans-serif;
+      color: #1E1E20;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-charcoal min-h-screen flex flex-col font-sans">
+<!-- NAVEGACIÓN SUPERIOR HORIZONTAL -->
+<header class="w-full bg-white border-b border-borderLine sticky top-0 z-40">
+<div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+<!-- Izquierda: Wordmark + Espacios de Escudos -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 select-none group" href="#" title="UPIICSCode">
+<img alt="UPIICSCode Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VvCD8ynG0pL9xgHhbV5SvgW_-AFVsjkmeI7k0ZrH_X1kvh7_m8MC5QK43sQjTflmKiPsgj1K6q_K1WNWSuCwqj2VgJParcq-AKEP8U-ioRde3HjK79yu3MNYm13aIHuTKp4LVbO2AWB3H3qavAFPuF-LpO37aEKELBgLYzf9mH3OTN-lEKvUYjG1v1okBta4bUpeCvqJ2bPzaTQeBXeQeYfJf2vFuAj3x1tFFojKluNhQJxwVtul787Pg"/>
+</a>
+<div class="h-4 w-px bg-borderLine hidden sm:block"></div>
+<div class="hidden sm:flex items-center gap-2">
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo IPN ]
+          </span>
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo UPIICSA ]
+          </span>
+</div>
+</div>
+<!-- Enlaces centrales -->
+<nav class="flex items-center gap-8 h-full">
+<a class="h-full inline-flex items-center px-1 text-[14px] font-semibold text-ipn border-b-2 border-ipn transition-colors" href="#">
+          Materias
+        </a>
+<a class="h-full inline-flex items-center px-1 text-[14px] font-medium text-secondary hover:text-charcoal transition-colors" href="#">
+          Tareas
+        </a>
+</nav>
+<!-- Derecha: Selector de tema y Avatar de Rodrigo Méndez -->
+<div class="flex items-center gap-4">
+<!-- Selector de tema discreto -->
+<button aria-label="Cambiar tema de color" class="p-1.5 text-secondary hover:text-charcoal hover:bg-canvas rounded-lg transition-colors flex items-center justify-center" title="Tema" type="button">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+</button>
+<!-- Perfil Usuario -->
+<div class="flex items-center gap-2.5 pl-1" title="Rodrigo Méndez • 2021600842">
+<div class="w-8 h-8 rounded-full bg-ipn text-white flex items-center justify-center font-medium text-[13px] shrink-0 select-none">
+            R
+          </div>
+<div class="hidden md:flex flex-col text-left leading-tight">
+<span class="text-[13px] font-semibold text-charcoal leading-none">Rodrigo Méndez</span>
+<span class="text-[11px] text-secondary mt-0.5 leading-none">rmendezm@alumno.ipn.mx</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="flex-1 w-full max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10">
+<!-- Saludo sobrio -->
+<section>
+<h1 class="text-[28px] font-semibold tracking-tight text-charcoal">
+        Buen día, Rodrigo
+      </h1>
+</section>
+<!-- Bloque "Continúa donde te quedaste" -->
+<section class="flex flex-col gap-3">
+<h2 class="text-[13px] font-semibold uppercase tracking-wider text-secondary">
+        Continúa donde te quedaste
+      </h2>
+<div class="bg-white border border-borderLine rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="flex flex-col gap-1 min-w-0">
+<span class="text-[13px] font-medium text-secondary">
+            Estructuras de Datos
+          </span>
+<h3 class="text-[17px] font-semibold text-charcoal truncate">
+            Punteros dobles y memoria dinámica en C
+          </h3>
+<p class="text-[13px] text-secondary flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">schedule</span>
+            Lectura estimada: 8 min
+          </p>
+</div>
+<div class="shrink-0">
+<a class="inline-flex items-center justify-center px-4 py-2 bg-ipn hover:bg-ipnHover text-white text-[14px] font-medium rounded-lg transition-colors" href="#">
+            Continuar lección
+          </a>
+</div>
+</div>
+</section>
+<!-- Materias inscritas -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="text-[17px] font-semibold text-charcoal">
+          Materias inscritas <span class="text-secondary font-normal text-[14px] ml-1.5">(5 asignaturas)</span>
+</h2>
+</div>
+<!-- Cuadrícula limpia estilo Google Classroom -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- Tarjeta 1: Estructuras de Datos -->
+<a class="group block bg-white border border-borderLine rounded-lg p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-gray-300 hover:shadow-sm transition-all text-left" href="#">
+<div class="flex flex-col justify-between h-36">
+<div>
+<h3 class="text-[16px] font-semibold text-charcoal group-hover:text-ipn transition-colors">
+                Estructuras de Datos
+              </h3>
+<p class="text-[13px] text-secondary mt-1">
+                M. en C. Roberto Cruz Valencia
+              </p>
+</div>
+<div class="pt-3 border-t border-borderLine/70 flex items-center gap-2 text-[13px] text-secondary">
+<span class="w-2 h-2 rounded-full bg-ipn shrink-0"></span>
+<span class="truncate">1 tarea por entregar</span>
+</div>
+</div>
+</a>
+<!-- Tarjeta 2: Programación Estructurada -->
+<a class="group block bg-white border border-borderLine rounded-lg p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-gray-300 hover:shadow-sm transition-all text-left" href="#">
+<div class="flex flex-col justify-between h-36">
+<div>
+<h3 class="text-[16px] font-semibold text-charcoal group-hover:text-ipn transition-colors">
+                Programación Estructurada
+              </h3>
+<p class="text-[13px] text-secondary mt-1">
+                Dra. Claudia Morales Solís
+              </p>
+</div>
+<div class="pt-3 border-t border-borderLine/70 flex items-center gap-2 text-[13px] text-secondary">
+<span class="w-2 h-2 rounded-full bg-gray-400 shrink-0"></span>
+<span class="truncate">Al corriente</span>
+</div>
+</div>
+</a>
+<!-- Tarjeta 3: Paradigmas de Programación -->
+<a class="group block bg-white border border-borderLine rounded-lg p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-gray-300 hover:shadow-sm transition-all text-left" href="#">
+<div class="flex flex-col justify-between h-36">
+<div>
+<h3 class="text-[16px] font-semibold text-charcoal group-hover:text-ipn transition-colors">
+                Paradigmas de Programación
+              </h3>
+<p class="text-[13px] text-secondary mt-1">
+                Ing. Arturo Peña Mendoza
+              </p>
+</div>
+<div class="pt-3 border-t border-borderLine/70 flex items-center gap-2 text-[13px] text-secondary">
+<span class="w-2 h-2 rounded-full bg-ipn shrink-0"></span>
+<span class="truncate">2 problemas por resolver</span>
+</div>
+</div>
+</a>
+<!-- Tarjeta 4: Bases de Datos -->
+<a class="group block bg-white border border-borderLine rounded-lg p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-gray-300 hover:shadow-sm transition-all text-left" href="#">
+<div class="flex flex-col justify-between h-36">
+<div>
+<h3 class="text-[16px] font-semibold text-charcoal group-hover:text-ipn transition-colors">
+                Bases de Datos
+              </h3>
+<p class="text-[13px] text-secondary mt-1">
+                M.I. Laura Galván Trejo
+              </p>
+</div>
+<div class="pt-3 border-t border-borderLine/70 flex items-center gap-2 text-[13px] text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+<span class="truncate">Nueva lección publicada</span>
+</div>
+</div>
+</a>
+<!-- Tarjeta 5: Sistemas Operativos -->
+<a class="group block bg-white border border-borderLine rounded-lg p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-gray-300 hover:shadow-sm transition-all text-left" href="#">
+<div class="flex flex-col justify-between h-36">
+<div>
+<h3 class="text-[16px] font-semibold text-charcoal group-hover:text-ipn transition-colors">
+                Sistemas Operativos
+              </h3>
+<p class="text-[13px] text-secondary mt-1">
+                Dr. Fernando Ortiz
+              </p>
+</div>
+<div class="pt-3 border-t border-borderLine/70 flex items-center gap-2 text-[13px] text-secondary">
+<span class="w-2 h-2 rounded-full bg-gray-400 shrink-0"></span>
+<span class="truncate">Al corriente</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+</main>
+</body></html>

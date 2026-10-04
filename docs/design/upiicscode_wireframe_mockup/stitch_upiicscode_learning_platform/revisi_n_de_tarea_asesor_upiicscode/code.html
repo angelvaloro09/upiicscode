@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPIICSCode - Inicio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#FBFBFA",
+            charcoal: "#1E1E20",
+            secondary: "#5F6368",
+            borderLine: "#E7E6E2",
+            ipn: "#6F1D46",
+            ipnHover: "#5A1637"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FBFBFA;
+      font-family: 'Inter', sans-serif;
+      color: #1E1E20;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<meta content="web_standard" name="shell-type"/></head>
+<body class="bg-canvas text-charcoal min-h-screen flex flex-col font-sans">
+<!-- NAVEGACIÓN SUPERIOR HORIZONTAL -->
+<header class="w-full bg-white border-b border-borderLine sticky top-0 z-40">
+<div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+<!-- Izquierda: Wordmark + Espacios de Escudos -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 select-none group" href="#" title="UPIICSCode">
+<img alt="UPIICSCode Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VvCD8ynG0pL9xgHhbV5SvgW_-AFVsjkmeI7k0ZrH_X1kvh7_m8MC5QK43sQjTflmKiPsgj1K6q_K1WNWSuCwqj2VgJParcq-AKEP8U-ioRde3HjK79yu3MNYm13aIHuTKp4LVbO2AWB3H3qavAFPuF-LpO37aEKELBgLYzf9mH3OTN-lEKvUYjG1v1okBta4bUpeCvqJ2bPzaTQeBXeQeYfJf2vFuAj3x1tFFojKluNhQJxwVtul787Pg"/>
+</a>
+<div class="h-4 w-px bg-borderLine hidden sm:block"></div>
+<div class="hidden sm:flex items-center gap-2">
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo IPN ]
+          </span>
+<span class="text-[11px] font-medium text-secondary px-2.5 py-1 rounded border border-dashed border-borderLine bg-[#FAF9F7] tracking-tight whitespace-nowrap">
+            [ Escudo UPIICSA ]
+          </span>
+</div>
+</div>
+<!-- Enlaces centrales -->
+<nav class="flex items-center gap-8 h-full">
+<a class="h-full inline-flex items-center px-1 text-[14px] font-semibold text-ipn border-b-2 border-ipn transition-colors" href="#">
+          Materias
+        </a>
+<a class="h-full inline-flex items-center px-1 text-[14px] font-medium text-secondary hover:text-charcoal transition-colors" href="#">
+          Tareas
+        </a>
+</nav>
+<!-- Derecha: Selector de tema y Avatar de Rodrigo Méndez -->
+<div class="flex items-center gap-4">
+<!-- Selector de tema discreto -->
+<button aria-label="Cambiar tema de color" class="p-1.5 text-secondary hover:text-charcoal hover:bg-canvas rounded-lg transition-colors flex items-center justify-center" title="Tema" type="button">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+</button>
+<!-- Perfil Usuario -->
+<div class="flex items-center gap-2.5 pl-1" title="Rodrigo Méndez • 2021600842">
+<div class="w-8 h-8 rounded-full bg-ipn text-white flex items-center justify-center font-medium text-[13px] shrink-0 select-none">
+            R
+          </div>
+<div class="hidden md:flex flex-col text-left leading-tight">
+<span class="text-[13px] font-semibold text-charcoal leading-none">Rodrigo Méndez</span>
+<span class="text-[11px] text-secondary mt-0.5 leading-none">rmendezm@alumno.ipn.mx</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="flex-1 w-full max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10"><div class="flex flex-col w-full">
+<!-- Rastro de migajas / Breadcrumbs de navegación de cátedra -->
+<nav aria-label="Navegación de contexto académico" class="flex items-center gap-2 text-secondary font-body-sm text-body-sm mb-6">
+<a class="inline-flex items-center gap-1.5 hover:text-primary transition-colors py-1 px-2 -ml-2 rounded hover:bg-surface-container-high/60" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Volver a Estructuras de Datos</span>
+</a>
+<span class="text-secondary/40 select-none">/</span>
+<span class="hover:text-on-background cursor-pointer">Tareas</span>
+<span class="text-secondary/40 select-none">/</span>
+<span class="text-on-background font-label-md text-label-md">Práctica 3: Lista enlazada genérica</span>
+</nav>
+<!-- Encabezado de la Tarea / Vista de Cátedra -->
+<section class="flex flex-col gap-6 mb-8">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex flex-col gap-2 max-w-3xl">
+<div class="flex items-center gap-2.5">
+<span class="font-code-sm text-code-sm bg-surface-container-high text-primary px-2.5 py-0.5 rounded font-medium">Secuencia 2NM31</span>
+<span class="text-secondary font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+            Límite: 24 oct, 23:59 hrs
+          </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-background tracking-tight">
+          Práctica 3: Implementación de Lista Enlazada Doblemente Ligada en C++
+        </h1>
+</div>
+<!-- Resumen estadístico estilo Classroom -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 px-5 rounded-xl shadow-sm self-start lg:self-auto">
+<div class="flex flex-col text-center px-2">
+<span class="font-headline-md text-headline-md text-primary font-semibold">28</span>
+<span class="font-label-sm text-label-sm text-secondary">Entregadas</span>
+</div>
+<div class="w-px h-8 bg-surface-container-highest"></div>
+<div class="flex flex-col text-center px-2">
+<span class="font-headline-md text-headline-md text-secondary font-semibold">4</span>
+<span class="font-label-sm text-label-sm text-secondary">Asignadas</span>
+</div>
+<div class="w-px h-8 bg-surface-container-highest"></div>
+<div class="flex flex-col text-center px-2">
+<span class="font-headline-md text-headline-md text-on-background font-semibold">32</span>
+<span class="font-label-sm text-label-sm text-secondary">Inscritos</span>
+</div>
+</div>
+</div>
+<!-- Pestañas de Vista de Profesor -->
+<div class="flex items-center gap-8 bg-surface-container-lowest px-6 rounded-lg shadow-sm">
+<button class="h-12 inline-flex items-center gap-2 font-label-md text-label-md text-secondary hover:text-on-background transition-colors" type="button">
+<span class="material-symbols-outlined text-[19px]">description</span>
+        Instrucciones
+      </button>
+<button class="h-12 inline-flex items-center gap-2 font-label-md text-label-md text-primary font-semibold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary" type="button">
+<span class="material-symbols-outlined text-[19px]">group</span>
+        Trabajo de los alumnos
+        <span class="ml-1 text-[11px] bg-primary/10 text-primary px-1.5 py-0.2 rounded-full font-medium">32</span>
+</button>
+<button class="h-12 inline-flex items-center gap-2 font-label-md text-label-md text-secondary hover:text-on-background transition-colors" type="button">
+<span class="material-symbols-outlined text-[19px]">insights</span>
+        Métricas de Juez
+      </button>
+</div>
+</section>
+<!-- Malla de Trabajo en Dos Paneles -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- PANEL IZQUIERDO: Lista de Estudiantes (4 columnas) -->
+<aside class="lg:col-span-4 flex flex-col gap-4">
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-background">Alumnos</span>
+<span class="font-label-sm text-label-sm text-secondary">(2NM31)</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary bg-surface-container px-2 py-0.5 rounded">Orden: Apellidos</span>
+</div>
+<!-- Filtros Rápidos de Estado -->
+<div class="flex flex-wrap gap-1.5 p-1 bg-surface-container rounded-lg">
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm text-secondary hover:text-on-background transition-colors" type="button">
+            Todos (32)
+          </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-primary font-medium shadow-xs" type="button">
+            Entregadas (28)
+          </button>
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm text-secondary hover:text-on-background transition-colors" type="button">
+            Calificadas (15)
+          </button>
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm text-secondary hover:text-on-background transition-colors" type="button">
+            Pendientes (4)
+          </button>
+</div>
+<!-- Lista de Alumnos -->
+<div class="flex flex-col gap-1.5 max-h-[720px] overflow-y-auto pr-1" id="studentsList">
+<!-- Estudiante: Gómez Pérez Andrea -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md shrink-0">
+                G
+              </div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-label-md text-label-md text-on-background truncate font-medium">Gómez Pérez Andrea</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">2021600124</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-primary font-semibold">100/100</span>
+<span class="text-[11px] text-tertiary-container font-medium">Calificada</span>
+</div>
+</div>
+<!-- Estudiante SELECCIONADO: Rodrigo Méndez Morales -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-high transition-all cursor-pointer relative shadow-xs" role="button" tabindex="0">
+<div class="absolute left-0 top-1.5 bottom-1.5 w-1 bg-primary rounded-r"></div>
+<div class="flex items-center gap-3 min-w-0 pl-1">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md shrink-0">
+                R
+              </div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-label-md text-label-md text-on-background truncate font-semibold">Méndez Morales Rodrigo</span>
+<span class="font-body-sm text-body-sm text-primary font-medium truncate">2021600842</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-primary font-bold">95/100</span>
+<span class="text-[11px] text-primary font-medium flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Revisando
+              </span>
+</div>
+</div>
+<!-- Estudiante: Ramírez Ortiz Luis -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md shrink-0">
+                R
+              </div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-label-md text-label-md text-on-background truncate font-medium">Ramírez Ortiz Luis</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">2021601053</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="text-[11px] font-label-sm text-secondary">A tiempo</span>
+<span class="text-[11px] text-secondary font-medium">Sin calificar</span>
+</div>
+</div>
+<!-- Estudiante: Albarrán Flores Karen -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md shrink-0">
+                A
+              </div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-label-md text-label-md text-on-background truncate font-medium">Albarrán Flores Karen</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">2021600008</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-primary font-semibold">88/100</span>
+<span class="text-[11px] text-tertiary-container font-medium">Calificada</span>
+</div>
+</div>
+<!-- Estudiante: Castillo Vega Marco -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md shrink-0">
+                C
+              </div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-label-md text-label-md text-on-background truncate font-medium">Castillo Vega Marco</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">2020600311</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="text-[11px] font-label-sm text-on-error-container">Retraso (12m)</span>
+<span class="text-[11px] text-secondary font-medium">Sin calificar</span>
+</div>
+</div>
+<!-- Estudiante: Domínguez Silva Sara -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer opacity-75" role="button" tabindex="0">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-secondary flex items-center justify-center font-label-md text-label-md shrink-0">
+                D
+              </div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-label-md text-label-md text-secondary truncate font-medium">Domínguez Silva Sara</span>
+<span class="font-body-sm text-body-sm text-secondary/70 truncate">2021600492</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="text-[11px] text-error font-medium">Sin entregar</span>
+<span class="text-[11px] text-secondary/60">- -</span>
+</div>
+</div>
+<!-- Estudiante: Estrada Nájera David -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md shrink-0">
+                E
+              </div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-label-md text-label-md text-on-background truncate font-medium">Estrada Nájera David</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">2021600571</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="text-[11px] font-label-sm text-secondary">A tiempo</span>
+<span class="text-[11px] text-secondary font-medium">Sin calificar</span>
+</div>
+</div>
+</div>
+<div class="pt-3 flex items-center justify-between text-secondary font-body-sm text-body-sm">
+<span>Mostrando 7 de 32</span>
+<button class="text-primary hover:underline font-label-sm text-label-sm font-medium" type="button">
+            Ver plantilla completa
+          </button>
+</div>
+</div>
+</aside>
+<!-- PANEL DERECHO: Revisión y Calificación del Alumno (8 columnas) -->
+<main class="lg:col-span-8 flex flex-col gap-6">
+<!-- Ficha de Encabezado del Estudiante Seleccionado -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-md text-headline-md font-semibold shrink-0">
+            R
+          </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-3">
+<h2 class="font-headline-md text-headline-md text-on-background tracking-tight">Rodrigo Méndez Morales</h2>
+<span class="font-code-sm text-code-sm text-primary font-medium bg-primary/10 px-2 py-0.5 rounded">2021600842</span>
+</div>
+<div class="flex items-center gap-3 text-secondary font-body-sm text-body-sm mt-0.5">
+<span>rmendezm@alumno.ipn.mx</span>
+<span class="text-secondary/40 select-none">•</span>
+<span class="flex items-center gap-1 text-on-background">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">check_circle</span>
+                Entregado el 23 oct, 21:14 hrs
+              </span>
+</div>
+</div>
+</div>
+<!-- Acciones del expediente -->
+<div class="flex items-center gap-2 self-start md:self-auto">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-secondary hover:text-on-background transition-colors" title="Historial de envíos del alumno" type="button">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-secondary hover:text-on-background transition-colors" title="Descargar paquete de solución" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</section>
+<!-- Resumen de Evaluación Preliminar del Juez en Línea -->
+<section class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-tertiary-container font-semibold">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-background font-semibold">Veredicto del Juez Automático:</span>
+<span class="font-code-sm text-code-sm font-bold bg-surface-container px-2 py-0.5 rounded text-tertiary-container">AC (Accepted)</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+              3/3 pruebas de caja negra superadas con éxito • Tiempo de ejecución: 0.04s • Memoria: 3.2MB
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm px-2.5 py-1 bg-surface-container text-secondary rounded">g++ -std=c++17 -Wall -Wextra</span>
+</div>
+</section>
+<!-- Visor de Código Fuente Embebido -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Barra de archivo del visor -->
+<div class="bg-surface-container-high px-5 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">code</span>
+<span class="font-code-sm text-code-sm text-on-background font-medium">solucion_lista_doble.cpp</span>
+<span class="font-code-sm text-code-sm text-secondary text-[11px]">(2,840 bytes)</span>
+</div>
+<div class="flex items-center gap-3 font-code-sm text-code-sm text-secondary">
+<span>UTF-8</span>
+<span>LF</span>
+<span>C++</span>
+</div>
+</div>
+<!-- Bloque de código con numeración de líneas fija -->
+<div class="p-4 bg-surface-container-lowest overflow-x-auto">
+<table class="w-full text-left font-code-sm text-code-sm leading-relaxed border-collapse">
+<tbody>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50 w-10">1</td>
+<td class="text-secondary/70">#include &lt;iostream&gt;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">2</td>
+<td class="text-secondary/70">#include &lt;stdexcept&gt;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">3</td>
+<td></td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">4</td>
+<td class="text-primary font-medium">template &lt;typename T&gt;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">5</td>
+<td><span class="text-primary font-medium">class</span> <span class="text-on-background font-semibold">DoublyLinkedList</span> {</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">6</td>
+<td class="text-primary font-medium">private:</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">7</td>
+<td>  <span class="text-primary font-medium">struct</span> <span class="text-on-background">Node</span> {</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">8</td>
+<td>    T data;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">9</td>
+<td>    Node* prev;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">10</td>
+<td>    Node* next;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">11</td>
+<td>    Node(<span class="text-primary font-medium">const</span> T&amp; val) : data(val), prev(<span class="text-primary">nullptr</span>), next(<span class="text-primary">nullptr</span>) {}</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">12</td>
+<td>  };</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">13</td>
+<td>  Node* head;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">14</td>
+<td>  Node* tail;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">15</td>
+<td>  size_t count;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">16</td>
+<td></td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">17</td>
+<td class="text-primary font-medium">public:</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">18</td>
+<td>  DoublyLinkedList() : head(<span class="text-primary">nullptr</span>), tail(<span class="text-primary">nullptr</span>), count(0) {}</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">19</td>
+<td></td>
+</tr>
+<tr class="hover:bg-surface-container-high/40 bg-surface-container-high/30">
+<td class="select-none text-right pr-4 text-secondary/50">20</td>
+<td>  ~DoublyLinkedList() {</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40 bg-surface-container-high/30">
+<td class="select-none text-right pr-4 text-secondary/50">21</td>
+<td>    <span class="text-primary font-medium">while</span> (head != <span class="text-primary">nullptr</span>) {</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40 bg-surface-container-high/30">
+<td class="select-none text-right pr-4 text-secondary/50">22</td>
+<td>      Node* temp = head;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40 bg-surface-container-high/30">
+<td class="select-none text-right pr-4 text-secondary/50">23</td>
+<td>      head = head-&gt;next;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40 bg-surface-container-high/30">
+<td class="select-none text-right pr-4 text-secondary/50">24</td>
+<td>      <span class="text-primary font-medium">delete</span> temp;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40 bg-surface-container-high/30">
+<td class="select-none text-right pr-4 text-secondary/50">25</td>
+<td>    }</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40 bg-surface-container-high/30">
+<td class="select-none text-right pr-4 text-secondary/50">26</td>
+<td>  }</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">27</td>
+<td></td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">28</td>
+<td>  <span class="text-primary font-medium">void</span> push_back(<span class="text-primary">const</span> T&amp; val) {</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">29</td>
+<td>    Node* nuevo = <span class="text-primary font-medium">new</span> Node(val);</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">30</td>
+<td>    <span class="text-primary font-medium">if</span> (!head) { head = tail = nuevo; }</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">31</td>
+<td>    <span class="text-primary font-medium">else</span> { tail-&gt;next = nuevo; nuevo-&gt;prev = tail; tail = nuevo; }</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">32</td>
+<td>    count++;</td>
+</tr>
+<tr class="hover:bg-surface-container-high/40">
+<td class="select-none text-right pr-4 text-secondary/50">33</td>
+<td>  }</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Panel de Calificación y Rúbrica Académica -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">fact_check</span>
+<h3 class="font-headline-sm text-headline-sm text-on-background">Calificación y Rúbrica de Evaluación</h3>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="font-label-sm text-label-sm text-secondary">Puntaje Total:</span>
+<div class="flex items-baseline gap-1">
+<input class="w-14 text-right font-headline-sm text-headline-sm font-bold text-primary bg-surface-container-lowest px-1.5 py-0.5 rounded focus:outline-none" id="scoreInput" max="100" min="0" type="number" value="95"/>
+<span class="font-label-md text-label-md text-secondary font-medium">/ 100 pts</span>
+</div>
+</div>
+</div>
+<!-- Desglose de Rúbrica de la UPIICSA -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<!-- Criterio 1 -->
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-background font-semibold">1. Gestión de memoria y destructores</span>
+<p class="font-body-sm text-body-sm text-secondary">Liberación completa en destructores y prevención de fugas con valgrind.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-code-sm text-code-sm text-secondary">Máx. 40 pts</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary bg-surface-container px-2 py-0.5 rounded">40 / 40</span>
+</div>
+</div>
+<!-- Criterio 2 -->
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-background font-semibold">2. Métodos genéricos con plantillas</span>
+<p class="font-body-sm text-body-sm text-secondary">Sobrecarga de operadores y métodos template independientes del tipo.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-code-sm text-code-sm text-secondary">Máx. 40 pts</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary bg-surface-container px-2 py-0.5 rounded">35 / 40</span>
+</div>
+</div>
+<!-- Criterio 3 -->
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-background font-semibold">3. Legibilidad y estilo de código</span>
+<p class="font-body-sm text-body-sm text-secondary">Indentación conforme al estándar Google C++, nombres descriptivos y comentarios.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-code-sm text-code-sm text-secondary">Máx. 20 pts</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary bg-surface-container px-2 py-0.5 rounded">20 / 20</span>
+</div>
+</div>
+</div>
+<!-- Retroalimentación privada -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-background font-medium flex items-center justify-between" for="feedbackTeacher">
+<span>Retroalimentación privada al alumno</span>
+<span class="font-body-sm text-body-sm text-secondary font-normal">Visible solo para Rodrigo Méndez</span>
+</label>
+<textarea class="w-full p-3.5 bg-surface-container-low text-on-background font-body-md text-body-md rounded-lg resize-none focus:outline-none focus:bg-surface-container-lowest shadow-inner" id="feedbackTeacher" placeholder="Escribe observaciones formativas para el alumno..." rows="3">Excelente uso de punteros prev y next. Revisa únicamente la verificación de puntero nulo en el método pop_front().</textarea>
+</div>
+<!-- Botonera de Publicación y Estado -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>La calificación se registrará en el Kardex de evaluación continua.</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-background font-label-md text-label-md transition-colors" type="button">
+              Guardar borrador
+            </button>
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm" id="btnPublish" type="button">
+<span class="material-symbols-outlined text-[19px]">send</span>
+<span>Publicar calificación</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+<script>
+  // Micro-interacción: simular feedback al publicar calificación
+  const btn = document.getElementById('btnPublish');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[19px]">done</span><span>¡Calificación publicada!</span>';
+      btn.classList.add('bg-tertiary-container');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('bg-tertiary-container');
+      }, 2500);
+    });
+  }
+</script></main>
+</body></html>

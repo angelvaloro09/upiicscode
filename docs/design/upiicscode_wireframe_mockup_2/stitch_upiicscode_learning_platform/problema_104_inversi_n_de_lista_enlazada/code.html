@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Problema 104: Inversión de Lista Enlazada | UPIICSCode</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#FBFBFA",
+            borderLine: "#E7E6E2",
+            ipn: {
+              DEFAULT: "#6F1D46",
+              hover: "#5a1538",
+              light: "#FAF0F4"
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FBFBFA;
+      color: #1A1A18;
+      font-family: 'Inter', sans-serif;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D7D6D0;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #BDBCAE;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-canvas text-[#191919] font-sans antialiased">
+<!-- 2. NAVEGACIÓN SUPERIOR MÍNIMA -->
+<header class="sticky top-0 z-30 h-14 bg-white border-b border-borderLine px-4 md:px-6 flex items-center justify-between">
+<!-- Izquierda: Regreso + Título + Dificultad -->
+<div class="flex items-center gap-3 min-w-0">
+<a class="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors shrink-0" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="hidden sm:inline">Volver a Estructuras de Datos</span>
+</a>
+<span class="text-gray-300 hidden sm:inline">|</span>
+<div class="flex items-center gap-2 min-w-0">
+<h1 class="text-sm font-semibold text-gray-900 truncate">
+          Problema 104: Inversión de Lista Enlazada
+        </h1>
+<span class="text-[11px] font-medium px-2 py-0.5 rounded bg-[#F4F4F2] text-gray-700 border border-borderLine shrink-0">
+          Dificultad: Media
+        </span>
+</div>
+</div>
+<!-- Centro/Derecha: Selector lenguaje, Restablecer, Ejecutar, Enviar + Tema & Avatar -->
+<div class="flex items-center gap-2 shrink-0">
+<!-- Selector Lenguaje -->
+<div class="relative">
+<select class="bg-white border border-borderLine text-xs font-medium text-gray-700 rounded-md pl-2.5 pr-7 py-1.5 focus:outline-none focus:border-ipn cursor-pointer hover:bg-canvas transition-colors appearance-none" id="langSelect">
+<option value="cpp">C++20</option>
+<option value="c">C11</option>
+</select>
+<span class="material-symbols-outlined text-[16px] text-gray-400 pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2">expand_more</span>
+</div>
+<!-- Botón Secundario: Restablecer -->
+<button class="hidden sm:flex items-center gap-1 text-xs font-medium text-gray-600 hover:text-gray-900 px-2.5 py-1.5 rounded-md hover:bg-canvas border border-borderLine transition-colors" id="resetCodeBtn" title="Restablecer plantilla inicial" type="button">
+<span class="material-symbols-outlined text-[15px]">restart_alt</span>
+<span>Restablecer</span>
+</button>
+<!-- Botón Ejecutar Código -->
+<button class="flex items-center gap-1.5 text-xs font-medium text-gray-800 bg-white hover:bg-canvas border border-borderLine px-3 py-1.5 rounded-md shadow-[0_1px_2px_rgba(0,0,0,0.03)] active:scale-[0.98] transition-all" id="runCodeBtn" type="button">
+<span class="material-symbols-outlined text-[16px] text-gray-600">play_arrow</span>
+<span>Ejecutar código</span>
+</button>
+<!-- Botón Primario Guinda IPN: Enviar solución -->
+<button class="flex items-center gap-1.5 text-xs font-semibold text-white bg-ipn hover:bg-ipn-hover px-3.5 py-1.5 rounded-md shadow-sm active:scale-[0.98] transition-all" id="submitCodeBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">cloud_upload</span>
+<span>Enviar solución</span>
+</button>
+<div class="h-4 w-px bg-borderLine mx-1"></div>
+<!-- Selector de tema -->
+<button class="p-1.5 text-gray-500 hover:text-gray-900 rounded-md hover:bg-canvas transition-colors" title="Cambiar tema" type="button">
+<span class="material-symbols-outlined text-[18px]">light_mode</span>
+</button>
+<!-- Avatar de Usuario -->
+<div class="w-7 h-7 rounded-full bg-ipn text-white flex items-center justify-center font-medium text-xs shadow-sm" title="Rodrigo Méndez">
+        RM
+      </div>
+</div>
+</header>
+<!-- 3. DISPOSICIÓN EN DOS PANELES (SPLIT LAYOUT) -->
+<main class="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-3.5rem)]">
+<!-- PANEL IZQUIERDO: Enunciado y Casos de Ejemplo (5 cols en lg) -->
+<section class="lg:col-span-5 border-r border-borderLine bg-canvas flex flex-col overflow-y-auto">
+<div class="p-6 max-w-2xl mx-auto w-full space-y-6">
+<!-- Header del Enunciado -->
+<div class="space-y-1">
+<div class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Algoritmos &amp; Estructuras de Datos</div>
+<h2 class="text-xl font-bold text-gray-900 tracking-tight">Inversión de Lista Enlazada</h2>
+<p class="text-xs text-gray-500">Manejo de punteros dinámicos y recorrido en tiempo lineal.</p>
+</div>
+<!-- Descripción Formal -->
+<div class="space-y-3">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-600">Descripción del problema</h3>
+<div class="text-sm leading-relaxed text-gray-700 space-y-3">
+<p>
+              Dado el puntero inicial <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-white border border-borderLine text-gray-800">head</code> de una lista simplemente enlazada, invierte el orden de los elementos y devuelve la nueva cabeza de la lista.
+            </p>
+<p>
+              Debes realizar la inversión reasignando los punteros <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-white border border-borderLine text-gray-800">next</code> en un solo pase. No está permitido duplicar los nodos ni modificar únicamente sus valores internos.
+            </p>
+</div>
+</div>
+<!-- Diagrama Esquemático en Memoria (SVG Limpio) -->
+<div class="bg-white rounded-lg p-4 border border-borderLine shadow-sm space-y-2">
+<div class="flex items-center justify-between text-xs text-gray-500">
+<span class="font-medium text-gray-700">Esquema en memoria</span>
+<span class="text-[11px]">Estado inicial vs. invertido</span>
+</div>
+<div class="w-full py-2 flex items-center justify-center overflow-x-auto">
+<svg class="w-full max-w-[420px] h-24 select-none" fill="none" viewbox="0 0 420 96" xmlns="http://www.w3.org/2000/svg">
+<!-- Nodos Originales -->
+<text fill="#6B7280" font-family="Inter, sans-serif" font-size="10" font-weight="600" x="8" y="24">INICIAL:</text>
+<!-- Nodo 1 -->
+<rect fill="#FFFFFF" height="26" rx="4" stroke="#D1D5DB" stroke-width="1.2" width="44" x="70" y="8"></rect>
+<text fill="#111827" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" text-anchor="middle" x="92" y="25">1</text>
+<path d="M114 21H138M138 21L132 18M138 21L132 24" stroke="#6F1D46" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<!-- Nodo 2 -->
+<rect fill="#FFFFFF" height="26" rx="4" stroke="#D1D5DB" stroke-width="1.2" width="44" x="142" y="8"></rect>
+<text fill="#111827" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" text-anchor="middle" x="164" y="25">2</text>
+<path d="M186 21H210M210 21L204 18M210 21L204 24" stroke="#6F1D46" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<!-- Nodo 3 -->
+<rect fill="#FFFFFF" height="26" rx="4" stroke="#D1D5DB" stroke-width="1.2" width="44" x="214" y="8"></rect>
+<text fill="#111827" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" text-anchor="middle" x="236" y="25">3</text>
+<path d="M258 21H280M280 21L274 18M280 21L274 24" stroke="#6F1D46" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<text fill="#9CA3AF" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" x="290" y="25">NULL</text>
+<!-- Nodos Invertidos -->
+<text fill="#6F1D46" font-family="Inter, sans-serif" font-size="10" font-weight="600" x="8" y="74">FINAL:</text>
+<!-- Nodo 3 -->
+<rect fill="#FAF0F4" height="26" rx="4" stroke="#6F1D46" stroke-width="1.2" width="44" x="70" y="58"></rect>
+<text fill="#6F1D46" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" text-anchor="middle" x="92" y="75">3</text>
+<path d="M114 71H138M138 71L132 68M138 71L132 74" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<!-- Nodo 2 -->
+<rect fill="#FAF0F4" height="26" rx="4" stroke="#6F1D46" stroke-width="1.2" width="44" x="142" y="58"></rect>
+<text fill="#6F1D46" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" text-anchor="middle" x="164" y="75">2</text>
+<path d="M186 71H210M210 71L204 68M210 71L204 74" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<!-- Nodo 1 -->
+<rect fill="#FAF0F4" height="26" rx="4" stroke="#6F1D46" stroke-width="1.2" width="44" x="214" y="58"></rect>
+<text fill="#6F1D46" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" text-anchor="middle" x="236" y="75">1</text>
+<path d="M258 71H280M280 71L274 68M280 71L274 74" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<text fill="#9CA3AF" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" x="290" y="75">NULL</text>
+</svg>
+</div>
+</div>
+<!-- Casos de Ejemplo -->
+<div class="space-y-4">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-600">Casos de Ejemplo</h3>
+<!-- Ejemplo 1 -->
+<div class="bg-white rounded-lg p-4 border border-borderLine shadow-sm space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-gray-800">Ejemplo 1</span>
+<button class="text-gray-500 hover:text-ipn flex items-center gap-1 text-[11px] font-medium transition-colors" onclick="navigator.clipboard.writeText('head = [1, 2, 3, 4, 5]')" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copiar</span>
+</button>
+</div>
+<div class="space-y-2">
+<div>
+<span class="text-[11px] font-medium text-gray-500 block mb-1">Entrada (STDIN)</span>
+<pre class="bg-canvas border border-borderLine px-3 py-2 rounded text-xs font-mono text-gray-900 overflow-x-auto">head = [1, 2, 3, 4, 5]</pre>
+</div>
+<div>
+<span class="text-[11px] font-medium text-gray-500 block mb-1">Salida Esperada (STDOUT)</span>
+<pre class="bg-canvas border border-borderLine px-3 py-2 rounded text-xs font-mono text-gray-900 overflow-x-auto">[5, 4, 3, 2, 1]</pre>
+</div>
+</div>
+</div>
+<!-- Ejemplo 2 -->
+<div class="bg-white rounded-lg p-4 border border-borderLine shadow-sm space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-gray-800">Ejemplo 2 (Lista Pequeña)</span>
+<button class="text-gray-500 hover:text-ipn flex items-center gap-1 text-[11px] font-medium transition-colors" onclick="navigator.clipboard.writeText('head = [1, 2]')" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copiar</span>
+</button>
+</div>
+<div class="space-y-2">
+<div>
+<span class="text-[11px] font-medium text-gray-500 block mb-1">Entrada (STDIN)</span>
+<pre class="bg-canvas border border-borderLine px-3 py-2 rounded text-xs font-mono text-gray-900 overflow-x-auto">head = [1, 2]</pre>
+</div>
+<div>
+<span class="text-[11px] font-medium text-gray-500 block mb-1">Salida Esperada (STDOUT)</span>
+<pre class="bg-canvas border border-borderLine px-3 py-2 rounded text-xs font-mono text-gray-900 overflow-x-auto">[2, 1]</pre>
+</div>
+</div>
+</div>
+</div>
+<!-- Restricciones Académicas -->
+<div class="space-y-2.5 pb-6">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-600">Restricciones Académicas</h3>
+<ul class="text-xs text-gray-600 space-y-2 list-disc pl-4 leading-relaxed">
+<li>El número de nodos en la lista se encuentra en el rango <span class="font-mono text-gray-900 font-medium">1 ≤ n ≤ 10^5</span>.</li>
+<li>El valor de cada nodo satisface <span class="font-mono text-gray-900 font-medium">-5000 ≤ Node.val ≤ 5000</span>.</li>
+<li>Complejidad temporal requerida: <span class="font-mono text-gray-900 font-medium">O(n)</span> en un único pase lineal.</li>
+<li>Complejidad espacial auxiliar: <span class="font-mono text-gray-900 font-medium">O(1)</span> de memoria adicional.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- PANEL DERECHO: Editor de Código + Consola de Juez (7 cols en lg) -->
+<section class="lg:col-span-7 bg-white flex flex-col h-full overflow-hidden">
+<!-- Sub-barra del Editor -->
+<div class="h-9 bg-white border-b border-borderLine px-4 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-gray-400">code</span>
+<span class="text-xs font-medium text-gray-700">solution.cpp</span>
+</div>
+<div class="text-[11px] text-gray-400">
+          Plantilla estándar
+        </div>
+</div>
+<!-- Editor de Código (JetBrains Mono + Números de Línea) -->
+<div class="flex-1 overflow-auto bg-white flex min-h-[300px]">
+<!-- Gutter / Líneas -->
+<div class="select-none py-3 px-3 text-right text-gray-300 bg-white font-mono text-xs leading-6 space-y-0 border-r border-borderLine shrink-0 w-11">
+<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+<div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
+<div>21</div><div>22</div><div>23</div><div>24</div><div>25</div>
+</div>
+<!-- Código Fuente C++ -->
+<div class="p-3 flex-1 text-gray-800 font-mono text-xs leading-6 overflow-x-auto whitespace-pre">
+<span class="text-gray-400">// Estructura del nodo de lista simple:</span>
+<span class="text-[#6F1D46] font-semibold">struct</span> <span class="text-gray-900 font-semibold">Node</span> {
+    <span class="text-blue-700">int</span> val;
+    <span class="text-gray-900">Node</span>* next;
+    <span class="text-gray-900">Node</span>() : val(0), next(<span class="text-blue-700">nullptr</span>) {}
+    <span class="text-gray-900">Node</span>(<span class="text-blue-700">int</span> x) : val(x), next(<span class="text-blue-700">nullptr</span>) {}
+    <span class="text-gray-900">Node</span>(<span class="text-blue-700">int</span> x, <span class="text-gray-900">Node</span>* n) : val(x), next(n) {}
+};
+
+<span class="text-[#6F1D46] font-semibold">class</span> <span class="text-gray-900 font-semibold">Solution</span> {
+<span class="text-[#6F1D46] font-semibold">public</span>:
+    <span class="text-gray-900 font-semibold">Node</span>* <span class="text-emerald-700 font-semibold">invertList</span>(<span class="text-gray-900">Node</span>* head) {
+        <span class="text-gray-900">Node</span>* prev = <span class="text-blue-700">nullptr</span>;
+        <span class="text-gray-900">Node</span>* curr = head;
+        <span class="text-gray-900">Node</span>* nextNode = <span class="text-blue-700">nullptr</span>;
+        
+        <span class="text-[#6F1D46] font-semibold">while</span> (curr != <span class="text-blue-700">nullptr</span>) {
+            nextNode = curr-&gt;next;  <span class="text-gray-400">// Guardar enlace</span>
+            curr-&gt;next = prev;        <span class="text-gray-400">// Invertir puntero</span>
+            prev = curr;              <span class="text-gray-400">// Avanzar previo</span>
+            curr = nextNode;          <span class="text-gray-400">// Avanzar actual</span>
+        }
+        
+        <span class="text-[#6F1D46] font-semibold">return</span> prev; <span class="text-gray-400">// Nueva cabeza de la lista invertida</span>
+    }
+};</div>
+</div>
+<!-- Consola de Resultados y Veredicto (Fondo Blanco Puro + Bordes Finos) -->
+<div class="h-64 border-t border-borderLine flex flex-col bg-white shrink-0">
+<!-- Pestañas de la Consola -->
+<div class="h-9 bg-white border-b border-borderLine px-4 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-4 h-full text-xs">
+<button class="h-full border-b-2 border-transparent text-gray-500 hover:text-gray-900 font-medium flex items-center gap-1.5 transition-colors" id="tabCasesBtn" type="button">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span>Casos de Prueba</span>
+</button>
+<button class="h-full border-b-2 border-ipn text-ipn font-semibold flex items-center gap-1.5 transition-colors" id="tabVerdictBtn" type="button">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>Veredicto del Juez</span>
+</button>
+</div>
+<button class="text-gray-400 hover:text-gray-700 p-1 rounded hover:bg-canvas transition-colors" title="Limpiar consola" type="button">
+<span class="material-symbols-outlined text-[15px]">delete_sweep</span>
+</button>
+</div>
+<!-- Contenido de Veredicto -->
+<div class="flex-1 p-4 overflow-y-auto space-y-3 bg-canvas" id="verdictTabContent">
+<!-- Banner de Veredicto Principal -->
+<div class="bg-white rounded-lg p-3.5 border border-borderLine shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<!-- Badge en JetBrains Mono -->
+<span class="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    Aceptado (AC) • 100% de tests
+                  </span>
+</div>
+<p class="text-xs text-gray-500 mt-0.5">Solución compilada y aprobada por el evaluador académico.</p>
+</div>
+</div>
+<!-- Métricas Técnicas en JetBrains Mono -->
+<div class="flex items-center gap-3 bg-canvas px-3 py-1.5 rounded-md border border-borderLine self-start sm:self-auto">
+<div class="text-right">
+<span class="text-[10px] text-gray-500 block leading-tight">Tiempo:</span>
+<span class="font-mono text-xs font-semibold text-gray-900">0.04 s</span>
+</div>
+<div class="h-5 w-px bg-borderLine"></div>
+<div class="text-right">
+<span class="text-[10px] text-gray-500 block leading-tight">Memoria:</span>
+<span class="font-mono text-xs font-semibold text-gray-900">14.2 MB</span>
+</div>
+</div>
+</div>
+<!-- Desglose de los 3 casos de prueba evaluados -->
+<div class="space-y-2">
+<div class="flex items-center justify-between text-[11px] text-gray-500 px-0.5 font-medium">
+<span class="uppercase tracking-wider">Desglose de pruebas unitarias</span>
+<span>3 de 3 aprobados</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+<div class="bg-white p-2.5 rounded-md border border-borderLine flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+<span class="text-xs font-medium text-gray-800">Caso 1 (Básico)</span>
+</div>
+<span class="font-mono text-xs text-gray-600">0.02s</span>
+</div>
+<div class="bg-white p-2.5 rounded-md border border-borderLine flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+<span class="text-xs font-medium text-gray-800">Caso 2 (N=10^4)</span>
+</div>
+<span class="font-mono text-xs text-gray-600">0.03s</span>
+</div>
+<div class="bg-white p-2.5 rounded-md border border-borderLine flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+<span class="text-xs font-medium text-gray-800">Caso 3 (Límite 10^5)</span>
+</div>
+<span class="font-mono text-xs text-gray-600">0.04s</span>
+</div>
+</div>
+</div>
+<!-- Badges de Veredictos del Juez en JetBrains Mono -->
+<div class="pt-2 border-t border-borderLine flex items-center justify-between flex-wrap gap-2 text-[11px] text-gray-500">
+<span>Estados del evaluador:</span>
+<div class="flex items-center gap-1.5 font-mono text-[10px]">
+<span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">AC: Aceptado</span>
+<span class="px-1.5 py-0.5 rounded bg-rose-50 text-rose-800 border border-rose-200">WA: Wrong Answer</span>
+<span class="px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">TLE: Time Limit</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+    // Microinteracciones del workspace
+    const runBtn = document.getElementById('runCodeBtn');
+    const submitBtn = document.getElementById('submitCodeBtn');
+    const tabCases = document.getElementById('tabCasesBtn');
+    const tabVerdict = document.getElementById('tabVerdictBtn');
+
+    // Botón Ejecutar
+    runBtn?.addEventListener('click', () => {
+      const original = runBtn.innerHTML;
+      runBtn.disabled = true;
+      runBtn.innerHTML = `<span class="material-symbols-outlined text-[16px] animate-spin">sync</span><span>Ejecutando...</span>`;
+      setTimeout(() => {
+        runBtn.disabled = false;
+        runBtn.innerHTML = original;
+      }, 500);
+    });
+
+    // Botón Enviar
+    submitBtn?.addEventListener('click', () => {
+      const original = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span class="material-symbols-outlined text-[16px] animate-spin">rotate_right</span><span>Evaluando...</span>`;
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = original;
+      }, 700);
+    });
+
+    // Pestañas
+    tabCases?.addEventListener('click', () => {
+      tabCases.classList.remove('border-transparent', 'text-gray-500', 'font-medium');
+      tabCases.classList.add('border-ipn', 'text-ipn', 'font-semibold');
+
+      tabVerdict.classList.remove('border-ipn', 'text-ipn', 'font-semibold');
+      tabVerdict.classList.add('border-transparent', 'text-gray-500', 'font-medium');
+    });
+
+    tabVerdict?.addEventListener('click', () => {
+      tabVerdict.classList.remove('border-transparent', 'text-gray-500', 'font-medium');
+      tabVerdict.classList.add('border-ipn', 'text-ipn', 'font-semibold');
+
+      tabCases.classList.remove('border-ipn', 'text-ipn', 'font-semibold');
+      tabCases.classList.add('border-transparent', 'text-gray-500', 'font-medium');
+    });
+  </script>
+</body></html>
